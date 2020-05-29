@@ -11,3 +11,18 @@ The basis for the Bulma build comes from [`bulma-start`](https://github.com/jgth
 
 ### `/docs`
 We're initially hosting in Github pages, since we don't want publish the whole repo in the website, we'll be publishing the built site/content under Github Pages default way of publishing a subfolder - `/docs`
+
+## Editing Styling
+
+### `/bulma/_sass/main.scss`
+
+We've got loads of customisation options via [Bulma's SASS variables](https://bulma.io/documentation/customize/variables/).
+
+Set/change the variables in `/bulma/_sass/main.scss` then:
+* open a terminal/console in the root directory of this repo
+* change directory to the bulma folder using `cd bulma`
+* type `npm install` in the console and press enter
+  * this will pull in any dependencies needed for the build
+* type `npm run deploy` in the console and press enter
+  * this will build the styles and output the final CSS files to `/docs/css/`
+    * by default it will aslo package up any javascript from `/bulma/_javascript/main.js` and output that to `/docs/lib/`
