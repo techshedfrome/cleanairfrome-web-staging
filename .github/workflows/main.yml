@@ -34,6 +34,7 @@ jobs:
       run: |
         git clone https://github.com/techshedfrome/cleanairfrome-web-live.git
         cd cleanairfrome-web-live
+        git remote add upstream https://github.com/techshedfrome/cleanairfrome-web-staging.git
         git pull upstream master
         git push origin master
         
