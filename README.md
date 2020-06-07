@@ -20,6 +20,7 @@ The basis for the Bulma build comes from [`bulma-start`](https://github.com/jgth
 ### `/docs`
 We're initially hosting in Github pages, since we don't want publish the whole repo in the website, we'll be publishing the built site/content under Github Pages default way of publishing a subfolder - `/docs`
 
+
 ## Editing Styling
 
 ### `/bulma/_sass/main.scss`
