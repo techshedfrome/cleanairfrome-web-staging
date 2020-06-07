@@ -39,7 +39,7 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add - <<< ${{ secrets.CLEANAIRFROME_LIVE_DEPLOY }}
+          ssh-add - <<< "${{ secrets.CLEANAIRFROME_LIVE_DEPLOY }}"
             
     - name: sync changes to live repo
       env:
