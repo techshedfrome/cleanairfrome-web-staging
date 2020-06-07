@@ -45,9 +45,9 @@ jobs:
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       run: |
-        git clone https://github.com/techshedfrome/cleanairfrome-web-live.git
+        git clone git@github.com:techshedfrome/cleanairfrome-web-live.git
         cd cleanairfrome-web-live
-        git remote add upstream https://github.com/techshedfrome/cleanairfrome-web-staging.git
+        git remote add upstream git@github.com:techshedfrome/cleanairfrome-web-staging.git
         git pull upstream deploy
         git push origin master
         
