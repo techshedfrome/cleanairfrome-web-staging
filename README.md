@@ -8,7 +8,7 @@ Landing pages for our air quality monitoring project based in Frome, UK
 
 At a minimum, make changes on the `/develop` branch rather than directly onto `/master`, then use a pull request to make the changes live - makes it easier to track things.
 
-I'm in the process of moving to 2 repos using ggithub Pages on both, so we can use one for staging and the other for live.
+I'm in the process of moving to 2 repos using github Pages on both, so we can use one for staging and the other for live.
 
 
 ## Repository Layout
