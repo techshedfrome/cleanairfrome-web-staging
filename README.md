@@ -10,7 +10,6 @@ At a minimum, make changes on the `/develop` branch rather than directly onto `/
 
 I'm in the process of moving to 2 repos using github Pages on both, so we can use one for staging and the other for live.
 
-
 ## Repository Layout
 
 ### `/bulma`
