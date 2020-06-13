@@ -49,7 +49,7 @@ jobs:
         cd temp-cleanair
         git fetch
         git checkout deploy
-        git remove rm origin
+        git remote rm origin
         echo "cleanairfrome.org" > 'docs/CNAME'
         git add .
         git commit -m 'set CNAME for GithubPages hosting'
