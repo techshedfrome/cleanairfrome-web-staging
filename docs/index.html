@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clean Air Frome</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/overrides.css">
 </head>
 
 <body>
@@ -109,11 +110,36 @@
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content ">
             <p class="is-size-5">
-              Adverse health effects caused by air pollution are increasingly being recognised and debated at a national
-              and international level.  Our aim is to empower the community with information on how vehicle traffic and other sources of pollutants can
-              impact air quality over time.
+              Adverse health effects caused by air pollution are increasingly being <label 
+              for="element-toggle" class="funkyUnderlineBlue">recognised and debated at a national
+              and international level</label>.  Our aim is to empower the community with information on how vehicle traffic and other sources of pollutants can
+              impact air quality over time..
             </p>
-            <div><img src="assets/press.png" width="550px;"></div>
+            <input id="element-toggle" type="checkbox" />
+            <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <article class="media">
+
+            <div class="media-content" style="overflow-x:visible !important;">
+              <div class="content">
+
+                <label class="modal-close is-large" for="element-toggle"></label>
+                <img src="assets/press.png" width="550px;">
+
+
+              </div>
+
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+    </div>
+            
           </div>
         </div>
       </div>
