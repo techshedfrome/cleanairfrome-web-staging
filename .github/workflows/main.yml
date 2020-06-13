@@ -47,6 +47,7 @@ jobs:
       run: |
         git clone git@github.com:techshedfrome/cleanairfrome-web-live.git
         cd cleanairfrome-web-live
+        git config pull.rebase true
         git remote add upstream git@github.com:techshedfrome/cleanairfrome-web-staging.git
         git pull upstream deploy
         git push origin master
