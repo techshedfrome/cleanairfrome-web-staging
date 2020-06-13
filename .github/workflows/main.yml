@@ -48,6 +48,8 @@ jobs:
         git clone git@github.com:techshedfrome/cleanairfrome-web-staging.git temp-cleanair
         cd temp-cleanair
         git config pull.rebase true
+        git config user.email "deploy@github.com"
+        git config user.name "deploy"
         git fetch
         git checkout deploy
         git remote rm origin
