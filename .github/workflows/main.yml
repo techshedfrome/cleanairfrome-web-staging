@@ -56,8 +56,10 @@ jobs:
         echo "cleanairfrome.org" > 'docs/CNAME'
         git add .
         git commit -m 'set CNAME for GithubPages hosting'
+        git checkout master
+        git merge deploy
         git remote add publish git@github.com:techshedfrome/cleanairfrome-web-live.git
-        git push -f --set-upstream publish master
+        git push -f publish master
         cd ..
         rm -rf temp-cleanair
         
