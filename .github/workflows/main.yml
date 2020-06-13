@@ -45,10 +45,18 @@ jobs:
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       run: |
-        git clone git@github.com:techshedfrome/cleanairfrome-web-live.git
-        cd cleanairfrome-web-live
-        git config pull.rebase true
-        git remote add upstream git@github.com:techshedfrome/cleanairfrome-web-staging.git
-        git pull upstream deploy
-        git push origin master
+        git clone git@github.com:techshedfrome/cleanairfrome-web-staging.git temp-cleanair
+        cd temp-cleanair
+        git fetch
+        git checkout deploy
+        git remove rm origin
+        echo "cleanairfrome.org" > 'docs/CNAME'
+        git add .
+        git commit -m 'set CNAME for GithubPages hosting'
+        git checkout master
+        git merge deploy -m 'deploy'
+        git remote add publish git@github.com:techshedfrome/cleanairfrome-web-live.git
+        git push publish master -f
+        cd ..
+        rm -rf temp-cleanair
         
