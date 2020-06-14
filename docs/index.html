@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/overrides.css">
 </head>
 
-<body>
+<body class="is-size-6-mobile is-size-8-desktop has-text-weight-medium">
   <section class=" is-medium ">
     <div class="hero-body has-text-centered">
       <div class="container ">
@@ -64,8 +64,8 @@
   </section>
   <section class="section has-text-centered" id="airsensorfrome">
     <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
+      <div class="columns is-tablet">
+        <div class="column is-8-desktop is-12-mobile is-offset-2-desktop">
           <div class="content ">
             <h3>Air quality in Frome</h3>
             <p class="is-size-5">
@@ -73,7 +73,7 @@
             </p>
             
             <iframe class="image is-fullwidth" height="520vh" src="https://deutschland.maps.sensor.community/#14/51.2315/-2.3146"
-            frameborder="0" allowfullscreen></iframe>
+            frameborder="0" allowfullscreen scrolling="no" title="Air Quaility sensors in Frome map"></iframe>
             
             <div class="mt-2">
               We are listing our Frome sensors on the <a href="https://luftdaten.info/">luftdaten project</a>, an international community air quality
@@ -84,13 +84,19 @@
       </div>
     </div>
   </section>
-  <section class="section has-text-centered" id="start">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <h3>What exactly are you measuring?</h3>
-            <p class="is-size-5">
+  <section class="section  " id="start">
+    <div class="container ">
+     
+      <div class="columns is-tablet">
+        
+        <div class="column is-12 has-text-centered"><h3 class="title is-4">What air quaility are you measuring?</h3></div>
+      </div>
+      <div class="columns is-tablet">
+      <div class="column  is-2"> </div>
+        <div class="column is-4">
+          <div class="content ">
+            
+            <p class="is-size-5 has-text-weight">
               We measure air quality by the capturing level of particulate matter. This is produced by
               vehicle exhaust emissions, dust from vehicle brake linings and burning wood. The particulate matter is
               measured in 2/.5 and 10.0 Micron sizes, and in quantities of parts per million in the air, we breathe. <br><br>The
@@ -99,6 +105,33 @@
             </p>
           </div>
         </div>
+        <div class="column s-desktop is-4"><img src="assets/sensorgarden.png" width="450px"></div>
+      </div>
+      <div class="column is-desktop is-2"> </div>
+    </div>
+  </section>
+  <section class="section has-text-centered" id="start">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-desktop-12"><h3 class="title is-4">Why does air quaility matter?</h3>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-desktop is-2"> </div>
+        <div class="column is-desktop is-4 container mr-5 is-hidden-mobile" ><img src="assets/parkbench.png" width="350px"></div>
+        <div class="column  is-desktop is-4">
+          <div class="content has-text-left">
+            
+            <p class="is-size-5">
+              More than five percent of ‘deaths’ in England are attributable to long-term exposure to particulate air pollution, according to the latest data published in the <a href ="http://goo.gl/lo56el">Public Health Outcomes Framework (PHOF)</a>.  
+              As a result, adverse health effects caused by air pollution are increasingly being <label 
+              for="element-toggle" class="funkyUnderlineBlue">recognised and debated</label> at a national
+              and international level. 
+            </p>
+          </div>
+        </div>
+        <div class="column is-desktop is-4 container mr-5 is-hidden-tablet" ><img src="assets/parkbench.png"></div>
+        <div class="column is-desktop is-2"> </div>
       </div>
     </div>
   </section>
@@ -109,10 +142,8 @@
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content ">
             <p class="is-size-5">
-              Adverse health effects caused by air pollution are increasingly being <label 
-              for="element-toggle" class="funkyUnderlineBlue">recognised and debated at a national
-              and international level</label>.  Our aim is to empower the community with information on how vehicle traffic and other sources of pollutants can
-              impact air quality over time..
+              Our aim is to empower the community with information on how vehicle traffic and other sources of pollutants can
+              impact air quality over time.  We hope that the information will enable people to make more informed choices about their lifestyle, and consider things that they can do to improve the environment.
             </p>
             <input id="element-toggle" type="checkbox" />
             <!-- Modal -->
@@ -138,6 +169,7 @@
       </div>
 
     </div>
+     <!-- Modal -->
             
           </div>
         </div>
@@ -145,14 +177,22 @@
     </div>
   </section>
   
+
+   <!-- Modal -->
+  
   <section class="section has-text-centered">
+  
+  
+     
+     
     <div class="container">
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content">
             <h3>Get involved</h3>
             <p><a href="#">Talk to Frome Council</a></p>
-            <p><a href="#"></a>Make your own air sensor</a></p>
+            <p><a href="#"></a><label 
+              for="element-toggle" class="funkyUnderlineBlue">Make your own air sensor</label></p>
             <p><a href="Register.html">Host an air sensor.</a></p>
           </div>
         </div>

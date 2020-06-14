@@ -25,14 +25,15 @@
     color:black !important;
      float: right !important;
      height: 40px;
-    top:-45px !important;
-     width: 40px
+    top:0px !important;
+     width: 40px;
+     left:0px;
  }
 
  .funkyUnderlineBlue {
     cursor: pointer;
    box-shadow:  0 10px 0 0 rgba(50,153,221,0), inset 0 -0.125em rgba(50,153,221,.2);
-         color:#3299DD;
+         color:#06bcef;
 }
 
 #element-toggle {
