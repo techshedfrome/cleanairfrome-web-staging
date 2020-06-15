@@ -51,3 +51,49 @@
 .hideWidget a {
 display: none !important;
 }
+
+
+
+
+a{
+  color:black;
+
+  text-decoration: underline;
+}
+
+
+button a {
+  text-decoration: none !important;
+
+}
+
+ button a:active{
+  text-decoration: none;
+  border-bottom: none;
+}
+
+image a:active{
+  border-bottom: none;
+
+}
+
+image a:hover{
+
+  background-color:none;
+}
+
+
+a:hover {
+  background-color: #FBDD58;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  color:black;
+  text-decoration: none;
+}
+
+
+a:active{
+  border-bottom: 4px solid black;
+  
+}
+
