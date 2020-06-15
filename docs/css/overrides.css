@@ -1,0 +1,99 @@
+.modal-close {	
+    -moz-appearance: none;	
+    -webkit-appearance: none;	
+    background-color: rgba(10, 10, 10, .1)	!important;
+    border: none;	
+    border-radius: 290486px;	
+    cursor: pointer;	
+    pointer-events: auto;	
+    display: inline-block;	
+    flex-grow: 0;	
+    flex-shrink: 0;	
+    font-size: 0;	
+    height: 20px;	
+    max-height: 20px;	
+    max-width: 20px;	
+    min-height: 20px;	
+    min-width: 20px;	
+    outline: 0;	
+    position: relative;	
+    vertical-align: top;	
+    width: 20px	
+}
+
+.modal-close {
+    color:black !important;
+     float: right !important;
+     height: 40px;
+    top:0px !important;
+     width: 40px;
+     left:0px;
+ }
+
+ .funkyUnderlineBlue {
+    cursor: pointer;
+   box-shadow:  0 10px 0 0 rgba(50,153,221,0), inset 0 -0.125em rgba(50,153,221,.2);
+         color:#06bcef;
+}
+
+#element-toggle {
+   display: none;
+ }
+ #element-toggle:checked ~ #myModal {
+   display: flex;
+ }
+ #ContactUsModal {
+   display: none;
+ }
+ #ContactUsModal:checked ~ #contactUs {
+   display: flex;
+ }
+.hideWidget a {
+display: none !important;
+}
+
+
+
+
+a{
+  color:black;
+
+  text-decoration: underline;
+}
+
+
+button a {
+  text-decoration: none !important;
+
+}
+
+ button a:active{
+  text-decoration: none;
+  border-bottom: none;
+}
+
+image a:active{
+  border-bottom: none;
+
+}
+
+image a:hover{
+
+  background-color:none;
+}
+
+
+a:hover {
+  background-color: #FBDD58;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  color:black;
+  text-decoration: none;
+}
+
+
+a:active{
+  border-bottom: 4px solid black;
+  
+}
+

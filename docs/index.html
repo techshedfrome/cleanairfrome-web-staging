@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clean Air Frome</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/overrides.css">
 </head>
 
-<body>
+<body class="is-size-6-mobile is-size-8-desktop has-text-weight-medium">
   <section class=" is-medium ">
     <div class="hero-body has-text-centered">
       <div class="container ">
@@ -27,22 +28,29 @@
               Frome.</h2>
 
             <div class="columns is-centered">
-              <div class="column ">
+              <div class="column">
+                <nav class="level">
+             
+                    <div class="level-item level-right mr-2">
                 <button class="button is-warning has-text-weight-semibold "><a href="#airsensorfrome"
-                    class="has-text-black">View Air Quality in Frome</a></button>
+                    class="has-text-black">Air quality in Frome</a></button>
 
-              </div>
+</div>
+
+<div class="level-item level-left ml-2">
+<button class="button is-warning has-text-weight-semibold is-outlined"><a href="Register.html"
+  class="has-text-black ">Host an air sensor</a></button>
+  </div>
+           
+            </nav>
+          </div>
             </div>
             <div class="columns is-gapless">
               <div class="column">
-                <h2><a href="#start" class="has-text-weight-semibold"> Learn more</a></h2>
+                <h2><a href="#start" class="has-text-weight-semibold"> Learn more about the project</a></h2>
               </div>
             </div>
-            <div class="columns is-gapless">
-              <div class="column">
-
-              </div>
-            </div>
+           
 
             <div class="columns is-mobile is-centered ">
               <div class="column is-half">
@@ -61,114 +69,143 @@
       </div>
     </div>
   </section>
+  <section class="section has-text-centered" id="airsensorfrome">
+    <div class="container">
+      <div class="columns is-tablet">
+        <div class="column is-8-desktop is-12-mobile is-offset-2-desktop">
+          <div class="content ">
+            <h3>Air quality in Frome</h3>
+            <p class="is-size-5">
+              Tech Shed Frome in partnership with Frome Town Council are developing a system around low-cost air quality sensors that are placed in key sites around Frome.  
+            </p>
+            
+            <iframe class="image is-fullwidth" height="520vh" src="https://deutschland.maps.sensor.community/#14/51.2315/-2.3146"
+            frameborder="0" allowfullscreen scrolling="no" title="Air Quaility sensors in Frome map"></iframe>
+            
+            <div class="mt-2">
+              We are listing our Frome sensors on the <a href="https://luftdaten.info/">luftdaten project</a>, an international community air quality
+              initiative.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section  " id="start">
+    <div class="container ">
+     
+      <div class="columns is-tablet">
+        
+        <div class="column is-12 has-text-centered"><h3 class="title is-4">What air quaility are you measuring?</h3></div>
+      </div>
+      <div class="columns is-tablet">
+      <div class="column  is-2"> </div>
+        <div class="column is-4">
+          <div class="content is-size-5">
+            
+           
+              We measure air quality by the capturing level of particulate matter. This is produced by
+              vehicle exhaust emissions, dust from vehicle brake linings and burning wood. The particulate matter is
+              measured in 2/.5 and 10.0 Micron sizes, and in quantities of parts per million in the air, we breathe.  
+              
+            
+          </div>
+        </div>
+        <div class="column is-desktop is-4"><img src="assets/sensorgarden.png" width="450px"></div>
+      </div>
+      <div class="column is-desktop is-2"> </div>
+    </div>
+  </section>
+  <section class="section has-text-centered" id="start">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-desktop-12"><h3 class="title is-4">Why does air quaility matter?</h3>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-desktop is-2"> </div>
+        <div class="column is-desktop is-4 container mr-5 is-hidden-mobile" ><img src="assets/parkbench.png" width="350px"></div>
+        <div class="column  is-desktop is-4">
+          <div class="content has-text-left">
+            
+            <p class="is-size-5">
+              More than five percent of ‘deaths’ in England are attributable to long-term exposure to particulate air pollution, according to the latest data published in the <a href ="http://goo.gl/lo56el">Public Health Outcomes Framework (PHOF)</a>.  
+              As a result, adverse health effects caused by air pollution are increasingly being <label 
+              for="element-toggle"><a>recognised and debated</a></label> at a national
+              and international level. 
+            </p>
+          </div>
+        </div>
+        <div class="column is-desktop is-4 container mr-5 is-hidden-tablet" ><img src="assets/parkbench.png"></div>
+        <div class="column is-desktop is-2"> </div>
+      </div>
+    </div>
+  </section>
   <section class="section has-text-centered">
-    <div class="container" id="start">
-      <h3 class="title is-size-4">Empowering the community with information</h3>
+    <div class="container" >
+      <h3 class="title is-size-4">What's the aim of the project?</h3>
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content ">
             <p class="is-size-5">
-              Adverse health effects caused by air pollution are increasingly being recognised and debated at a national
-              and international level. In response to this, Tech Shed Frome in partnership with Frome Town Council are
-              developing a system around low-cost air quality sensors that are placed in key sites around Frome. Our aim
-              is to empower the community with information on how vehicle traffic and other sources of pollutants can
-              impact air quality over time.
+              Our aim is to empower the community with information on how vehicle traffic and other sources of pollutants can
+              impact air quality over time.  We hope that the information will enable people to make more informed choices about their lifestyle, and consider things that they can do to improve the environment.
             </p>
-            <div><img src="assets/press.png" width="550px;"></div>
+            <input id="element-toggle" type="checkbox" />
+            <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <article class="media">
+
+            <div class="media-content" style="overflow-x:visible !important;">
+              <div class="content">
+
+                <label class="modal-close is-large" for="element-toggle"></label>
+                <img src="assets/press.png" width="550px;">
+
+
+              </div>
+
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+    </div>
+     <!-- Modal -->
+            
           </div>
         </div>
       </div>
     </div>
   </section>
+  
+
+   <!-- Modal -->
+  
   <section class="section has-text-centered">
+  
+  
+     
+     
     <div class="container">
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content">
-            <h3>What do you mean by air quaility?</h3>
-            <p class="is-size-5">
-              We measure air quality by the capturing level of particulate matter. This is produced principally by
-              vehicle exhaust emissions, dust from vehicle brake linings and burning wood. The particulate matter is
-              measured in 2/.5 and 10.0 Micron sizes, and in quantities of parts per million in the air, we breathe. The
-              particulate count is a good measure for understanding the impact of the air quality on a person’s health.
-              See <a href='#further_reading'>further reading</a>. We also capture the temperature and humidity.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section has-text-centered">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <h3>Health effects of poor air quality</h3>
-            <p class="is-size-5">
-              Air pollution can affect everyone’s health. Poor air quality is the largest environmental risk to public
-              health in the UK, as long-term exposure to air pollution dramaically increases risk of chronic conditions
-              such as cardiovascular and respiratory diseases including lung cancer, leading to reduced life expectancy.
-              It’s even more of a worry for people living with a lung condition, older people and children as their
-              lungs are more vulnerable.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section has-text-centered" id="airsensorfrome">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <h3>Air quality in Frome</h3>
-            <p class="is-size-5">
-              We are listing our Frome sensors on the luftdaten project, an international community air quality
-              initiative.
-            </p>
-            <iframe class="has-ratio is-hidden-mobile" width="740" height="620"
-              src="https://deutschland.maps.sensor.community/#14/51.2315/-2.3146" frameborder="0" loading="lazy"
-              allowfullscreen></iframe>
-            <section>
-              <iframe class="is-hidden-tablet" width="100%" height="520"
-                src="https://deutschland.maps.sensor.community/#14/51.2315/-2.3146" frameborder="0" loading="lazy"
-                allowfullscreen></iframe>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section has-text-centered">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <h3>How can I get involved?</h3>
+            <h3>Get involved</h3>
             <p><a href="#">Talk to Frome Council</a></p>
-            <p><a href="#"></a>Make your own air sensor</a></p>
-            <p><a href="#">Register interest to host an air sensor.</a></p>
+            <p><a href="#"></a><label 
+              for="element-toggle" >Make your own air sensor</label></p>
+            <p><a href="Register.html">Host an air sensor.</a></p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="section has-text-centered">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <h3 id="further_reading">Further Reading</h3>
-            <p>
-              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4740122/table/t1/?report=objectonly">Representative
-                recent studies [2014-2015] on the short-term and long-term effects of exposure to PMs on cardiovascular
-                system</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
   <footer class="footer has-text-centered">
     <div class="container">
       <div class="columns">
