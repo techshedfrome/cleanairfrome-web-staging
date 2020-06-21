@@ -94,15 +94,11 @@ function createInfoBox(deviceName, measurements) {
     var colorClass = getColourClassForMeasurements(measurements);
     var card = cardWithTitle(deviceName, colorClass);
     var values = document.createElement("DIV");
-    values.classList.add("card-content");
+    values.classList.add( "level", "my-5");
     values.id = deviceName;
     measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
         values.appendChild(sensorReading(...Object.values(measurement))));
     card.appendChild(values);
-    // var date = document.createElement("p");
-    // date.innerText = latestDustReadingDateFormatted(measurements, "dddd Do MMM, HH: mm");
-    // date.classList.add("level", "mx-4", "mb-5");
-    // card.appendChild(date);
     card.appendChild(footerWithTextItems([latestDustReadingDateFormatted(measurements, "ddd Do MMM, HH:mm")]));
     return card;
 }
@@ -229,14 +225,15 @@ function footerItemWithText(text) {
 
 function sensorReading(name, type, units, reading, readingTaken) {
     var readingLine = document.createElement("DIV");
-    readingLine.classList.add("level", "m-0");
+    readingLine.classList.add("level-item", "has-text-centered");
 
-    var label = document.createElement("LABEL");
-    label.classList.add("level-item", "has-text-right");
+    var inner = document.createElement("DIV");
+    var label = document.createElement("P");
+    label.classList.add("heading");
     label.innerText = name;
 
-    var value = document.createElement("SPAN");
-    value.classList.add("level-item", "has-text-right",);
+    var value = document.createElement("P");
+    value.classList.add("title","is-6", "has-text-right");
     value.innerText = reading + units ;
 
     // <div>
@@ -248,9 +245,9 @@ function sensorReading(name, type, units, reading, readingTaken) {
     // date.classList.add("level-item","has-text-right");
     // date.innerText = moment(readingTaken).format("Do MMM HH:mm");
 
-    readingLine.appendChild(label);
-    readingLine.appendChild(value);
-    // readingLine.appendChild(date);
+    inner.appendChild(label);
+    inner.appendChild(value);
+    readingLine.appendChild(inner);
     return readingLine
 }
 
