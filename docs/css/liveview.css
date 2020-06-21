@@ -1,0 +1,14 @@
+
+
+.readings  {
+    display: grid;
+    grid-gap: 1.5em;
+    align-items: top;
+    justify-content: center;
+    grid-auto-rows: max-content;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 0.25fr));
+}
+
+.card {
+    height: max-content;
+}

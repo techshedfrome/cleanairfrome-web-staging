@@ -13,24 +13,28 @@ var sensorUrl = 'https://api.opensensemap.org/boxes?grouptag=cleanairfrome&full=
 var streetnameUrl = 'https://nominatim.openstreetmap.org/reverse';
 //alternative - https://geocode.xyz/51.22927,-2.33726?json=1
 
-var fetchbtn = document.querySelector("#fetch");
-fetchbtn.addEventListener("click", function () {
+// var fetchbtn = document.querySelector("#fetch");
+// fetchbtn.addEventListener("click", populateLiveView);
+
+document.addEventListener("DOMContentLoaded", populateLiveView);
+
+function populateLiveView() {
     fetch(sensorUrl).then(throwHttpErrors)
         .then(res => res.json())
         .then(updateReadings)
         .catch(printError);
-});
-
+}
 
 function updateReadings(data) {
     var section = document.querySelector("#itemListContainer");
     section.innerText = '';
     data.sort(alphaSort);
-    data.forEach(device => section.appendChild(createInfoBox(device.name,
-        getMeasurements(device.sensors)
-    )
-    )
-    )
+    data.forEach(device => section.appendChild(
+                        createInfoBox(device.name,
+                                        getMeasurements(device.sensors)
+                                    )                   
+                            )
+                )
     loadStreetNames(data);
 }
 
@@ -139,7 +143,6 @@ function getColourClassForMeasurements(measurements) {
     if (readingIsStale(measurements)) return staleReadingClass;
 
     var aqIndex = getAqIndexForMeasurements(measurements);
-    console.log(aqIndex);
     return airQualityClasses[aqIndex - 1];
 }
 
@@ -200,7 +203,6 @@ function cardHeaderWithTitle(titleText, iconColorClass) {
     var iconSpan = document.createElement("SPAN");
     iconSpan.classList.add("card-header-icon");
     var icon = document.createElement("I");
-    console.log(iconColorClass);
     icon.classList.add("fas", "fa-leaf", iconColorClass);
     iconSpan.appendChild(icon);
     header.appendChild(iconSpan);
