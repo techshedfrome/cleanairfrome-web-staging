@@ -6,13 +6,19 @@
     align-items: top;
     justify-content: center;
     grid-auto-rows: max-content;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 0.25fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.25fr));
 }
 
 .card {
     height: max-content;
 }
-
+.card-header {
+    box-shadow: none;
+    padding: 8px;
+}
+.card-footer {
+    border: none;
+}
 
 .aqi-1  {color: rgb(37, 255, 91)}
 .aqi-2  {color: rgb(136, 253, 40)}

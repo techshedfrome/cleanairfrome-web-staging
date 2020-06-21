@@ -201,7 +201,7 @@ function cardHeaderWithTitle(titleText, iconColorClass) {
 
     header.appendChild(title);
     var iconSpan = document.createElement("SPAN");
-    iconSpan.classList.add("card-header-icon");
+    iconSpan.classList.add("card-header-icon", "is-size-1");
     var icon = document.createElement("I");
     icon.classList.add("fas", "fa-leaf", iconColorClass);
     iconSpan.appendChild(icon);
