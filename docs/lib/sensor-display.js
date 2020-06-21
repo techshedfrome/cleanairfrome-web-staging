@@ -94,7 +94,7 @@ function createInfoBox(deviceName, measurements) {
     var colorClass = getColourClassForMeasurements(measurements);
     var card = cardWithTitle(deviceName, colorClass);
     var values = document.createElement("DIV");
-    values.classList.add( "level", "my-5");
+    values.classList.add( "level", "my-5", "is-mobile");
     values.id = deviceName;
     measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
         values.appendChild(sensorReading(...Object.values(measurement))));
