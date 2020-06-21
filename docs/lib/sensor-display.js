@@ -45,7 +45,7 @@ function loadStreetNames(data) {
             device.currentLocation.coordinates[0],
             (street) => {
                 var card = document.querySelector("#" + device.name + "-title");
-                card.innerText = street + ' - ' + latestDustReadingDateFormatted(getMeasurements(device.sensors), "ddd Do MMM, HH:mm");
+                card.innerText = street;
             })
     })
 }
@@ -103,7 +103,7 @@ function createInfoBox(deviceName, measurements) {
     // date.innerText = latestDustReadingDateFormatted(measurements, "dddd Do MMM, HH: mm");
     // date.classList.add("level", "mx-4", "mb-5");
     // card.appendChild(date);
-    card.appendChild(footerWithTextItems(["Sensor", "Values"]));
+    card.appendChild(footerWithTextItems([latestDustReadingDateFormatted(measurements, "ddd Do MMM, HH:mm")]));
     return card;
 }
 
@@ -229,7 +229,7 @@ function footerItemWithText(text) {
 
 function sensorReading(name, type, units, reading, readingTaken) {
     var readingLine = document.createElement("DIV");
-    readingLine.classList.add("level", "my-0");
+    readingLine.classList.add("level", "m-0");
 
     var label = document.createElement("LABEL");
     label.classList.add("level-item", "has-text-right");
