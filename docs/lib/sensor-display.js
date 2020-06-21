@@ -8,9 +8,9 @@ Experiments and custom CSS here:
 Needs CSS classes for AQI ratings 1-10
 */
 
-
-var sensorUrl = 'https://api.opensensemap.org/boxes?grouptag=cleanairfrome&full=true';
-var streetnameUrl = 'https://nominatim.openstreetmap.org/reverse';
+const staleDataAgeInHours = 2;
+const sensorUrl = 'https://api.opensensemap.org/boxes?grouptag=cleanairfrome&full=true';
+const streetnameUrl = 'https://nominatim.openstreetmap.org/reverse';
 //alternative - https://geocode.xyz/51.22927,-2.33726?json=1
 
 // var fetchbtn = document.querySelector("#fetch");
@@ -135,9 +135,17 @@ function getColourClassForMeasurements(measurements) {
     return airQualityClasses[aqIndex - 1];
 }
 
+function latestDustReadingDate(measurements) {
+    var dustDates = measurements.filter(x => x.name.startsWith("PM"))
+                                .map(x => moment(x.readingTaken));
+    return moment.max(dustDates).toDate();
+}
+
 function readingIsStale(measurements) {
-    //TODO: work out if data is stale
-    return false;
+    // work out if data is stale
+    var lastReading = moment(latestDustReadingDate(measurements));
+    var twoHoursAgo = moment().subtract(staleDataAgeInHours, 'hours');
+    return moment(lastReading).isBefore(twoHoursAgo);
 }
 
 function getAqIndexForMeasurements(measurements) {
