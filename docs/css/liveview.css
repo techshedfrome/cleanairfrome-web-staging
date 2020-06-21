@@ -12,3 +12,15 @@
 .card {
     height: max-content;
 }
+
+
+.aqi-1  {color: rgb(95, 255, 162)}
+.aqi-2  {color: rgb(164, 255, 89)}
+.aqi-3  {color: rgb(137, 255, 1)}
+.aqi-4  {color: rgb(200, 255, 1)}
+.aqi-5  {color: rgb(251, 255, 0)}
+.aqi-6  {color: rgb(255, 251, 0)}
+.aqi-7  {color: rgb(255, 196, 0)}
+.aqi-8  {color: rgb(255, 123, 0)}
+.aqi-9  {color: rgb(253, 83, 40)}
+.aqi-10 {color: rgb(158, 33, 33)}

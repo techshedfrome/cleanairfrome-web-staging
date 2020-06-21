@@ -113,27 +113,16 @@ Band	 Low  Low	  Low	  Moderate	Moderate	Moderate	High	High	High	  Very High
 µg/m³	0-16	17-33	34-50	51-58	    59-66	    67-75	    76-83	84-91	92-100	101 or more
 */
 
-// var airQualityClasses = ["aqi-1", 
-//                          "aqi-2", 
-//                          "aqi-3", 
-//                          "aqi-4", 
-//                          "aqi-5", 
-//                          "aqi-6", 
-//                          "aqi-7", 
-//                          "aqi-8", 
-//                          "aqi-9", 
-//                          "aqi-10"];
-
-var airQualityClasses = ["has-text-success",
-    "has-text-success-dark",
-    "has-text-primary",
-    "has-text-primary-dark",
-    "has-text-info",
-    "has-text-link",
-    "has-text-warning",
-    "has-text-warning-dark",
-    "has-text-danger",
-    "has-text-danger-dark"];
+var airQualityClasses = ["aqi-1", 
+                         "aqi-2", 
+                         "aqi-3", 
+                         "aqi-4", 
+                         "aqi-5", 
+                         "aqi-6", 
+                         "aqi-7", 
+                         "aqi-8", 
+                         "aqi-9", 
+                         "aqi-10"];
 
 var staleReadingClass = "has-text-grey-lighter";
 
