@@ -45,7 +45,7 @@ function loadStreetNames(data) {
             device.currentLocation.coordinates[0],
             (street) => {
                 var card = document.querySelector("#" + device.name + "-title");
-                card.innerText = street;
+                card.innerText = street + ' - ' + latestDustReadingDateFormatted(getMeasurements(device.sensors), "ddd Do MMM, HH:mm");
             })
     })
 }
@@ -96,9 +96,13 @@ function createInfoBox(deviceName, measurements) {
     var values = document.createElement("DIV");
     values.classList.add("card-content");
     values.id = deviceName;
-    measurements.forEach(measurement =>
+    measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
         values.appendChild(sensorReading(...Object.values(measurement))));
     card.appendChild(values);
+    // var date = document.createElement("p");
+    // date.innerText = latestDustReadingDateFormatted(measurements, "dddd Do MMM, HH: mm");
+    // date.classList.add("level", "mx-4", "mb-5");
+    // card.appendChild(date);
     card.appendChild(footerWithTextItems(["Sensor", "Values"]));
     return card;
 }
@@ -133,6 +137,10 @@ function getColourClassForMeasurements(measurements) {
 
     var aqIndex = getAqIndexForMeasurements(measurements);
     return airQualityClasses[aqIndex - 1];
+}
+
+function latestDustReadingDateFormatted(measurements, format) {
+    return moment(latestDustReadingDate(measurements)).format(format);
 }
 
 function latestDustReadingDate(measurements) {
@@ -183,7 +191,6 @@ function cardWithTitle(titleText, iconColorClass) {
     var card = document.createElement("DIV");
     card.classList.add("card");
     card.appendChild(cardHeaderWithTitle(titleText, iconColorClass));
-    card.appendChild(document.createElement("BR"));
     return card;
 }
 
@@ -221,15 +228,30 @@ function footerItemWithText(text) {
 }
 
 function sensorReading(name, type, units, reading, readingTaken) {
-    var divReading = document.createElement("DIV");
-    divReading.classList.add("level", "mx-4", "mb-5");
+    var readingLine = document.createElement("DIV");
+    readingLine.classList.add("level", "my-0");
+
     var label = document.createElement("LABEL");
-    var valueSpan = document.createElement("SPAN");
-    label.innerText = name + ' - ' + type + ': ';
-    valueSpan.innerText = reading + units;
-    divReading.appendChild(label);
-    divReading.appendChild(valueSpan);
-    return divReading
+    label.classList.add("level-item", "has-text-right");
+    label.innerText = name;
+
+    var value = document.createElement("SPAN");
+    value.classList.add("level-item", "has-text-right",);
+    value.innerText = reading + units ;
+
+    // <div>
+    //     <p class="heading">Tweets</p>
+    //     <p class="title">3,456</p>
+    // </div>
+
+    // var date = document.createElement("SPAN");
+    // date.classList.add("level-item","has-text-right");
+    // date.innerText = moment(readingTaken).format("Do MMM HH:mm");
+
+    readingLine.appendChild(label);
+    readingLine.appendChild(value);
+    // readingLine.appendChild(date);
+    return readingLine
 }
 
 function printError(error) {
