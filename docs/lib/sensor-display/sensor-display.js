@@ -41,7 +41,8 @@ function updateReadings(data) {
 
 
 function createInfoBox(deviceName, defraAqi, measurements, latestDustReadingDate) {
-    var colorClass = getColourClassForAqi(defraAqi, checkReadingIsStale(latestDustReadingDate));
+    var stale = checkReadingIsStale(latestDustReadingDate);
+    var colorClass = getColourClassForAqi(defraAqi, stale);
     var card = cardWithTitle(deviceName, colorClass);
     var values = document.createElement("DIV");
     values.classList.add( "level", "my-5", "is-mobile");
@@ -50,9 +51,10 @@ function createInfoBox(deviceName, defraAqi, measurements, latestDustReadingDate
         measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
             values.appendChild(sensorReading(...Object.values(measurement),  "has-text-right", "is-6")));
 
-    values.appendChild(sensorReading("Defra DAQI", undefined, "", defraAqi))
+    values.appendChild(sensorReading("Defra DAQI", undefined, "", stale && !showDetail.checked ? "-" : defraAqi))
     card.appendChild(values);
-    card.appendChild(footerWithTextItems([moment(latestDustReadingDate).format("ddd Do MMM, HH:mm")]));
+    if (showDetail.checked)
+        card.appendChild(footerWithTextItems([moment(latestDustReadingDate).format("ddd Do MMM, HH:mm")]));
     return card;
 }
 
