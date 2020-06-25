@@ -16,6 +16,8 @@ var showDetail = document.querySelector("#showDetail");
 showDetail.addEventListener("change", populateLiveView);
 
 function populateLiveView() {
+    //TODO: start using a data persistance/caching scheme and/or SPA framework or PWA structure to prevent spamming the API
+    //TODO: extend the data fetching to smooth the changes using a rolling average of recent values rather than a point measurement
     fetchMeasurements()
         .then(updateReadings)
         .catch(printError);
