@@ -21,30 +21,12 @@ var airQualityClasses = ["aqi-1",
     "aqi-10"];
 
 var staleReadingClass = "has-text-grey-lighter";
-const staleDataAgeInHours = 2;
 
-export function latestDustReadingDate(measurements) {
-    var dustDates = measurements.filter(x => x.name.startsWith("PM"))
-        .map(x => moment(x.readingTaken));
-    return moment.max(dustDates).toDate();
-}
-
-
-export function getColourClassForMeasurements(measurements) {
+export function getColourClassForAqi(defraAqi, readingIsStale) {
     //use light grey icon if values are stale
-    if (readingIsStale(measurements)) return staleReadingClass;
-
-    var aqIndex = getAqIndexForMeasurements(measurements);
-    return airQualityClasses[aqIndex - 1];
+    if (readingIsStale) return staleReadingClass;
+    return airQualityClasses[defraAqi - 1];
 }
-
-export function readingIsStale(measurements) {
-    // work out if data is stale
-    var lastReading = moment(latestDustReadingDate(measurements));
-    var twoHoursAgo = moment().subtract(staleDataAgeInHours, 'hours');
-    return moment(lastReading).isBefore(twoHoursAgo);
-}
-
 export function getAqIndexForMeasurements(measurements) {
     var pm10 = measurements.find(x => x.name == 'PM10');
     var pm25 = measurements.find(x => x.name == 'PM2.5');

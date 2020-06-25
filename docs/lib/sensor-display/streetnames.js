@@ -3,6 +3,7 @@ const streetnameUrl = 'https://nominatim.openstreetmap.org/reverse';
 //alternative - https://geocode.xyz/51.22927,-2.33726?json=1
 
 export function loadStreetNames(data, success) {
+    //TODO: should proably simplify the input to coords only
     data.forEach(device => {
         streetnameFromCoords(
             device.latitude,

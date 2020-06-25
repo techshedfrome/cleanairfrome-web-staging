@@ -1,6 +1,6 @@
-import { getColourClassForMeasurements, latestDustReadingDate } from "./airquality-index.js"
+import { getColourClassForAqi } from "./airquality-index.js"
 import { loadStreetNames } from "./streetnames.js"
-import { fetchMeasurements } from "./opensensemap.js"
+import { fetchMeasurements, checkReadingIsStale } from "./opensensemap.js"
 /*
 Provisional vanilla JS to populate sensor readings direcly from OpenMapSense API
 Expects itemListContainer to exist - injects DOM objects inside of that
@@ -22,34 +22,34 @@ function updateReadings(data) {
     var section = document.querySelector("#itemListContainer");
     section.innerText = '';
     data.sort((a,b)=>alphaSort(a.name, b.name));
-    data.forEach(device => section.appendChild(
-                                createInfoBox(device.name, device.measurements))                   
+    data.sort((a, b) => boolSortAsc(a.readingIsStale(),b.readingIsStale()))
+    data.forEach(device => section.appendChild(createInfoBox(device.name, 
+                                                             device.defraAqi(),
+                                                             device.measurements, 
+                                                             device.latestDustReadingDate()))                   
                             )
     loadStreetNames(data, device => {
-        console.log(device);
         var card = document.querySelector("#" + device.name + "-title");
         card.innerText = device.streetname;
     });
 }
 
 
-function createInfoBox(deviceName, measurements) {
-    var colorClass = getColourClassForMeasurements(measurements);
+function createInfoBox(deviceName, defraAqi, measurements, latestDustReadingDate) {
+    var colorClass = getColourClassForAqi(defraAqi, checkReadingIsStale(latestDustReadingDate));
     var card = cardWithTitle(deviceName, colorClass);
     var values = document.createElement("DIV");
     values.classList.add( "level", "my-5", "is-mobile");
     values.id = deviceName;
     measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
         values.appendChild(sensorReading(...Object.values(measurement))));
+
+    values.appendChild(sensorReading("Defra AQI", undefined, "", defraAqi))
     card.appendChild(values);
-    card.appendChild(footerWithTextItems([latestDustReadingDateFormatted(measurements, "ddd Do MMM, HH:mm")]));
+    card.appendChild(footerWithTextItems([moment(latestDustReadingDate).format("ddd Do MMM, HH:mm")]));
     return card;
 }
 
-
-function latestDustReadingDateFormatted(measurements, format) {
-    return moment(latestDustReadingDate(measurements)).format(format);
-}
 
 function cardWithTitle(titleText, iconColorClass) {
     var card = document.createElement("DIV");
@@ -115,16 +115,10 @@ function printError(error) {
 }
 
 
+const boolSortAsc = (a, b) => (a === b) ? 0 : a ? 1 : -1;
+
 function alphaSort(a, b) {
     var nameA = a.toUpperCase(); // ignore upper and lowercase
     var nameB = b.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-        return -1;
-    }
-    if (nameA > nameB) {
-        return 1;
-    }
-
-    // names must be equal
-    return 0;
+    return (nameA === nameB) ? 0 : nameA < nameB ? -1 : 1; 
 }
