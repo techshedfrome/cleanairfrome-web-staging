@@ -1,0 +1,130 @@
+import { getColourClassForMeasurements, latestDustReadingDate } from "./airquality-index.js"
+import { loadStreetNames } from "./streetnames.js"
+import { fetchMeasurements } from "./opensensemap.js"
+/*
+Provisional vanilla JS to populate sensor readings direcly from OpenMapSense API
+Expects itemListContainer to exist - injects DOM objects inside of that
+
+Experiments and custom CSS here:
+    https://codepen.io/Formidablr/pen/WNrGGLW?editors=0110
+
+*/
+
+document.addEventListener("DOMContentLoaded", populateLiveView);
+
+function populateLiveView() {
+    fetchMeasurements()
+        .then(updateReadings)
+        .catch(printError);
+}
+
+function updateReadings(data) {
+    var section = document.querySelector("#itemListContainer");
+    section.innerText = '';
+    data.sort((a,b)=>alphaSort(a.name, b.name));
+    data.forEach(device => section.appendChild(
+                                createInfoBox(device.name, device.measurements))                   
+                            )
+    loadStreetNames(data, device => {
+        console.log(device);
+        var card = document.querySelector("#" + device.name + "-title");
+        card.innerText = device.streetname;
+    });
+}
+
+
+function createInfoBox(deviceName, measurements) {
+    var colorClass = getColourClassForMeasurements(measurements);
+    var card = cardWithTitle(deviceName, colorClass);
+    var values = document.createElement("DIV");
+    values.classList.add( "level", "my-5", "is-mobile");
+    values.id = deviceName;
+    measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
+        values.appendChild(sensorReading(...Object.values(measurement))));
+    card.appendChild(values);
+    card.appendChild(footerWithTextItems([latestDustReadingDateFormatted(measurements, "ddd Do MMM, HH:mm")]));
+    return card;
+}
+
+
+function latestDustReadingDateFormatted(measurements, format) {
+    return moment(latestDustReadingDate(measurements)).format(format);
+}
+
+function cardWithTitle(titleText, iconColorClass) {
+    var card = document.createElement("DIV");
+    card.classList.add("card");
+    card.appendChild(cardHeaderWithTitle(titleText, iconColorClass));
+    return card;
+}
+
+function cardHeaderWithTitle(titleText, iconColorClass) {
+    var header = document.createElement("DIV");
+    header.classList.add("card-header");
+
+    var title = document.createElement("LABEL");
+    title.classList.add("card-header-title");
+    title.id = titleText + '-title';
+    title.innerText = titleText;
+
+    header.appendChild(title);
+    var iconSpan = document.createElement("SPAN");
+    iconSpan.classList.add("card-header-icon", "is-size-1");
+    var icon = document.createElement("I");
+    icon.classList.add("fas", "fa-leaf", iconColorClass);
+    iconSpan.appendChild(icon);
+    header.appendChild(iconSpan);
+    return header;
+}
+
+function footerWithTextItems(items) {
+    var footer = document.createElement("DIV");
+    footer.classList.add("card-footer");
+    items.forEach(x => footer.appendChild(footerItemWithText(x)));
+    return footer;
+}
+
+function footerItemWithText(text) {
+    var footerContent = document.createElement("SPAN");
+    footerContent.classList.add("card-footer-item");
+    footerContent.innerText = text;
+    return footerContent;
+}
+
+function sensorReading(name, type, units, reading, readingTaken) {
+    var readingLine = document.createElement("DIV");
+    readingLine.classList.add("level-item", "has-text-centered");
+
+    var inner = document.createElement("DIV");
+    var label = document.createElement("P");
+    label.classList.add("heading");
+    label.innerText = name;
+
+    var value = document.createElement("P");
+    value.classList.add("title","is-6", "has-text-right");
+    value.innerText = reading + units ;
+
+    inner.appendChild(label);
+    inner.appendChild(value);
+    readingLine.appendChild(inner);
+    return readingLine
+}
+
+function printError(error) {
+    console.log(error);
+}
+
+
+function alphaSort(a, b) {
+    var nameA = a.toUpperCase(); // ignore upper and lowercase
+    var nameB = b.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+
+    // names must be equal
+    return 0;
+}
