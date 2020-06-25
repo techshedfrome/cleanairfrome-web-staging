@@ -12,6 +12,9 @@ Experiments and custom CSS here:
 
 document.addEventListener("DOMContentLoaded", populateLiveView);
 
+var showDetail = document.querySelector("#showDetail");
+showDetail.addEventListener("change", populateLiveView);
+
 function populateLiveView() {
     fetchMeasurements()
         .then(updateReadings)
@@ -41,10 +44,11 @@ function createInfoBox(deviceName, defraAqi, measurements, latestDustReadingDate
     var values = document.createElement("DIV");
     values.classList.add( "level", "my-5", "is-mobile");
     values.id = deviceName;
-    measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
-        values.appendChild(sensorReading(...Object.values(measurement))));
+    if (showDetail.checked)
+        measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
+            values.appendChild(sensorReading(...Object.values(measurement),  "has-text-right", "is-6")));
 
-    values.appendChild(sensorReading("Defra AQI", undefined, "", defraAqi))
+    values.appendChild(sensorReading("Defra DAQI", undefined, "", defraAqi))
     card.appendChild(values);
     card.appendChild(footerWithTextItems([moment(latestDustReadingDate).format("ddd Do MMM, HH:mm")]));
     return card;
@@ -91,7 +95,7 @@ function footerItemWithText(text) {
     return footerContent;
 }
 
-function sensorReading(name, type, units, reading, readingTaken) {
+function sensorReading(name, type, units, reading, readingTaken, alignmentClass, sizingClass) {
     var readingLine = document.createElement("DIV");
     readingLine.classList.add("level-item", "has-text-centered");
 
@@ -101,7 +105,7 @@ function sensorReading(name, type, units, reading, readingTaken) {
     label.innerText = name;
 
     var value = document.createElement("P");
-    value.classList.add("title","is-6", "has-text-right");
+    value.classList.add("title", alignmentClass, sizingClass);
     value.innerText = reading + units ;
 
     inner.appendChild(label);
