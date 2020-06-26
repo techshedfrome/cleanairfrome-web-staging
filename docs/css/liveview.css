@@ -6,7 +6,7 @@
     align-items: top;
     justify-content: center;
     grid-auto-rows: max-content;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 0.25fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 0.27fr));
 }
 
 .card {
