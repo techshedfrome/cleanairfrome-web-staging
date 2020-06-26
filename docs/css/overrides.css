@@ -122,3 +122,9 @@ ul.is-unstyled {
   .hero-buttons button {
     min-width: 240px;
   }
+
+  .btn-bg {
+
+    color:#FBDD58;
+    background-color: #FDEB97;
+  }
