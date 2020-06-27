@@ -48,9 +48,9 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
     var values = document.createElement("DIV");
     values.classList.add(...css.READINGS_CLASSLIST);
     values.id = deviceName;
-    if (showDetail.checked)
-        measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
-            values.appendChild(sensorReading(...Object.values(measurement), css.READINGDETAIL_CLASSLIST)));
+    // if (showDetail.checked)
+    //     measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
+    //         values.appendChild(sensorReading(...Object.values(measurement), css.READINGDETAIL_CLASSLIST)));
 
     // values.appendChild(sensorReading("Defra DAQI", undefined, "", 
     //                                  stale && !showDetail.checked ? "-" : defraAqi, undefined, 
@@ -58,7 +58,9 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
 
     if (!stale) {
         fetchDeviceStats(boxid, "PM2.5", "geometricMean", 3)
-        .then(pm25 => {
+            .then(pm25 => {
+                if (showDetail.checked)
+                    values.appendChild(sensorReading(pm25.phenomenon, undefined, pm25.unit, pm25.value.toFixed(2), undefined, css.READINGDETAIL_CLASSLIST));
             
             fetchDeviceStats(boxid, "PM10", "geometricMean", 3)
             .then(pm10 => {
@@ -70,6 +72,10 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
                     stale && !showDetail.checked ? "-" : stale && !showDetail.checked ? "-" : daqi, 
                     undefined,
                     css.READINGINDEX_CLASSLIST))
+
+                    console.log(pm10);
+                if (showDetail.checked)
+                    values.appendChild(sensorReading(pm10.phenomenon, undefined, pm10.unit, pm10.value.toFixed(2), undefined, css.READINGDETAIL_CLASSLIST));
             });
         });
     }
@@ -135,7 +141,7 @@ function sensorReading(name, type, units, reading, readingTaken, valueClasslist)
 
     var value = document.createElement("P");
     value.classList.add(...valueClasslist);
-    value.innerText = reading + units ;
+    value.innerText = ''+ reading + units ;
 
     inner.appendChild(label);
     inner.appendChild(value);

@@ -69,33 +69,6 @@ export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sample
             return final;
           })
         )
-
-function getByIndex(obj, index) {
-    return obj[Object.keys(obj)[index]];
-}
-        /*
-        result structure is annoyoing:
-            [
-                {
-                    "sensorId": "5eeba76aee9b25001b3ba5ca",
-                    "2020-06-27T14:00:00.000Z": 1.357849848222598
-                }
-            ]
-
-        should be:
-
-                    "sensorId": "5eeba76aee9b25001b3ba5ca",
-                    {
-                      "date": "2020-06-27T14:00:00.000Z"
-                      "value": 1.357849848222598
-                    }
-        ot at the very least:
-                    "sensorId": "5eeba76aee9b25001b3ba5ca",
-                    "values": [
-                        "2020-06-27T14:00:00.000Z": 1.357849848222598
-                    ]
-
-        */
 }
 
 
@@ -244,6 +217,30 @@ function throwHttpErrors(request) {
         }
     ]
     
- 
+
+
+result structure is annoying:
+    [
+        {
+            "sensorId": "5eeba76aee9b25001b3ba5ca",
+            "2020-06-27T14:00:00.000Z": 1.357849848222598
+        }
+    ]
+
+should be:
+
+            "sensorId": "5eeba76aee9b25001b3ba5ca",
+            [
+                {
+                "date": "2020-06-27T14:00:00.000Z"
+                "value": 1.357849848222598
+                }
+            ]
+or at the very least:
+            "sensorId": "5eeba76aee9b25001b3ba5ca",
+            "values": [
+                "2020-06-27T14:00:00.000Z": 1.357849848222598
+            ]
+
 
 */
