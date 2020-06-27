@@ -58,18 +58,25 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
 
     if (!stale) {
         fetchDeviceStats(boxid, "PM2.5", "geometricMean", 3)
-        .then(data => {
-            values.appendChild(sensorReading("Smoothed " + data.phenomenon, undefined, "",
-            stale && !showDetail.checked ? "-" : data.defraAqi, undefined,
-            css.READINGINDEX_CLASSLIST))
-        });
-        fetchDeviceStats(boxid, "PM10", "geometricMean", 3)
-        .then(data => {
-            values.appendChild(sensorReading("Smoothed " + data.phenomenon, undefined, "",
-            stale && !showDetail.checked ? "-" : data.defraAqi, undefined,
-            css.READINGINDEX_CLASSLIST))
+        .then(pm25 => {
+            
+            fetchDeviceStats(boxid, "PM10", "geometricMean", 3)
+            .then(pm10 => {
+
+                var daqi = Math.max(pm25.defraAqi, pm10.defraAqi);
+                values.appendChild(sensorReading("Smoothed DAQI", 
+                    undefined, 
+                    "",
+                    stale && !showDetail.checked ? "-" : stale && !showDetail.checked ? "-" : daqi, 
+                    undefined,
+                    css.READINGINDEX_CLASSLIST))
+            });
         });
     }
+    else {
+        values.appendChild(sensorReading("Defra DAQI", undefined, "", "-", undefined, css.READINGINDEX_CLASSLIST))
+    }
+
     card.appendChild(values);
     if (showDetail.checked)
         card.appendChild(footerWithTextItems([moment(latestDustReadingDate).format("ddd Do MMM, HH:mm")]));
