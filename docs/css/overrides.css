@@ -177,3 +177,8 @@ nav.nav-center ul li {
 nav.nav-center ul li a {
   display: inline-block;
 }
+
+.imageLink a:hover{
+background-color: none;
+  text-decoration: none;
+}
