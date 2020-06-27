@@ -161,3 +161,19 @@ ul.is-unstyled {
 .aqi-8  {color: rgb(255, 123, 0)}
 .aqi-9  {color: rgb(253, 83, 40)}
 .aqi-10 {color: rgb(158, 33, 33)}
+
+.nav-title-header{
+color: #524E73;
+  text-decoration: none !important;
+}
+
+nav.nav-center ul {
+  text-align: center;
+}
+nav.nav-center ul li {
+  display: inline;
+  float: none;
+}
+nav.nav-center ul li a {
+  display: inline-block;
+}
