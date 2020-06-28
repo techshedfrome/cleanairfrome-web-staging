@@ -45,7 +45,28 @@
 .aqi-9-bg  {background-color: rgb(253, 83, 40)}
 .aqi-10-bg {background-color: rgb(158, 33, 33)}
 
+.main-link {
+    color: black;
+    text-decoration: underline;
+    padding: 3px;
+}
+.main-link:hover {
+    background-color: #FBDD58;
+    color: black;
+    text-decoration: none;
+    box-sizing: content-box;
+}
 
+.button.is-warning:hover,
+.button.is-warning.is-hovered {
+    background-color: #fbdd586b;
+    border-color: #FBDD58;
+}
+.hero-buttons {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 :root {
     --example-green-color: rgba(37, 255, 91);
