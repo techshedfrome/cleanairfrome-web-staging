@@ -7,19 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clean Air Frome</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/overrides.css">
+  <!-- <link rel="stylesheet" href="css/overrides.css"> -->
   <link rel="stylesheet" href="css/liveview.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" crossorigin="anonymous"></script>
 </head>
- 
+
 <body class="is-size-8-desktop has-text-weight-medium">
   <section class="is-medium ">
     <div class="hero-body has-text-centered">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-8-desktop is-12-mobile ">
-            <figure> 
+            <figure>
               <img src="assets/sqHeader.png" width="480px">
             </figure>
             <h2 class="title is-4 ">Welcome to</h2>
@@ -82,7 +82,7 @@
     </div>
   </section>
   <section class="section has-text-centered" id="airsensorfrome">
-    <div class="container">
+    <div class="container mb-5">
       <div class="columns is-tablet">
         <div class="column is-8-desktop is-12-mobile is-offset-2-desktop">
           <div class="content ">
@@ -93,199 +93,232 @@
             </p>
           </div>
           <div class="field">
-            <input id="showDetail" type="checkbox" name="switchRoundedWarning" class="switch is-rounded is-info"
-              >
+            <input id="showDetail" type="checkbox" name="switchRoundedWarning" class="switch is-rounded is-info">
             <label for="showDetail">Show detail</label>
           </div>
         </div>
       </div>
-      <div class="container readings" id="itemListContainer">
-        <div class="columns is-tablet ">
-          <div class="column is-2-desktop"></div>
-          <div class=" column is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Sensor 1 - Area/address
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
+    </div>
+    <div class="container readings" id="itemListContainert">
 
-                  PM 2.5 value, time taken<br>
-                  PM 10 value, time taken<br>
-
+      <div class="card">
+        <div class="card-content">
+          <div class="level ">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <div>
+                  <div class="title is-size-6 has-text-left-desktop mb-3">
+                    Rossiters road
+                  </div>
+                  <div class="has-text-left-desktop has-text-weight-normal is-size-6">
+                    5 meters from traffic<br>
+                    1 sensor
+                  </div>
                 </div>
               </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">Temp</div>
-                <div class="card-footer-item">Humitidty</div>
-              </footer>
             </div>
-          </div>
+            <div class="level-right">
 
-          <div class="column is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Sensor 2 - Area/address
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  PM 2.5 value, time taken<br>
-                  PM 10 value, time taken<br>
-
+              <div class="level-item has-text-centered mx-5 mt-2">
+                <div>
+                  <div class="icon is-large has-text-success is-size-4">
+                    <span class="fa-stack">
+                      <i class="far fa-circle fa-stack-2x "></i>
+                      <p>3</p>
+                    </span>
+                  </div>
+                  <div class="">Low</div>
                 </div>
               </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">Temp</div>
-                <div class="card-footer-item">Humitidty</div>
-              </footer>
+
             </div>
           </div>
-          <div class="column is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Sensor 3 - Area/address
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  PM 2.5 value, time taken<br>
-                  PM 10 value, time taken<br>
-
-                </div>
-              </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">Temp</div>
-                <div class="card-footer-item">Humitidty</div>
-              </footer>
-            </div>
-          </div>
-
-          <div class="column is-2-desktop"></div>
-
-
-
-
-
         </div>
-        <div class="columns">
+      </div>
 
-
-          <div class="column is-2-desktop"></div>
-          <div class=" column is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Sensor 4 - Area/address
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  PM 2.5 value, time taken<br>
-                  PM 10 value, time taken<br>
-
+      <div class="card">
+        <div class="card-content">
+          <div class="level ">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <div>
+                  <div class="title is-size-6 has-text-left-desktop mb-3">
+                    Rossiters road
+                  </div>
+                  <div class="has-text-left-desktop has-text-weight-normal is-size-6">
+                    5 meters from traffic<br>
+                    1 sensor
+                  </div>
                 </div>
               </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">Temp</div>
-                <div class="card-footer-item">Humitidty</div>
-              </footer>
             </div>
-          </div>
+            <div class="level-right">
 
-          <div class="column is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Sensor 5 - Area/address
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  PM 2.5 value, time taken<br>
-                  PM 10 value, time taken<br>
-
+              <div class="level-item has-text-centered mx-5 mt-2">
+                <div>
+                  <div class="icon is-large has-text-success is-size-4">
+                    <span class="fa-stack">
+                      <i class="far fa-circle fa-stack-2x "></i>
+                      <p>3</p>
+                    </span>
+                  </div>
+                  <div class="">Low</div>
                 </div>
               </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">Temp</div>
-                <div class="card-footer-item">Humitidty</div>
-              </footer>
+
             </div>
           </div>
-          <div class="column is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Sensor 6 - Area/address
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  PM 2.5 value, time taken<br>
-                  PM 10 value, time taken<br>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="card-content">
+          <div class="level ">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <div>
+                  <div class="title is-size-6 has-text-left-desktop mb-3">
+                    Rossiters road
+                  </div>
+                  <div class="has-text-left-desktop has-text-weight-normal is-size-6">
+                    5 meters from traffic<br>
+                    1 sensor
+                  </div>
                 </div>
               </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">Temp</div>
-                <div class="card-footer-item">Humitidty</div>
-              </footer>
+            </div>
+            <div class="level-right">
+
+              <div class="level-item has-text-centered mx-5 mt-2">
+                <div>
+                  <div class="icon is-large has-text-success is-size-4">
+                    <span class="fa-stack">
+                      <i class="far fa-circle fa-stack-2x "></i>
+                      <p>3</p>
+                    </span>
+                  </div>
+                  <div class="">Low</div>
+                </div>
+              </div>
+
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="column is-2-desktop"></div>
+      <div class="card">
+        <div class="card-content">
+          <div class="level ">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <div>
+                  <div class="title is-size-6 has-text-left-desktop mb-3">
+                    Rossiters road
+                  </div>
+                  <div class="has-text-left-desktop has-text-weight-normal is-size-6">
+                    5 meters from traffic<br>
+                    1 sensor
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-right">
 
+              <div class="level-item has-text-centered mx-5 mt-2">
+                <div>
+                  <div class="icon is-large has-text-success is-size-4">
+                    <span class="fa-stack">
+                      <i class="far fa-circle fa-stack-2x "></i>
+                      <p>3</p>
+                    </span>
+                  </div>
+                  <div class="">Low</div>
+                </div>
+              </div>
 
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="card-content">
+          <div class="level ">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <div>
+                  <div class="title is-size-6 has-text-left-desktop mb-3">
+                    Rossiters road
+                  </div>
+                  <div class="has-text-left-desktop has-text-weight-normal is-size-6">
+                    5 meters from traffic<br>
+                    1 sensor
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-right">
+
+              <div class="level-item has-text-centered mx-5 mt-2">
+                <div>
+                  <div class="icon is-large has-text-success is-size-4">
+                    <span class="fa-stack">
+                      <i class="far fa-circle fa-stack-2x "></i>
+                      <p>3</p>
+                    </span>
+                  </div>
+                  <div class="">Low</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="level ">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <div>
+                  <div class="title is-size-6 has-text-left-desktop mb-3">
+                    Rossiters road
+                  </div>
+                  <div class="has-text-left-desktop has-text-weight-normal is-size-6">
+                    5 meters from traffic<br>
+                    1 sensor
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-right">
+
+              <div class="level-item has-text-centered mx-5 mt-2">
+                <div>
+                  <div class="icon is-large has-text-success is-size-4">
+                    <span class="fa-stack">
+                      <i class="far fa-circle fa-stack-2x "></i>
+                      <p>3</p>
+                    </span>
+                  </div>
+                  <div class="">Low</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
-    </div>
 
-
-
-
-
-    </div>
-    </div>
-    </div>
-    </div>
   </section>
   <section class="section pb-0 " id="start">
     <div class="container ">
