@@ -206,3 +206,26 @@ background-color: none;
 .icon.is-large {
 height: 2em !important;
 }
+
+@media screen and (min-width: 769px){
+  .modal-content, .modal-card {
+  width:90%;
+}
+}
+
+
+.VERY_HIGH {
+  border-bottom: 5px solid #909;
+}
+
+.HIGH {
+  border-bottom: 5px solid red;
+}
+
+.MODERATE {
+  border-bottom: 5px solid #f90;
+}
+
+.LOW {
+  border-bottom: 5px solid #090;
+}
