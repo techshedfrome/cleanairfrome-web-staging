@@ -182,3 +182,26 @@ nav.nav-center ul li a {
 background-color: none;
   text-decoration: none;
 }
+
+.card-outline {
+
+  border: 2px solid #FBDD58;
+  border-radius: 8px;
+}
+@media screen and (max-width:768px) {
+  .is-pulled-right {
+
+    float: none !important;
+  }
+  .is-pulled-left {
+
+    float: none !important;
+  }
+  }
+  
+  .fa-stack-2x {
+    font-size: 3em !important;
+  }
+  .fa-stack {
+  line-height: 3em !important;
+  }
