@@ -205,3 +205,8 @@ background-color: none;
   .fa-stack {
   line-height: 3em !important;
   }
+
+.mainbutton a:hover {
+  background-color: none;
+  color:none;
+}
