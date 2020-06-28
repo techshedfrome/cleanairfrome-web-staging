@@ -9,8 +9,11 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 0.27fr));
 }
 
-.readings .card {
+.readings .reading{
     height: max-content;
+    border: 2px solid #FBDD58;
+    border-radius: 8px;
+    box-shadow: none;
 }
 .is-borderless {
     border: none;
@@ -26,6 +29,17 @@
 .aqi-8  {color: rgb(255, 123, 0)}
 .aqi-9  {color: rgb(253, 83, 40)}
 .aqi-10 {color: rgb(158, 33, 33)}
+
+.aqi-1-bg  {background-color: rgb(37, 255, 91)}
+.aqi-2-bg  {background-color: rgb(136, 253, 40)}
+.aqi-3-bg  {background-color: rgb(187, 255, 0)}
+.aqi-4-bg  {background-color: rgb(238, 255, 1)}
+.aqi-5-bg  {background-color: rgb(251, 255, 0)}
+.aqi-6-bg  {background-color: rgb(255, 217, 0)}
+.aqi-7-bg  {background-color: rgb(255, 196, 0)}
+.aqi-8-bg  {background-color: rgb(255, 123, 0)}
+.aqi-9-bg  {background-color: rgb(253, 83, 40)}
+.aqi-10-bg {background-color: rgb(158, 33, 33)}
 
 
 
