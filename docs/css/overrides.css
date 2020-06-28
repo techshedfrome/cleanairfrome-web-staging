@@ -194,9 +194,11 @@ background-color: none;
   line-height: 2.5.em !important;
   }
 
-.mainbutton a:hover {
-  background-color: none !important;
-  color:none !important;
+.button:hover{
+  background-color: white !important;
+  color:white !important;
+  border: 1px solid #FBDD58 !important;
+  
 }
 
 .reading-text {
@@ -228,4 +230,9 @@ height: 2em !important;
 
 .LOW {
   border-bottom: 5px solid #090;
+}
+
+.has-image-centered {
+  margin-left: auto;
+  margin-right: auto;
 }
