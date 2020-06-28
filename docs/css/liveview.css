@@ -15,6 +15,10 @@
     border-radius: 8px;
     box-shadow: none;
 }
+.reading-bare{
+    padding: 0.8em 1.5em;
+}
+
 .is-borderless {
     border: none;
 }
