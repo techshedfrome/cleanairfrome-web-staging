@@ -119,7 +119,11 @@
     margin-top: 0.5em;
     line-height: 1.5em;
     color: var(--example-green-color);
+    margin-left: -0.4em
 }
+
+
+
 
 .value-band-filled {
     background: var(--example-green-color);
@@ -128,4 +132,18 @@
 
 .value-band-shifted {
     margin-top: -0.5em;
+}
+
+
+.value-band i {
+    /* margin-top: 0.6em; */
+    /* box-sizing: content-box; */
+    /* padding: 0; */
+}
+.value-band a {
+ padding: 0 5px;
+}
+
+a.icon {
+    text-decoration: none !important;
 }

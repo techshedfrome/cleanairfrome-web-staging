@@ -100,6 +100,81 @@
       </div>
     </div>
     <div class="container readings" id="itemListContainers">
+      <div class="reading reading-bare level">
+        <div class="level-item level-left">
+          <div>
+            <div class="title is-size-6 has-text-left-tablet mb-3">
+              -1 Rossiters road
+            </div>
+            <div class="has-text-left-tablet has-text-weight-normal is-size-6">
+              5 meters from traffic<br>
+              1 sensor
+            </div>
+          </div>
+        </div>
+        <div class="level-item level-right has-text-centered mt-2">
+          <div>
+            <div class="value-badge-outline is-size-4">
+              <p>3</p>
+            </div>
+            <div class="value-band">Low</div>
+          </div>
+        </div>
+      </div>
+      <div class="reading reading-bare level">
+        <div class="level-item level-left-tablet">
+          <div>
+            <div class="title is-size-6 has-text-left-tablet mb-3">
+              -2 Rossiters road
+            </div>
+            <div class="has-text-left-tablet has-text-weight-normal is-size-6">
+              5 meters from traffic<br>
+              1 sensor
+            </div>
+          </div>
+        </div>
+        <div class="level-item level-right-tablet has-text-centered mt-2">
+          <div>
+            <div class="value-badge-outline is-size-4">
+              <p>3</p>
+            </div>
+            <div class="value-band has-text-centered">
+              <label for="element-toggle">
+                <a><span>Low</span><i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
+              </label>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="reading reading-bare level">
+        <div class="level-item level-left-desktop">
+          <div>
+            <div class="title is-size-6 has-text-left-tablet mb-3">
+              -3 Rossiters road
+            </div>
+            <div class="has-text-left-tablet has-text-weight-normal is-size-6">
+              5 meters from traffic<br>
+              1 sensor
+            </div>
+          </div>
+        </div>
+        <div class="level-item level-right-desktop has-text-centered mt-2">
+          <div>
+            <div class="value-badge-outline is-size-4">
+              <p>3</p>
+            </div>
+            <div class="value-band has-text-centered">
+              <label for="element-toggle">
+                <a><span></span>Low<i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
+              </label>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="reading box">
         <div class="card-content">
           <div class="level ">
@@ -453,31 +528,6 @@
               impact air quality over time. We hope that the information will enable people to make more informed
               choices about their lifestyle, and consider things that they can do to improve the environment.
             </p>
-            <input id="element-toggle" type="checkbox" />
-            <!-- Modal -->
-            <div class="modal" id="myModal">
-              <div class="modal-background"></div>
-              <div class="modal-content">
-                <div class="box">
-                  <article class="media">
-
-                    <div class="media-content" style="overflow-x:visible !important;">
-                      <div class="content">
-
-                        <label class="modal-close is-large" for="element-toggle"></label>
-                        <img src="assets/press.png" width="550px;">
-
-
-                      </div>
-
-                    </div>
-                  </article>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- Modal -->
 
           </div>
         </div>
@@ -486,7 +536,99 @@
   </section>
 
 
-  <!-- Modal -->
+  <input id="element-toggle" type="checkbox" />
+  <div class="modal" id="myModal">
+    <div class="modal-background"></div>
+    <div class="modal-card ">
+      <header class="modal-card-head  pt-4">
+        <p class="modal-card-title mb-0">Daily Air Quality Index <br><span class="subtitle is-size-5 ">
+            Information taken only as reference from, <a href="https://uk-air.defra.gov.uk/air-pollution/daqi">Defra<i
+                class="fas fa-external-link-alt has-text-black text-is-7 ml-1" aria-hidden="true"></i></a></span></p>
+
+        <label class="modal-close is-large " for="element-toggle"></label>
+
+      </header>
+      <section class="modal-card-body px-0">
+        <div class="box is-shadowless">
+          <article class="media">
+
+            <div class="media-content" style="overflow-x:visible !important;">
+
+              <div class="columns">
+                <div class="column is-12-mobile">
+                  <div class="content ">
+                    <table class="table is-bordered has-text-left">
+                      <thead>
+                        <tr>
+                          <th width="11%">Air Pollution Banding</th>
+                          <th width="9%" align="center">Value</th>
+                          <th width="44%">Accompanying health messages for at-risk individuals*</th>
+                          <th width="36%">Accompanying health messages for the general population </th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody>
+                        <tr>
+                          <td class="has-text-centered"><span class="LOW ">Low</span> </td>
+                          <td class="has-text-centered"><span class="LOW">1-3</span></td>
+                          <td>Enjoy your usual outdoor activities. </td>
+                          <td>Enjoy your usual outdoor activities. </td>
+                        </tr>
+                        <tr>
+                          <td class="has-text-centered"><span class="MODERATE">Moderate </span></td>
+                          <td class="has-text-centered"><span class="MODERATE">4-6</span></td>
+                          <td>Adults and children with lung problems, and adults with heart problems, who
+                            experience symptoms, should consider reducing strenuous physical activity,
+                            particularly outdoors. </td>
+                          <td>Enjoy your usual outdoor activities. </td>
+                        </tr>
+
+                        <tr>
+                          <td class="has-text-centered"><span class="HIGH">High</span> </td>
+                          <td class="has-text-centered"><span class="HIGH">7-9</span></td>
+                          <td>Adults and children with lung problems, and adults with heart problems, should
+                            reduce strenuous physical exertion, particularly outdoors, and particularly if
+                            they experience symptoms. People with asthma may find they need to use their
+                            reliever inhaler more often. Older people should also reduce physical exertion.
+                          </td>
+                          <td>Anyone experiencing discomfort such as sore eyes, cough or sore throat should
+                            consider reducing activity, particularly outdoors. </td>
+                        </tr>
+
+                        <tr>
+                          <td class="has-text-centered"><span class="VERY_HIGH">Very High</span> </td>
+                          <td class="has-text-centered"> <span class="VERY_HIGH">10</span></td>
+                          <td>Adults and children with lung problems, adults with heart problems, and older
+                            people, should avoid strenuous physical activity. People with asthma may find they
+                            need to use their reliever inhaler more often. </td>
+                          <td>Reduce physical exertion, particularly outdoors, especially if you experience
+                            symptoms such as cough or sore throat. </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                    <br>*Adults and children with heart or lung problems are at greater risk of symptoms.
+                    Follow your doctor's usual advice about exercising and managing your condition. It is
+                    possible that very sensitive individuals may experience health effects even on Low air
+                    pollution days. Anyone experiencing symptoms should follow the guidance provided below.
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  </div>
+
+
 
   <section class="section has-text-centered">
 
