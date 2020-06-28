@@ -130,7 +130,6 @@ ul.is-unstyled {
   }
 
 
-
 .readings  {
   display: grid;
   grid-gap: 1.5em;
@@ -138,17 +137,6 @@ ul.is-unstyled {
   justify-content: center;
   grid-auto-rows: max-content;
   grid-template-columns: repeat(auto-fit, minmax(320px, 0.27fr));
-}
-
-.card {
-  height: max-content;
-}
-.card-header {
-  box-shadow: none;
-  padding: 8px;
-}
-.card-footer {
-  border: none;
 }
 
 .aqi-1  {color: rgb(37, 255, 91)}

@@ -9,14 +9,10 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 0.27fr));
 }
 
-.card {
+.readings .card {
     height: max-content;
 }
-.card-header {
-    box-shadow: none;
-    padding: 8px;
-}
-.card-footer {
+.is-borderless {
     border: none;
 }
 

@@ -1,6 +1,6 @@
 
 export const CARD_CLASSLIST = ["card"];
-export const CARDHEADER_CLASSLIST = ["card-header"];
+export const CARDHEADER_CLASSLIST = ["card-header", "is-shadowless"];
 export const CARDHEADERTITLE_CLASSLIST = ["card-header-title"];
 
 export const CARDICONCONTAINER_CLASSLIST = ["card-header-icon", "is-size-1"];
@@ -12,5 +12,5 @@ export const READINGLABEL_CLASSLIST = ["heading"];
 export const READINGINDEX_CLASSLIST = ["title"];
 export const READINGDETAIL_CLASSLIST = ["title", "has-text-right", "is-6"];
 
-export const CARDFOOTER_CLASSLIST = ["card-footer"];
+export const CARDFOOTER_CLASSLIST = ["card-footer", "is-borderless"];
 export const CARDFOOTERITEM_CLASSLIST = ["card-footer-item"];
