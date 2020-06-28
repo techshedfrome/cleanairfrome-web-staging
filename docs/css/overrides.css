@@ -188,7 +188,7 @@ background-color: none;
   border: 2px solid #FBDD58;
   border-radius: 8px;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:1024px) {
   .is-pulled-right {
 
     float: none !important;
@@ -207,6 +207,6 @@ background-color: none;
   }
 
 .mainbutton a:hover {
-  background-color: none;
-  color:none;
+  background-color: none !important;
+  color:none !important;
 }
