@@ -200,13 +200,21 @@ background-color: none;
   }
   
   .fa-stack-2x {
-    font-size: 3em !important;
+    font-size: 2.5em !important;
   }
   .fa-stack {
-  line-height: 3em !important;
+  line-height: 2.5.em !important;
   }
 
 .mainbutton a:hover {
   background-color: none !important;
   color:none !important;
+}
+
+.reading-text {
+  font-size:1.2em !important;
+}
+
+.icon.is-large {
+height: 2em !important;
 }
