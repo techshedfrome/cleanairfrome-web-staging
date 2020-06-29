@@ -31,6 +31,7 @@
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="lib/animationTest.js"></script>
+
   <script>
     var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
     function init() {
@@ -76,19 +77,23 @@
 </head>
 
 <body class=" has-text-weight-medium is-centered" onload="init();">
-  <section class="is-medium is-centered ">
-    <div class="hero-body has-text-centered is-12-desktop is-centered">
-      <div class="container is-centered ">
-        <div class="columns is-centered "></div>
-          <div class="column is-12-desktop is-12-mobile is-centered">
+  <section class="is-medium  ">
+    <div class="hero-body has-text-centered is-12-desktop">
+      <div class="container ">
+        <div class="columns"></div>
+          <div class="column is-12-mobile ">
             
-            <div class="has-text-centered">
-              <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:720px; height:240px" class="is-centered px-0 mx-0">
-                <canvas id="canvas" width="720" height="240" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-                <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:720px; height:240px; position: absolute; left: 0px; top: 0px; display: block;">
-                </div>
+            <figure >
+            <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:623px; height:240px" class="has-image-centered">
+              <canvas id="canvas" width="623" height="240" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+              <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:623px; height:240px; position: absolute; left: 0px; top: 0px; display: block;">
               </div>
             </div>
+
+
+
+            
+          </figure>
           
             <h1 class="title is-size-1-desktop  is-size-2-mobile pt-5 ">
               Get Involved
