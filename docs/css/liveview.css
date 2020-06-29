@@ -45,7 +45,28 @@
 .aqi-9-bg  {background-color: rgb(253, 83, 40)}
 .aqi-10-bg {background-color: rgb(158, 33, 33)}
 
+.main-link {
+    color: black;
+    text-decoration: underline;
+    padding: 3px;
+}
+.main-link:hover {
+    background-color: #FBDD58;
+    color: black;
+    text-decoration: none;
+    box-sizing: content-box;
+}
 
+.button.is-warning:hover,
+.button.is-warning.is-hovered {
+    background-color: #fbdd586b;
+    border-color: #FBDD58;
+}
+.hero-buttons {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 :root {
     --example-green-color: rgba(37, 255, 91);
@@ -119,11 +140,11 @@
     margin-top: 0.5em;
     line-height: 1.5em;
     color: var(--example-green-color);
-    margin-left: -0.4em
 }
 
-
-
+.value-band-with-icon {
+    margin-left: -0.4em;
+}
 
 .value-band-filled {
     background: var(--example-green-color);
@@ -134,12 +155,6 @@
     margin-top: -0.5em;
 }
 
-
-.value-band i {
-    /* margin-top: 0.6em; */
-    /* box-sizing: content-box; */
-    /* padding: 0; */
-}
 .value-band a {
  padding: 0 5px;
 }

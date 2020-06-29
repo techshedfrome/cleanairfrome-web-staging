@@ -69,6 +69,7 @@
   },
   "version": "0.0.4",
   "dependencies": {
+    "bulma-divider": "^0.2.0",
     "bulma-switch": "^2.0.0"
   }
 }

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clean Air Frome</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/overrides.css">
+  <!-- <link rel="stylesheet" href="css/overrides.css"> -->
   <link rel="stylesheet" href="css/liveview.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" crossorigin="anonymous"></script>
@@ -44,7 +44,7 @@
 
 
                 <button class="button is-warning has-text-weight-semibold is-outlined is-size-5 is-size-6-mobile"><a
-                    href="Register.html" class="has-text-black ">Sponsor an air sensor</a></button>
+                    href="Register.html" class="has-text-black ">Get involved now</a></button>
 
 
 
@@ -53,7 +53,7 @@
 
             <div class="columns is-gapless">
               <div class="column">
-                <h2 class="title is-size-5"><a href="#start" class="has-text-weight-semibold is-size-6-mobile"> Learn
+                <h2 class="title is-size-5"><a href="#start" class="has-text-weight-semibold is-size-6-mobile main-link "> Learn
                     more about the project</a></h2>
 
               </div>
@@ -99,82 +99,111 @@
         </div>
       </div>
     </div>
-    <div class="container readings" id="itemListContainers">
-      <div class="reading reading-bare level">
-        <div class="level-item level-left">
-          <div>
-            <div class="title is-size-6 has-text-left-tablet mb-3">
-              -1 Rossiters road
-            </div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">
-              5 meters from traffic<br>
-              1 sensor
-            </div>
-          </div>
-        </div>
-        <div class="level-item level-right has-text-centered mt-2">
-          <div>
-            <div class="value-badge-outline is-size-4">
-              <p>3</p>
-            </div>
-            <div class="value-band">Low</div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level">
-        <div class="level-item level-left-tablet">
-          <div>
-            <div class="title is-size-6 has-text-left-tablet mb-3">
-              -2 Rossiters road
-            </div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">
-              5 meters from traffic<br>
-              1 sensor
-            </div>
-          </div>
-        </div>
-        <div class="level-item level-right-tablet has-text-centered mt-2">
-          <div>
-            <div class="value-badge-outline is-size-4">
-              <p>3</p>
-            </div>
-            <div class="value-band has-text-centered">
-              <label for="element-toggle">
-                <a><span>Low</span><i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
-              </label>
-            
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container readings" id="itemListContainer"></div>
       
+    <div class="is-divider" data-content="Static Design"></div>
+    <div class="container readings" id="staticDesign">
       <div class="reading reading-bare level">
-        <div class="level-item level-left-desktop">
-          <div>
-            <div class="title is-size-6 has-text-left-tablet mb-3">
-              -3 Rossiters road
-            </div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">
-              5 meters from traffic<br>
-              1 sensor
+        <div class="level-left-tablet">
+          <div class="level-item">
+            <div>
+
+              <div class="title is-size-6 has-text-left-tablet mb-3">
+                -1 Rossiters road
+              </div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">
+                5 meters from traffic<br>
+                1 sensor
+              </div>
             </div>
           </div>
         </div>
-        <div class="level-item level-right-desktop has-text-centered mt-2">
-          <div>
-            <div class="value-badge-outline is-size-4">
-              <p>3</p>
-            </div>
-            <div class="value-band has-text-centered">
-              <label for="element-toggle">
-                <a><span></span>Low<i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
-              </label>
+        <div class="level-right-tablet has-text-centered mt-2">
+          <div class="level-item">
+            <div>
 
+              <div class="value-badge-outline is-size-4">
+                <p>3</p>
+              </div>
+              <div class="value-band value-band-with-icon has-text-centered">
+                <label for="element-toggle">
+                  <a class="main-link"><span>Low</span><i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
+                </label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reading reading-bare level">
+        <div class="level-left-tablet">
+          <div class="level-item">
+            <div>
+
+              <div class="title is-size-6 has-text-left-tablet mb-3">
+                -2 Rossiters road
+              </div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">
+                5 meters from traffic<br>
+                1 sensor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="level-right-tablet has-text-centered mt-2">
+          <div class="level-item">
+            <div>
+
+              <div class="value-badge-outline is-size-4">
+                <p>3</p>
+              </div>
+              <div class="value-band value-band-with-icon has-text-centered">
+                <label for="element-toggle">
+                  <a class="main-link"><span>Low</span><i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
+                </label>
+
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+      <div class="reading reading-bare level">
+        <div class="level-left-tablet">
+          <div class="level-item">
+            <div>
+
+              <div class="title is-size-6 has-text-left-tablet mb-3">
+                -2 Rossiters road
+              </div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">
+                5 meters from traffic<br>
+                1 sensor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="level-right-tablet has-text-centered mt-2">
+          <div class="level-item">
+            <div>
+
+              <div class="value-badge-outline is-size-4">
+                <p>3</p>
+              </div>
+              <div class="value-band value-band-with-icon has-text-centered">
+                <label for="element-toggle">
+                  <a class="main-link"><span>Low</span><i class="fas fa-info-circle has-text-grey ml-2" aria-hidden="true"></i></a>
+                </label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="is-divider" data-content="Other Designs"></div>
+
+    <div class="container readings" id="otherDesigns">
       <div class="reading box">
         <div class="card-content">
           <div class="level ">
@@ -503,10 +532,10 @@
 
             <p class="is-size-5">
               More than five percent of ‘deaths’ in England are attributable to long-term exposure to particulate air
-              pollution, according to the latest data published in the <a href="http://goo.gl/lo56el">Public Health
+              pollution, according to the latest data published in the <a href="http://goo.gl/lo56el" class="main-link">Public Health
                 Outcomes Framework (PHOF)</a>.
               As a result, adverse health effects caused by air pollution are increasingly being <label
-                for="element-toggle"><a>recognised and debated</a></label> at a national
+                for="element-toggle"><a class="main-link">recognised and debated</a></label> at a national
               and international level.
             </p>
           </div>
@@ -542,7 +571,7 @@
     <div class="modal-card ">
       <header class="modal-card-head  pt-4">
         <p class="modal-card-title mb-0">Daily Air Quality Index <br><span class="subtitle is-size-5 ">
-            Information taken only as reference from, <a href="https://uk-air.defra.gov.uk/air-pollution/daqi">Defra<i
+            Information taken only as reference from, <a href="https://uk-air.defra.gov.uk/air-pollution/daqi" class="main-link">Defra<i
                 class="fas fa-external-link-alt has-text-black text-is-7 ml-1" aria-hidden="true"></i></a></span></p>
 
         <label class="modal-close is-large " for="element-toggle"></label>
@@ -640,9 +669,9 @@
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content">
             <h3>Get involved</h3>
-            <p><a href="#">Talk to Frome Council</a></p>
-            <p><a href="#"></a><label for="element-toggle">Make your own air sensor</label></p>
-            <p><a href="Register.html">Host an air sensor.</a></p>
+            <p><a href="#" class="main-link">Talk to Frome Council</a></p>
+            <p><a href="#" class="main-link"></a><label for="element-toggle">Make your own air sensor</label></p>
+            <p><a href="Register.html" class="main-link">Host an air sensor.</a></p>
           </div>
         </div>
       </div>
