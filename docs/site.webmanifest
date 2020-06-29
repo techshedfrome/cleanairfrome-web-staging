@@ -1,6 +1,8 @@
 {
     "name": "Clean Air Frome",
     "short_name": "Clean Air Frome",
+    "start_url": "index.html",
+    "lang": "en-GB",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
