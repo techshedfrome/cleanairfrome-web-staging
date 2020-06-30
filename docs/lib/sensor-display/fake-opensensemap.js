@@ -1,16 +1,20 @@
 
-const sensorUrl = 'https://api.opensensemap.org/boxes?grouptag=cleanairfrome&full=true';
+const sensorUrl = 'https://api.opensensemap.org/boxes?grouptag=cleanairfrome';
 import { getAqIndexForMeasurements, pm25ToIndex, pm10ToIndex } from "./airquality-index.js"
 
 export function fetchMeasurements() {
-    return new Promise((resolve, reject)=> 
-    {
+    return new Promise((resolve) => {
         var devices = [
-            createFakeDevice("FAKE-1", -2, 5),
-            createFakeDevice("FAKE-2", -2, 5)
+            createFakeDevice("FAKE-1", 51.224564, -2.32537),
+            createFakeDevice("FAKE-2", 51.22564, -2.32584),
+            createFakeDevice("FAKE-3", 51.22862, -2.31921),
+            createFakeDevice("FAKE-4", 51.23061, -2.32174),
+            createFakeDevice("FAKE-5", 51.23264, -2.31054),
+            createFakeDevice("FAKE-5", 51.22927, -2.33726),
+            createFakeDevice("FAKE-7", 51.237461, -2.314287)
         ];
-        console.log(devices);
-        resolve( getSimpleDeviceObject(devices) );
+        // console.log(devices);
+        resolve(getSimpleDeviceObject(devices));
         return;
     })
 }
@@ -18,79 +22,81 @@ const staleDataAgeInHours = 2;
 
 function createFakeDevice(name, lat, lon) {
     return {
-                createdAt: "2020-06-14T11:41:39.358Z",
-                currentLocation: { timestamp: "2020-06-14T11:41:39.353Z", coordinates: [lon, lat], type: "Point" },
-                description: name + " - description",
-                exposure: "outdoor",
-                grouptag: "cleanairfrome",
-                lastMeasurementAt: "2020-06-14T12:44:57.013Z",
-                model: "luftdaten_sds011_dht22",
-                name: name,
-                updatedAt: "2020-06-27T11:41:30.957Z",
-                _id: name + "5ee60cf3dc1438001b1036ea"
-            };
+        createdAt: "2020-06-14T11:41:39.358Z",
+        currentLocation: { timestamp: "2020-06-14T11:41:39.353Z", coordinates: [lon, lat], type: "Point" },
+        description: name + " - description",
+        exposure: "outdoor",
+        grouptag: "cleanairfrome",
+        lastMeasurementAt: "2020-06-14T12:44:57.013Z",
+        model: "luftdaten_sds011_dht22",
+        name: name,
+        updatedAt: "2020-06-27T11:41:30.957Z",
+        _id: name + "5ee60cf3dc1438001b1036ea"
+    };
 }
 
 function getSimpleDeviceObject(opensensemapDevices) {
     return opensensemapDevices.map(x => {
         console.log(x);
         return {
-            boxid: x._id, 
+            boxid: x._id,
             name: x.name,
             latitude: x.currentLocation.coordinates[1],
             longitude: x.currentLocation.coordinates[0],
             streetname: "",
             description: x.description ?? "",
-            // measurements: getMeasurements(x.sensors),
             defraAqi: function () { return getAqIndexForMeasurements(this.measurements) },
-            latestDustReadingDate: function () {
-                return moment().toDate();   
-                // var dustDates = this.measurements.filter(x => x.name.startsWith("PM"))
-                //                                  .map   (x => moment(x.readingTaken));
-                // return moment.max(dustDates).toDate();
-            },
+            latestDustReadingDate: function () { return this.lastMeasurementAt },
             readingIsStale: function () { return checkReadingIsStale(this.latestDustReadingDate()) }
         }
     })
 }
 
 export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sampleHours) {
-    var statsUrl = "https://api.opensensemap.org/statistics/descriptive/?format=json&download=false"
-    // fromDate=2020-06-27T14:54:00Z&toDate=2020-06-27T14:54:00Z
-    statsUrl += "&boxid=" + boxid
-    statsUrl += "&phenomenon=" + phenomenon
-    statsUrl += "&operation=" + statisticalOperation
-    statsUrl += "&window=" + sampleHours + "h"
+    return new Promise((resolve) => {
+        resolve(processValues([createFakeStat(boxid, phenomenon, Math.floor(Math.random() * 101))], phenomenon));
+        return;
+    })
 
-    // columns = [boxId, boxName, exposure, height, lat, lon, phenomenon, sensorType, unit]
-    statsUrl += "&columns=unit,sensorType,phenomenon" 
-
-    var toDate = moment();
-    var fromDate = toDate.subtract(sampleHours, 'hours');
-    statsUrl += "&fromDate=" + fromDate.toISOString();
-    statsUrl += "&toDate=" + toDate.toISOString()
-
-    console.log(statsUrl);
-
-
-    return fetch(statsUrl)
-        .then(throwHttpErrors)
-        .then(res => res.json().then(x =>{
-            var final = x[0];
-            console.log(final);
-            //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
-            var valueFields = Object.keys(final).filter(y => moment(y).isValid());
-            var values = valueFields.map(x => final[x]);
-            //not always a single value, even though sample window is the same ad the filter period
-            // so we us a dumb MAX of the values provided (could use latest...?)
-            final.value = Math.max(...values);
-            if (phenomenon === "PM2.5") final.defraAqi = pm25ToIndex(final.value);
-            if (phenomenon === "PM10")  final.defraAqi = pm10ToIndex(final.value);
-            console.log(final);
-            return final;
-          })
-        )
+    // return fetch(statsUrl)
+    //     .then(throwHttpErrors)
+    //     .then(res => res.json().then(x => processValues(x, phenomenon))
+    //     )
 }
+
+
+function processValues(values, phenomenon) {
+    values = values[0];
+    //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
+    var valueFields = Object.keys(values).filter(y => moment(y).isValid());
+    var values = valueFields.map(x => values[x]);
+    //not always a single value, even though sample window is the same ad the filter period
+    // so we us a dumb MAX of the values provided (could use latest...?)
+    values.value = Math.max(...values);
+    console.log(values);
+    if (phenomenon === "PM2.5")
+        values.defraAqi = pm25ToIndex(values.value);
+    if (phenomenon === "PM10")
+        values.defraAqi = pm10ToIndex(values.value);
+    console.log(values);
+    return values;
+}
+
+
+function createFakeStat(sensorId, phenomenon , fakeValue) {
+    console.log(fakeValue);
+    return {
+        "2020-06-30T15:00:00.000Z": fakeValue/2,
+        "2020-06-30T18:00:00.000Z": fakeValue,
+        defraAqi: 1,
+        phenomenon: phenomenon,
+        sensorId: sensorId,
+        sensorType: "FAKE",
+        unit: "µg/m³"
+    };
+}
+
+
 
 
 export function checkReadingIsStale(latestDustReadingDate) {
@@ -112,9 +118,13 @@ function getMeasurements(sensors) {
 
 function throwHttpErrors(request) {
     if (!request.ok) {
+        console.log(request.Error);
         throw Error(request.status);
-    }
+    };
     return request;
+}
+function printError(error) {
+    console.log(error);
 }
 
 // Example box: https://opensensemap.org/explore/5eeba76aee9b25001b3ba5c7
@@ -139,7 +149,7 @@ function throwHttpErrors(request) {
         arithmeticMean, geometricMean, harmonicMean, max, median, min, mode, rootMeanSquare, standardDeviation, sum, variance
 
 
-    
+
     https://api.opensensemap.org/statistics/descriptive/?
     boxid=5eeba76aee9b25001b3ba5c7
     &phenomenon=PM2.5
@@ -176,12 +186,12 @@ function throwHttpErrors(request) {
             "2020-06-27T12:00:00.000Z": 0.8194224813473212
         }
     ]
-    
+
     https://api.opensensemap.org/statistics/descriptive/?boxid=5eeba76aee9b25001b3ba5c7&phenomenon=PM2.5&fromDate=2020-06-27T11:00:00Z&toDate=2020-06-27T14:00:00Z&window=110m&operation=harmonicMean&format=json
-    
+
     https://api.opensensemap.org/statistics/descriptive/?boxid=5eeba76aee9b25001b3ba5c7&phenomenon=PM2.5&&fromDate=2020-06-27T14:54:00Z&toDate=2020-06-27T14:54:00Z&window=3h&operation=harmonicMean&format=json
     https://api.opensensemap.org/statistics/descriptive/?boxid=5eeba76aee9b25001b3ba5c7&phenomenon=PM2.5&&fromDate=2020-06-27T14:54:00Z&toDate=2020-06-27T14:54:00Z&window=3h&operation=arithmeticMean&format=json
-    
+
     https://api.opensensemap.org/statistics/descriptive/?
     boxid=5eeba76aee9b25001b3ba5c7&
     phenomenon=PM2.5&
@@ -237,7 +247,7 @@ function throwHttpErrors(request) {
            "2020-06-27T14:24:00.000Z": 1.62
         }
     ]
-    
+
 
 
 result structure is annoying:

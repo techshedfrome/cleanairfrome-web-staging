@@ -22,15 +22,17 @@ function getSimpleDeviceObject(opensensemapDevices) {
             streetname: "",
             description: x.description ?? "",
             measurements: getMeasurements(x.sensors),
-            defraAqi: function () { return getAqIndexForMeasurements(this.measurements) },
-            latestDustReadingDate: function () {
-                var dustDates = this.measurements.filter(x => x.name.startsWith("PM"))
-                                                 .map   (x => moment(x.readingTaken));
-                return moment.max(dustDates).toDate();
-            },
-            readingIsStale: function () { return checkReadingIsStale(this.latestDustReadingDate()) }
+            defraAqi:               function () { return getAqIndexForMeasurements(this.measurements) },
+            latestDustReadingDate:  function () { return getLastDustReadingDateFromMeasurements(this.measurements) },
+            readingIsStale:         function () { return checkReadingIsStale(this.latestDustReadingDate()) }
         }
     })
+}
+
+function getLastDustReadingDateFromMeasurements(measurements) {
+    var dustDates = measurements.filter(x => x.name.startsWith("PM"))
+        .map(x => moment(x.readingTaken));
+    return moment.max(dustDates).toDate();
 }
 
 export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sampleHours) {
@@ -54,23 +56,26 @@ export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sample
 
     return fetch(statsUrl)
         .then(throwHttpErrors)
-        .then(res => res.json().then(x =>{
-            var final = x[0];
-
-            //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
-            var valueFields = Object.keys(final).filter(y => moment(y).isValid());
-            var values = valueFields.map(x => final[x]);
-            //not always a single value, even though sample window is the same ad the filter period
-            // so we us a dumb MAX of the values provided (could use latest...?)
-            final.value = Math.max(...values);
-            if (phenomenon === "PM2.5") final.defraAqi = pm25ToIndex(final.value);
-            if (phenomenon === "PM10")  final.defraAqi = pm10ToIndex(final.value);
-            console.log(final);
-            return final;
-          })
+        .then(res => res.json().then(x => processValues(x, phenomenon))
         )
 }
 
+
+function processValues(values, phenomenon) {
+    values = values[0];
+    //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
+    var valueFields = Object.keys(values).filter(y => moment(y).isValid());
+    var values = valueFields.map(x => values[x]);
+    //not always a single value, even though sample window is the same ad the filter period
+    // so we us a dumb MAX of the values provided (could use latest...?)
+    values.value = Math.max(...values);
+    if (phenomenon === "PM2.5")
+        values.defraAqi = pm25ToIndex(values.value);
+    if (phenomenon === "PM10")
+        values.defraAqi = pm10ToIndex(values.value);
+    console.log(values);
+    return values;
+}
 
 export function checkReadingIsStale(latestDustReadingDate) {
     var freshnessLimit = moment().subtract(staleDataAgeInHours, 'hours');

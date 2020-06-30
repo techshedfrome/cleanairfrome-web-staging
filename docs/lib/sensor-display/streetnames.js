@@ -35,6 +35,10 @@ function streetnameFromCoords(lat, lon, success) {
     var url = streetnameUrl + '?format=json&lat=' + lat + '&lon=' + lon
     fetch(url).then(throwHttpErrors)
         .then(res => res.json())
+        .then(data => {
+            if (data.error) throw Error(data.error)
+            return;
+        })
         .then((data) => {
             knownLocationStreets.set(locationKey, data.address.road);
             success(knownLocationStreets.get(locationKey));
