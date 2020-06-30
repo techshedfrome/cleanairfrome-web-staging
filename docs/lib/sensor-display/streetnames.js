@@ -48,3 +48,6 @@ function throwHttpErrors(request) {
     }
     return request;
 }
+function printError(error) {
+    console.log(error);
+}

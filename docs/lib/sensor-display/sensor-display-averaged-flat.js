@@ -16,6 +16,7 @@ Experiments and custom CSS here:
 /*
 
 get list
+  Work out if value is stale
 draw basic structure
     calling back to populate the values async, 
         possibly show a spinner with some basic transition to show value

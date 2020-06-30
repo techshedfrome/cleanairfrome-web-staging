@@ -1,6 +1,6 @@
 import { getColourClassForAqi } from "./airquality-index.js"
 import { loadStreetNames } from "./streetnames.js"
-import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./opensensemap.js"
+import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./fake-opensensemap.js"
 import * as css from "./styling-constants.js"
 /*
 Provisional vanilla JS to populate sensor readings direcly from OpenMapSense API
