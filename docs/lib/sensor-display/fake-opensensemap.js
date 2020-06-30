@@ -10,7 +10,7 @@ export function fetchMeasurements() {
             createFakeDevice("FAKE-3", 51.22862, -2.31921),
             createFakeDevice("FAKE-4", 51.23061, -2.32174),
             createFakeDevice("FAKE-5", 51.23264, -2.31054),
-            createFakeDevice("FAKE-5", 51.22927, -2.33726),
+            createFakeDevice("FAKE-6", 51.22927, -2.33726),
             createFakeDevice("FAKE-7", 51.237461, -2.314287)
         ];
         // console.log(devices);
