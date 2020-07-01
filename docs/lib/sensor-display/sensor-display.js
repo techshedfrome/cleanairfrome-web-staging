@@ -25,6 +25,7 @@ function populateLiveView() {
 }
 
 function updateReadings(data) {
+    console.log(data);
     var section = document.querySelector("#itemListContainer");
     section.innerText = '';
     data.sort((a,b)=>alphaSort(a.name, b.name));

@@ -1,6 +1,7 @@
 import { getColourClassForAqi } from "./airquality-index.js"
 import { loadStreetNames } from "./streetnames.js"
-import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./opensensemap.js"
+// import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./opensensemap.js"
+import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./fake-opensensemap.js"
 import * as css from "./styling-constants.js"
 /*
 Provisional vanilla JS to populate sensor readings direcly from OpenMapSense API
@@ -48,13 +49,6 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
     var values = document.createElement("DIV");
     values.classList.add(...css.READINGS_CLASSLIST);
     values.id = deviceName;
-    // if (showDetail.checked)
-    //     measurements.filter(x=> x.name.startsWith('PM')).forEach(measurement =>
-    //         values.appendChild(sensorReading(...Object.values(measurement), css.READINGDETAIL_CLASSLIST)));
-
-    // values.appendChild(sensorReading("Defra DAQI", undefined, "", 
-    //                                  stale && !showDetail.checked ? "-" : defraAqi, undefined, 
-    //                                  css.READINGINDEX_CLASSLIST))
 
     if (!stale) {
         fetchDeviceStats(boxid, "PM2.5", "geometricMean", 3)
@@ -73,7 +67,6 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
                     undefined,
                     css.READINGINDEX_CLASSLIST))
 
-                    console.log(pm10);
                 if (showDetail.checked)
                     values.appendChild(sensorReading(pm10.phenomenon, undefined, pm10.unit, pm10.value.toFixed(2), undefined, css.READINGDETAIL_CLASSLIST));
             });

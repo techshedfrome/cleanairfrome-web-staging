@@ -28,6 +28,7 @@ export function getColourClassForAqi(defraAqi, readingIsStale) {
     return airQualityClasses[defraAqi - 1];
 }
 export function getAqIndexForMeasurements(measurements) {
+    if (!measurements) return '-'
     var pm10 = measurements.find(x => x.name == 'PM10');
     var pm25 = measurements.find(x => x.name == 'PM2.5');
     return Math.max(pm25ToIndex(pm25.reading), pm10ToIndex(pm10.reading));
