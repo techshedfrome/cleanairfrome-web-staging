@@ -6,7 +6,7 @@
     align-items: top;
     justify-content: center;
     grid-auto-rows: max-content;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 0.27fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 0.27fr));
 }
 
 .readings .reading{
@@ -45,6 +45,31 @@
 .aqi-9-bg  {background-color: rgb(253, 83, 40)}
 .aqi-10-bg {background-color: rgb(158, 33, 33)}
 
+:root {
+    --example-green-color: rgba(37, 255, 91);
+    --defra-low-color:      #43962A;
+    --defra-moderate-color: #F29D38;
+    --defra-high-color:     #EB3223;
+    --defra-very-high-color:#8C2094;
+}
+
+.aqi-band-low       {
+    color: var(--defra-low-color);
+    border: 0.2em solid var(--defra-low-color);
+}
+.aqi-band-moderate  {
+    color: var(--defra-moderate-color);
+    border: 0.2em solid var(--defra-moderate-color);
+}
+.aqi-band-high      {
+    color: var(--defra-high-color);
+    border: 0.2em solid var(--defra-high-color);
+}
+.aqi-band-very-high {
+    color: var(--defra-very-high-color);
+    border: 0.2em solid var(--defra-very-high-color);
+}
+
 .main-link {
     color: black;
     text-decoration: underline;
@@ -66,10 +91,6 @@
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
-}
-
-:root {
-    --example-green-color: rgba(37, 255, 91);
 }
 
 .value-badge {
@@ -107,14 +128,13 @@
 }
 
 .value-badge-outline {
-    border: 0.2em solid var(--example-green-color);
-    color: var(--example-green-color);
     border-radius: 1.5em;
     width: 1.6em;
     height: 1.6em;
     line-height: 2em;
     box-sizing: content-box;
     line-height: 1.6em;
+    margin: 0 0 0 auto;
 }
 
 .value-badge-outline p {

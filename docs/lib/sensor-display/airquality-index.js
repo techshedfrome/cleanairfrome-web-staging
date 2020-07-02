@@ -9,7 +9,7 @@ Band	 Low  Low	  Low	  Moderate	Moderate	Moderate	High	High	High	  Very High
 µg/m³	0-16	17-33	34-50	51-58	    59-66	    67-75	    76-83	84-91	92-100	101 or more
 */
 
-var airQualityClasses = ["aqi-1",
+const airQualityClasses = ["aqi-1",
     "aqi-2",
     "aqi-3",
     "aqi-4",
@@ -20,7 +20,7 @@ var airQualityClasses = ["aqi-1",
     "aqi-9",
     "aqi-10"];
 
-var staleReadingClass = "has-text-grey-lighter";
+const staleReadingClass = "has-text-grey-lighter";
 
 export function getColourClassForAqi(defraAqi, readingIsStale) {
     //use light grey icon if values are stale
@@ -29,9 +29,16 @@ export function getColourClassForAqi(defraAqi, readingIsStale) {
 }
 export function getAqIndexForMeasurements(measurements) {
     if (!measurements) return '-'
-    var pm10 = measurements.find(x => x.name == 'PM10');
     var pm25 = measurements.find(x => x.name == 'PM2.5');
-    return Math.max(pm25ToIndex(pm25.reading), pm10ToIndex(pm10.reading));
+    var pm10 = measurements.find(x => x.name == 'PM10');
+    return getAqIndexForValues(pm25, pm10);
+}
+
+export function getAqIndexForValues(pm2_5_value, pm10_value) {
+    if (isNaN(pm2_5_value) || pm2_5_value < 0) pm2_5_value = 0;
+    if (isNaN(pm10_value)  || pm10_value  < 0) pm10_value  = 0;
+    if (pm2_5_value + pm10_value == 0) return '-'
+    return Math.max(pm25ToIndex(pm2_5_value), pm10ToIndex(pm10_value));
 }
 
 export function pm25ToIndex(value) {
@@ -59,4 +66,39 @@ export function pm10ToIndex(value) {
     if (value <= 91) return 8;
     if (value <= 100) return 9;
     return 10;
+}
+
+
+
+const pollutionBandClasses = [
+    "aqi-band-low",
+    "aqi-band-moderate",
+    "aqi-band-high",
+    "aqi-band-very-high",
+];
+
+export function getColourClassForPollutionBandFromAqi(defraAqi, readingIsStale) {
+    //use light grey icon if values are stale
+    if (readingIsStale) return staleReadingClass;
+    return pollutionBandClasses[indexToPollutionBandNumberFromAqi(defraAqi) - 1];
+}
+
+
+const pollutionBandText = [
+    "Low",
+    "Moderate",
+    "High",
+    "Very High",
+];
+
+export function indexToPollutionBandFromAqi(index) {
+    return pollutionBandText[indexToPollutionBandNumberFromAqi(index) - 1];
+}
+
+function indexToPollutionBandNumberFromAqi(index) {
+    if (!index) return '-';
+    if (index <= 3) return 1;
+    if (index <= 6) return 2;
+    if (index <= 9) return 3;
+    return 4;
 }
