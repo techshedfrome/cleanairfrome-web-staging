@@ -144,7 +144,7 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
 
 function cardWithTitle(titleText, iconColorClass) {
   var card = document.createElement("DIV");
-  card.classList.add("reading", "reading-bare", "level");
+  card.classList.add("reading", "reading-bare", "level", "is-mobile", "is-marginless");
   card.appendChild(cardHeaderWithTitle(titleText, iconColorClass));
   return card;
 }
@@ -179,7 +179,7 @@ function cardHeaderWithTitle(titleText, iconColorClass) {
 
 function sensorReading(name, type, units, reading, readingTaken, valueClasslist) {
   var readingLine = document.createElement("DIV");
-  readingLine.classList.add("level-item", );
+  readingLine.classList.add("level-item");
 
   var inner = document.createElement("DIV");
   var value = document.createElement("DIV");
