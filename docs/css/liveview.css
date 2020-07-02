@@ -94,6 +94,28 @@
 }
 
 .value-badge {
+    border-radius: 1.5em;
+    width: 1.6em;
+    height: 1.6em;
+    line-height: 2em;
+    box-sizing: content-box;
+    line-height: 1.6em;
+    margin: 0 0 0 auto;
+}
+
+.value-badge p {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.main-link {
+    font-size: 90%;
+}
+
+
+
+.value-badge-1 {
     background: radial-gradient(ellipse at center,
             var(--example-green-color) 40%,
             rgba(107, 255, 107, 0.493) 70%,
@@ -128,6 +150,8 @@
 }
 
 .value-badge-outline {
+    border: 0.2em solid var(--example-green-color);
+    color: var(--example-green-color);
     border-radius: 1.5em;
     width: 1.6em;
     height: 1.6em;

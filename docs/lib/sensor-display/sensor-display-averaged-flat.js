@@ -185,7 +185,7 @@ function sensorReading(name, type, units, reading, readingTaken, valueClasslist)
   var value = document.createElement("DIV");
   var colorClass = getColourClassForPollutionBandFromAqi(reading);
   console.log(colorClass);
-  value.classList.add("value-badge-outline", "is-size-4", colorClass);
+  value.classList.add("value-badge", "is-size-4", colorClass);
   var valueP = document.createElement("P");
   valueP.innerText = '' + reading + units;
   value.appendChild(valueP);
