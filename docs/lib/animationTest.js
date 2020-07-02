@@ -698,8 +698,9 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 	window.addEventListener('resize', resizeCanvas);		
 	resizeCanvas();		
 	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
+		var w = lib.properties.width, h = lib.properties.height;	
+			
+		var iw = window.innerWidth-50, ih=window.innerHeight;			
 		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
 		if(isResp) {                
 			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
