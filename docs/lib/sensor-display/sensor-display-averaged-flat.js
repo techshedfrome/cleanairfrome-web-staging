@@ -151,10 +151,7 @@ function cardWithTitle(titleText, iconColorClass) {
 
 function cardHeaderWithTitle(titleText, iconColorClass) {
   var header = document.createElement("DIV");
-  header.classList.add("level-left-tablet");
-
-  var levelItem = document.createElement("DIV");
-  levelItem.classList.add("level-left-tablet");
+  header.classList.add("level-left-tablet",  "has-text-left");
   
   var inner = document.createElement("DIV");
 
