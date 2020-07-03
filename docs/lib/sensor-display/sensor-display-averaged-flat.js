@@ -28,11 +28,9 @@ draw basic structure
 Eventually move to PWA with a component framework, but need to plan build/packaging
 */
 
+const boolSortAsc = (a, b) => (a === b) ? 0 : a ? 1 : -1;
 
 document.addEventListener("DOMContentLoaded", populateLiveView);
-
-var showDetail = document.querySelector("#showDetail");
-showDetail.addEventListener("change", populateLiveView);
 
 function populateLiveView() {
   //TODO: start using a data persistance/caching scheme and/or SPA framework or PWA structure to prevent spamming the API
@@ -100,8 +98,6 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
   }
 
   card.appendChild(values);
-  if (showDetail.checked)
-    card.appendChild(footerWithTextItems([moment(latestDustReadingDate).format("ddd Do MMM, HH:mm")]));
   return card;
 }
 
@@ -120,7 +116,7 @@ function cardHeaderWithTitle(titleText, iconColorClass) {
   var inner = document.createElement("DIV");
 
   var title = document.createElement("DIV");
-  title.classList.add("title","is-size-6","has-text-left-tablet","mb-3");
+  title.classList.add("title","is-size-5","has-text-left-tablet","mb-3");
   title.id = titleText + '-title';
   title.innerText = titleText;
   inner.appendChild(title);
@@ -189,7 +185,6 @@ function printError(error) {
 }
 
 
-const boolSortAsc = (a, b) => (a === b) ? 0 : a ? 1 : -1;
 
 function alphaSort(a, b) {
   var nameA = a.toUpperCase(); // ignore upper and lowercase
