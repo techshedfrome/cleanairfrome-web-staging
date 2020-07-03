@@ -4,7 +4,7 @@
     align-items: top;
     justify-content: center;
     grid-auto-rows: max-content;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 0.27fr));
+    grid-template-columns: repeat(auto-fit, minmax(374px, 0.27fr));
 }
 
 .readings .reading{
