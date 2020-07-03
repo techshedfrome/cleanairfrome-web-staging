@@ -26,39 +26,6 @@ draw basic structure
 
 
 Eventually move to PWA with a component framework, but need to plan build/packaging
-
-
-
-    <div class="reading reading-bare level">
-        <div class="level-left-tablet">
-          <div class="level-item">
-            <div>
-              <div class="title is-size-6 has-text-left-tablet mb-3">
-                -1 Rossiters road
-              </div>
-              <div class="has-text-left-tablet has-text-weight-normal is-size-6">
-                5 meters from traffic<br>
-                1 sensor
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="level-right-tablet has-text-centered mt-2">
-          <div class="level-item">
-            <div>
-              <div class="value-badge-outline is-size-4">
-                <p>3</p>
-              </div>
-              <div class="value-band value-band-with-icon has-text-centered">
-                <label for="element-toggle">
-                  <a class="main-link"><span>Low</span><i class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 */
 
 
@@ -69,7 +36,6 @@ showDetail.addEventListener("change", populateLiveView);
 
 function populateLiveView() {
   //TODO: start using a data persistance/caching scheme and/or SPA framework or PWA structure to prevent spamming the API
-  //TODO: extend the data fetching to smooth the changes using a rolling average of recent values rather than a point measurement
   fetchMeasurements()
     .then(populateSensorList)
     .catch(printError);
@@ -126,8 +92,6 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
               undefined,
               css.READINGINDEX_CLASSLIST))
 
-            // if (showDetail.checked)
-            //   values.appendChild(sensorReading(pm10.phenomenon, undefined, pm10.unit, pm10.value.toFixed(2), undefined, css.READINGDETAIL_CLASSLIST));
           });
       });
   }
@@ -163,6 +127,7 @@ function cardHeaderWithTitle(titleText, iconColorClass) {
 
   var info = document.createElement("DIV");
   info.classList.add("has-text-left-tablet","has-text-weight-normal","is-size-6");
+  //TODO: create an interim store, or parse from OpenSenseMap description
   info.innerHTML = "5 meters from traffic<br>1 sensor";
 
   inner.appendChild(info);
@@ -180,9 +145,10 @@ function sensorReading(name, type, units, reading, readingTaken, valueClasslist)
 
   var inner = document.createElement("DIV");
   var value = document.createElement("DIV");
-  var colorClass = getColourClassForPollutionBandFromAqi(reading);
+  // var colorClass = getColourClassForPollutionBandFromAqi(reading);
+  var colorClass = getColourClassForAqi(reading);
   console.log(colorClass);
-  value.classList.add("value-badge", "is-size-4", colorClass);
+  value.classList.add("value-badge", "is-size-4", "border", colorClass);
   var valueP = document.createElement("P");
   valueP.innerText = '' + reading + units;
   value.appendChild(valueP);

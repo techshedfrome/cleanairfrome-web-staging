@@ -23,52 +23,57 @@
     border: none;
 }
 
-.aqi-1  {color: rgb(37, 255, 91)}
-.aqi-2  {color: rgb(136, 253, 40)}
-.aqi-3  {color: rgb(187, 255, 0)}
-.aqi-4  {color: rgb(238, 255, 1)}
-.aqi-5  {color: rgb(251, 255, 0)}
-.aqi-6  {color: rgb(255, 217, 0)}
-.aqi-7  {color: rgb(255, 196, 0)}
-.aqi-8  {color: rgb(255, 123, 0)}
-.aqi-9  {color: rgb(253, 83, 40)}
-.aqi-10 {color: rgb(158, 33, 33)}
+.aqi-1  {color: var(--aqi-1-color) ;}
+.aqi-2  {color: var(--aqi-2-color) ;}
+.aqi-3  {color: var(--aqi-3-color) ;}
+.aqi-4  {color: var(--aqi-4-color) ;}
+.aqi-5  {color: var(--aqi-5-color) ;}
+.aqi-6  {color: var(--aqi-6-color) ;}
+.aqi-7  {color: var(--aqi-7-color) ;}
+.aqi-8  {color: var(--aqi-8-color) ;}
+.aqi-9  {color: var(--aqi-9-color) ;}
+.aqi-10 {color: var(--aqi-10-color);}
 
-.aqi-1-bg  {background-color: rgb(37, 255, 91)}
-.aqi-2-bg  {background-color: rgb(136, 253, 40)}
-.aqi-3-bg  {background-color: rgb(187, 255, 0)}
-.aqi-4-bg  {background-color: rgb(238, 255, 1)}
-.aqi-5-bg  {background-color: rgb(251, 255, 0)}
-.aqi-6-bg  {background-color: rgb(255, 217, 0)}
-.aqi-7-bg  {background-color: rgb(255, 196, 0)}
-.aqi-8-bg  {background-color: rgb(255, 123, 0)}
-.aqi-9-bg  {background-color: rgb(253, 83, 40)}
-.aqi-10-bg {background-color: rgb(158, 33, 33)}
+
+.aqi-1.border  {border: 0.2em solid var(--aqi-1-color) ;}
+.aqi-2.border  {border: 0.2em solid var(--aqi-2-color) ;}
+.aqi-3.border  {border: 0.2em solid var(--aqi-3-color) ;}
+.aqi-4.border  {border: 0.2em solid var(--aqi-4-color) ;}
+.aqi-5.border  {border: 0.2em solid var(--aqi-5-color) ;}
+.aqi-6.border  {border: 0.2em solid var(--aqi-6-color) ;}
+.aqi-7.border  {border: 0.2em solid var(--aqi-7-color) ;}
+.aqi-8.border  {border: 0.2em solid var(--aqi-8-color) ;}
+.aqi-9.border  {border: 0.2em solid var(--aqi-9-color) ;}
+.aqi-10.border {border: 0.2em solid var(--aqi-10-color);}
+
 
 :root {
-    --example-green-color: rgba(37, 255, 91);
-    --defra-low-color:      #43962A;
-    --defra-moderate-color: #F29D38;
-    --defra-high-color:     #EB3223;
-    --defra-very-high-color:#8C2094;
+    --example-green-color:  rgba(37, 255, 91);
+    --defra-low-color:      rgb(37, 255, 91);
+    --defra-moderate-color: rgb(255, 217, 0);
+    --defra-high-color:     rgb(253, 83, 40);
+    --defra-very-high-color:rgb(224, 28, 224);
+    --aqi-1-color           : rgb(37, 255, 91);
+    --aqi-2-color           : rgb(136, 253, 40);
+    --aqi-3-color           : rgb(166, 226, 2);
+    --aqi-4-color           : rgb(255, 230, 0);
+    --aqi-5-color           : rgb(255, 208, 0);
+    --aqi-6-color           : rgb(255, 187, 0);
+    --aqi-7-color           : rgb(255, 145, 0);
+    --aqi-8-color           : rgb(255, 123, 0);
+    --aqi-9-color           : rgb(253, 83, 40);
+    --aqi-10-color          : rgb(224, 28, 224);
 }
 
-.aqi-band-low       {
-    color: var(--defra-low-color);
-    border: 0.2em solid var(--defra-low-color);
-}
-.aqi-band-moderate  {
-    color: var(--defra-moderate-color);
-    border: 0.2em solid var(--defra-moderate-color);
-}
-.aqi-band-high      {
-    color: var(--defra-high-color);
-    border: 0.2em solid var(--defra-high-color);
-}
-.aqi-band-very-high {
-    color: var(--defra-very-high-color);
-    border: 0.2em solid var(--defra-very-high-color);
-}
+.aqi-band-low       {    color: var(--defra-low-color);}
+.aqi-band-moderate  {    color: var(--defra-moderate-color);}
+.aqi-band-high      {    color: var(--defra-high-color);}
+.aqi-band-very-high {    color: var(--defra-very-high-color);}
+
+.aqi-band-low.border       {    border: 0.2em solid var(--defra-low-color);}
+.aqi-band-moderate.border  {    border: 0.2em solid var(--defra-moderate-color);}
+.aqi-band-high.border      {    border: 0.2em solid var(--defra-high-color);}
+.aqi-band-very-high.border {    border: 0.2em solid var(--defra-very-high-color);}
 
 .main-link {
     color: black;

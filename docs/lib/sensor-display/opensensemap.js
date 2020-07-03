@@ -69,10 +69,8 @@ function processValues(values, phenomenon) {
     //not always a single value, even though sample window is the same ad the filter period
     // so we us a dumb MAX of the values provided (could use latest...?)
     values.value = Math.max(...values);
-    if (phenomenon === "PM2.5")
-        values.defraAqi = pm25ToIndex(values.value);
-    if (phenomenon === "PM10")
-        values.defraAqi = pm10ToIndex(values.value);
+    if (phenomenon === "PM2.5") values.defraAqi = pm25ToIndex(values.value);
+    if (phenomenon === "PM10")  values.defraAqi = pm10ToIndex(values.value);
     console.log(values);
     return values;
 }
