@@ -153,7 +153,7 @@ function sensorReading(units, reading, valueClasslist) {
   var colorClass = getColourClassForAqi(reading);
   value.classList.add("value-badge", "is-size-4", "border", colorClass, ...valueClasslist);
   var valueP = document.createElement("P");
-  valueP.innerText = '' + String(reading ?? "-") + units;
+  valueP.innerText = '' + String(!reading || reading == "NaN" ? "-" : reading) + units;
   value.appendChild(valueP);
 
   var labelDiv = getInfoIconLinkWithText(indexToPollutionBandFromAqi(reading), "element-toggle");
