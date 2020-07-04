@@ -19,16 +19,19 @@ function populateSensorList(data) {
   data.sort((a, b) => alphaSort(a.name, b.name));
   data.sort((a, b) => boolSortAsc(a.readingIsStale(), b.readingIsStale()))
   //TODO: move DOM manipulation to own module(s)
-  
+
   var section = document.querySelector("#itemListContainer");
   section.innerText = '';
   data.forEach(device => {
-    section.appendChild(createInfoBox(device.boxid, device.name,
-      device.defraAqi(),
-      device.measurements,
-      device.latestDustReadingDate()))
-  } )
-  
+    var infoBox = createInfoBox(device.boxid, device.name,
+                                device.defraAqi(),
+                                device.measurements,
+                                device.latestDustReadingDate());
+    infoBox.classList.add("invisible");
+    section.appendChild(infoBox);
+    fadeElementInWhenAdding(infoBox);
+  });
+
   loadStreetNames(data, device => {
     var card = document.querySelector("#" + device.name + "-title");
     card.innerText = device.streetname;
@@ -50,11 +53,7 @@ function addDeviceStats(boxid) {
           .then(pm10 => {
             defraAqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
             values.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"]));
-            var valueBadge = values.querySelector(".value-badge");
-            valueBadge.classList.add("invisible");
-            window.getComputedStyle(valueBadge).opacity;
-
-              valueBadge.classList.add("make-visible");
+            fadeElementInWhenAdding(values.querySelector(".value-badge"));
           });
       });
   }
@@ -64,12 +63,18 @@ function addDeviceStats(boxid) {
 
 }
 
+function fadeElementInWhenAdding(e) {
+  e.classList.add("invisible");
+  window.getComputedStyle(e).opacity;
+  e.classList.add("make-visible");
+}
+
 
 function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustReadingDate) {
   var card = cardWithTitle(deviceName);
   var values = document.createElement("DIV");
   values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
-  values.id = "_"+ boxid;
+  values.id = "_" + boxid;
   values.setAttribute("readingDate", moment(latestDustReadingDate).format());
 
   card.appendChild(values);
@@ -116,7 +121,7 @@ function sensorReading(units, reading, valueClasslist) {
 
   var inner = document.createElement("DIV");
   var value = document.createElement("DIV");
-  
+
   var colorClass = getColourClassForAqi(reading);
   value.classList.add("value-badge", "is-size-4", "border", colorClass, ...valueClasslist);
   var valueP = document.createElement("P");
