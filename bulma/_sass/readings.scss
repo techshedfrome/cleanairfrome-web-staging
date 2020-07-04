@@ -196,16 +196,22 @@
     }
 }
 
-.reading,
-.is-size-5 {
+.reading .is-size-5 {
     @include mobile {
         font-size: 1.1em !important;
     }
 }
 
-.reading, 
-.is-size-6 {
+.reading  .is-size-6 {
     @include mobile {
         font-size: 0.9em !important;
+    }
+}
+
+
+section .pb-6,
+section .pt-6 {
+    @include mobile {
+    padding: 0 !important;
     }
 }
