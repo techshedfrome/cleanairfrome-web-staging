@@ -30,10 +30,8 @@
   left: 0px;
 }
 
-.funkyUnderlineBlue {
-  cursor: pointer;
-  box-shadow: 0 10px 0 0 rgba(50, 153, 221, 0), inset 0 -0.125em rgba(50, 153, 221, .2);
-  color: #06bcef;
+.modal-card table {
+  font-size: 0.86em;
 }
 
 #element-toggle {
@@ -42,6 +40,7 @@
 
 #element-toggle:checked~#myModal {
   display: flex;
+  position: fixed;
 }
 
 #ContactUsModal {
@@ -177,12 +176,6 @@ nav.nav-center ul li a {
   border-radius: 8px;
 }
 
-.Fcard-outline {
-
-  border: 2px solid #CCCCCC;
-  border-radius: 8px;
-}
-
 
 @media screen and (max-width:1024px) {
   .is-pulled-right {
@@ -209,10 +202,6 @@ nav.nav-center ul li a {
   color: white !important;
   border: 1px solid #FBDD58 !important;
 
-}
-
-.reading-text {
-  font-size: 1.2em !important;
 }
 
 .icon.is-large {

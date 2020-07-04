@@ -13,8 +13,21 @@ const staleDataAgeInHours = 2;
 //TODO: add whitelist/initial list cache
 
 
+const deviceWhitelist = 
+[
+"5eeba76aee9b25001b3ba5c7",
+"5ee618b7dc1438001b14eb7f",
+"5ee63c4adc1438001b233b53",
+"5eeb8c02ee9b25001b30c6e0",
+"5eeb9259ee9b25001b334899",
+"5ee60cf3dc1438001b1036ea",
+"5eeba101ee9b25001b391ca0"
+]
+
 function getSimpleDeviceObject(opensensemapDevices) {
-    return opensensemapDevices.map(x => {
+    return opensensemapDevices
+        .filter(x => deviceWhitelist.includes(x._id))
+        .map(x => {
         // console.log(x);
         return {
             boxid: x._id, 
