@@ -15,7 +15,7 @@ const staleDataAgeInHours = 2;
 
 function getSimpleDeviceObject(opensensemapDevices) {
     return opensensemapDevices.map(x => {
-        console.log(x);
+        // console.log(x);
         return {
             boxid: x._id, 
             name: x.name,
@@ -54,7 +54,7 @@ export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sample
     statsUrl += "&fromDate=" + fromDate.toISOString();
     statsUrl += "&toDate=" + toDate.toISOString()
 
-    console.log(statsUrl);
+    // console.log(statsUrl);
 
 
     return fetch(statsUrl)
@@ -74,7 +74,7 @@ function processValues(values, phenomenon) {
     values.value = Math.max(...values);
     if (phenomenon === "PM2.5") values.defraAqi = pm25ToIndex(values.value);
     if (phenomenon === "PM10")  values.defraAqi = pm10ToIndex(values.value);
-    console.log(values);
+    // console.log(values);
     return values;
 }
 
