@@ -75,7 +75,7 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
   var card = cardWithTitle(deviceName, colorClass);
   var values = document.createElement("DIV");
   values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
-  values.id = deviceName;
+  values.id = boxid;
 
   if (!stale) {
     fetchDeviceStats(boxid, "PM2.5", "geometricMean", 3)

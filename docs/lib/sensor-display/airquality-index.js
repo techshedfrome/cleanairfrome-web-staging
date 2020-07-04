@@ -42,7 +42,7 @@ export function getAqIndexForValues(pm2_5_value, pm10_value) {
 }
 
 export function pm25ToIndex(value) {
-    if (value == NaN) return '-';
+    if (!value || value == "-") return '-';
     if (value <= 11) return 1;
     if (value <= 23) return 2;
     if (value <= 35) return 3;
@@ -55,7 +55,7 @@ export function pm25ToIndex(value) {
     return 10;
 }
 export function pm10ToIndex(value) {
-    if (value == NaN) return '-';
+    if (!value || value == "-") return '-';
     if (value <= 16) return 1;
     if (value <= 33) return 2;
     if (value <= 50) return 3;

@@ -23,6 +23,7 @@ function getSimpleDeviceObject(opensensemapDevices) {
             longitude: x.currentLocation.coordinates[0],
             streetname: "",
             description: x.description ?? "",
+            lastMeasurementAt: x.lastMeasurement,
             measurements: getMeasurements(x.sensors),
             defraAqi:               function () { return getAqIndexForMeasurements(this.measurements) },
             latestDustReadingDate:  function () { return getLastDustReadingDateFromMeasurements(this.measurements) },
