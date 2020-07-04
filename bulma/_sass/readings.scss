@@ -41,7 +41,7 @@
     border: 2px solid #FBDD58;
     border-radius: 8px;
     box-shadow: none;
-    background-color: #fff;
+    background-color: #fff !important;
 }
 
 .reading-bare {
@@ -176,6 +176,10 @@
     line-height: 1.6em;
     margin: 0 0 0 auto !important;
     font-weight: normal;
+
+    @include mobile {
+        margin: auto 0 0 auto !important;
+    }
 }
 
 .value-badge p {
@@ -203,11 +207,5 @@
 .is-size-6 {
     @include mobile {
         font-size: 0.9em !important;
-    }
-}
-
-.value-badge {
-    @include mobile {
-        margin: auto 0 0 auto !important;
     }
 }
