@@ -2,20 +2,24 @@
 const sensorUrl = 'https://api.opensensemap.org/boxes?grouptag=cleanairfrome';
 import { getAqIndexForMeasurements, pm25ToIndex, pm10ToIndex } from "./airquality-index.js"
 
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 export function fetchMeasurements() {
-    return new Promise((resolve) => {
-        var devices = [
-            createFakeDevice("FAKE-1", 51.224564, -2.32537),
-            createFakeDevice("FAKE-2", 51.22564, -2.32584),
-            createFakeDevice("FAKE-3", 51.22862, -2.31921),
-            createFakeDevice("FAKE-4", 51.23061, -2.32174),
-            createFakeDevice("FAKE-5", 51.23264, -2.31054),
-            createFakeDevice("FAKE-6", 51.22927, -2.33726),
-            createFakeDevice("FAKE-7", 51.237461, -2.314287)
-        ];
-        resolve(getSimpleDeviceObject(devices));
-        return;
-    })
+    return new Promise((resolve) =>
+        wait(generateRandom(0, 400)).then(() => {
+            var devices = [
+                createFakeDevice("FAKE-1", 51.224564, -2.32537),
+                createFakeDevice("FAKE-2", 51.22564, -2.32584),
+                createFakeDevice("FAKE-3", 51.22862, -2.31921),
+                createFakeDevice("FAKE-4", 51.23061, -2.32174),
+                createFakeDevice("FAKE-5", 51.23264, -2.31054),
+                createFakeDevice("FAKE-6", 51.22927, -2.33726),
+                createFakeDevice("FAKE-7", 51.237461, -2.314287)
+            ];
+            resolve(getSimpleDeviceObject(devices));
+            return;
+        })
+    )
 }
 const staleDataAgeInHours = 2;
 
@@ -57,13 +61,16 @@ function getSimpleDeviceObject(opensensemapDevices) {
 
 export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sampleHours) {
 
-    return new Promise((resolve) => {
-        // random number between -20 and 110 to enable failed readings
-        var value = generateRandom(0,110);
-        if(value<0) value = '-';
-        resolve(processValues([createFakeStat(boxid, phenomenon, value)], phenomenon));
-        return;
-    })
+    return new Promise((resolve) =>
+        wait(generateRandom(50, 300)).then(() => {
+            // random number between -20 and 110 to enable failed readings
+            var value = generateRandom(0, 110);
+            if (value < 0) value = '-';
+            resolve(processValues([createFakeStat(boxid, phenomenon, value)], phenomenon));
+            return;
+
+        })
+    )
 
     // return fetch(statsUrl)
     //     .then(throwHttpErrors)
@@ -86,15 +93,15 @@ function processValues(values, phenomenon) {
     //not always a single value, even though sample window is the same ad the filter period
     // so we us a dumb MAX of the values provided (could use latest...?)
     values.value = Math.max(...values);
-    if (phenomenon === "PM2.5")  values.defraAqi = pm25ToIndex(values.value);
-    if (phenomenon === "PM10")   values.defraAqi = pm10ToIndex(values.value);
+    if (phenomenon === "PM2.5") values.defraAqi = pm25ToIndex(values.value);
+    if (phenomenon === "PM10") values.defraAqi = pm10ToIndex(values.value);
     return values;
 }
 
 
-function createFakeStat(sensorId, phenomenon , fakeValue) {
+function createFakeStat(sensorId, phenomenon, fakeValue) {
     return {
-        "2020-06-30T15:00:00.000Z": fakeValue/2,
+        "2020-06-30T15:00:00.000Z": fakeValue / 2,
         "2020-06-30T18:00:00.000Z": fakeValue,
         defraAqi: '-',
         phenomenon: phenomenon,
