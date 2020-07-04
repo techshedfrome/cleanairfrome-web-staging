@@ -160,7 +160,7 @@ function sensorReading(name, type, units, reading, readingTaken, valueClasslist)
 
 function getInfoIconLinkWithText(text, forId) {
   var label = document.createElement("LABEL");
-  label.for = forId;
+  label.htmlFor = forId;
 
   var a = document.createElement("A");
   a.classList.add("main-link");
@@ -168,7 +168,7 @@ function getInfoIconLinkWithText(text, forId) {
   var textSpan = document.createElement("SPAN");
   textSpan.innerText = text;
 
-  var i = document.createElement("A");
+  var i = document.createElement("I");
   i.classList.add("fas", "fa-info-circle", "has-text-grey", "ml-1");
   i.setAttribute("aria-hidden", "true");
 

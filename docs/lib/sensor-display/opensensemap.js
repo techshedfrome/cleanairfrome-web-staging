@@ -10,6 +10,8 @@ export function fetchMeasurements() {
 }
 const staleDataAgeInHours = 2;
 
+//TODO: add whitelist/initial list cache
+
 
 function getSimpleDeviceObject(opensensemapDevices) {
     return opensensemapDevices.map(x => {
