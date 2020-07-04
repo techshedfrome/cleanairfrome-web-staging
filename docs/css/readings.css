@@ -22,6 +22,19 @@
     border: none;
 }
 
+
+
+.invisible {
+    opacity: 0;
+}
+.make-visible {
+    transition-property: opacity;
+    /* transition-delay: 0.2s; */
+    transition-duration: .8s;
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+}
+
 .aqi-1  {color: var(--aqi-1-color) ;}
 .aqi-2  {color: var(--aqi-2-color) ;}
 .aqi-3  {color: var(--aqi-3-color) ;}
@@ -79,6 +92,7 @@
     box-sizing: content-box;
     line-height: 1.6em;
     margin: 0 0 0 auto;
+    font-weight: normal;
 }
 
 .value-badge p {

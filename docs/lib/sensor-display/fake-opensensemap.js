@@ -21,6 +21,7 @@ const staleDataAgeInHours = 2;
 
 function createFakeDevice(name, lat, lon) {
     var now = moment();
+    var boxid = generateRandom(1, 50000);
     //make 1 in 5 appear offline
     var measurementDate = generateRandom(1, 5) != 1 ? now : now.subtract(staleDataAgeInHours + 1, "hours");
     return {

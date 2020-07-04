@@ -50,52 +50,60 @@ function populateSensorList(data) {
   //populate itemListContainer from data
   var section = document.querySelector("#itemListContainer");
   section.innerText = '';
-  data.forEach(device => 
-    {
-      section.appendChild(createInfoBox(device.boxid, device.name,
-                                        device.defraAqi(),
-                                        device.measurements,
-                                        device.latestDustReadingDate()))
-      }
+  data.forEach(device => {
+    section.appendChild(createInfoBox(device.boxid, device.name,
+      device.defraAqi(),
+      device.measurements,
+      device.latestDustReadingDate()))
+  }
   )
   //Not sure whether to pass API fetch lambda into DOM generation or have success callback call into DOM
   loadStreetNames(data, device => {
     var card = document.querySelector("#" + device.name + "-title");
     card.innerText = device.streetname;
   });
-  //loadReadings
-  //    loop through sensor DOM elements and call API to fetch reading
-  //    set reading with transition
+
+  data.forEach(device => addDeviceStats(device.boxid));
 }
 
-
-function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustReadingDate) {
+function addDeviceStats(boxid) {
+  var values = document.querySelector("#_" + boxid);
+  var latestDustReadingDate = values.getAttribute("readingDate");
   var stale = checkReadingIsStale(latestDustReadingDate);
-  var colorClass = getColourClassForAqi(defraAqi, stale);
-  var card = cardWithTitle(deviceName, colorClass);
-  var values = document.createElement("DIV");
-  values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
-  values.id = boxid;
+  var defraAqi;
 
   if (!stale) {
     fetchDeviceStats(boxid, "PM2.5", "geometricMean", 3)
       .then(pm25 => {
         fetchDeviceStats(boxid, "PM10", "geometricMean", 3)
           .then(pm10 => {
-            var daqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
-            values.appendChild(sensorReading("Smoothed DAQI",
-              undefined,
-              "",
-              stale ? "-" : daqi,
-              undefined,
-              css.READINGINDEX_CLASSLIST))
+            defraAqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
+            values.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"]));
+            var valueBadge = values.querySelector(".value-badge");
+            valueBadge.classList.add("invisible");
 
+            setTimeout(() =>{
+              valueBadge.classList.add("make-visible")
+              ,0.3
+            });
           });
       });
   }
   else {
-    values.appendChild(sensorReading("Defra DAQI", undefined, "", "-", undefined, ["value-badge-outline", "is-size-4"]))
+    values.appendChild(sensorReading("", "-", ["value-badge-outline", "is-size-4"]))
   }
+
+  
+
+}
+
+
+function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustReadingDate) {
+  var card = cardWithTitle(deviceName);
+  var values = document.createElement("DIV");
+  values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
+  values.id = "_"+ boxid;
+  values.setAttribute("readingDate", moment(latestDustReadingDate).format());
 
   card.appendChild(values);
   return card;
@@ -109,20 +117,20 @@ function cardWithTitle(titleText, iconColorClass) {
   return card;
 }
 
-function cardHeaderWithTitle(titleText, iconColorClass) {
+function cardHeaderWithTitle(titleText) {
   var header = document.createElement("DIV");
-  header.classList.add("level-left-tablet",  "has-text-left");
-  
+  header.classList.add("level-left-tablet", "has-text-left");
+
   var inner = document.createElement("DIV");
 
   var title = document.createElement("DIV");
-  title.classList.add("title","is-size-5","has-text-left-tablet","mb-3");
+  title.classList.add("title", "is-size-5", "has-text-left-tablet", "mb-3");
   title.id = titleText + '-title';
   title.innerText = titleText;
   inner.appendChild(title);
 
   var info = document.createElement("DIV");
-  info.classList.add("has-text-left-tablet","has-text-weight-normal","is-size-6");
+  info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6");
   //TODO: create an interim store, or parse from OpenSenseMap description
   info.innerHTML = "5 meters from traffic<br>1 sensor";
 
@@ -135,7 +143,7 @@ function cardHeaderWithTitle(titleText, iconColorClass) {
 }
 
 
-function sensorReading(name, type, units, reading, readingTaken, valueClasslist) {
+function sensorReading(units, reading, valueClasslist) {
   var readingLine = document.createElement("DIV");
   readingLine.classList.add("level-item");
 
@@ -143,10 +151,9 @@ function sensorReading(name, type, units, reading, readingTaken, valueClasslist)
   var value = document.createElement("DIV");
   // var colorClass = getColourClassForPollutionBandFromAqi(reading);
   var colorClass = getColourClassForAqi(reading);
-  console.log(colorClass);
-  value.classList.add("value-badge", "is-size-4", "border", colorClass);
+  value.classList.add("value-badge", "is-size-4", "border", colorClass, ...valueClasslist);
   var valueP = document.createElement("P");
-  valueP.innerText = '' + reading + units;
+  valueP.innerText = '' + String(reading) + units;
   value.appendChild(valueP);
 
   var labelDiv = getInfoIconLinkWithText(indexToPollutionBandFromAqi(reading), "element-toggle");
