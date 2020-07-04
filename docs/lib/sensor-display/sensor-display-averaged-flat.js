@@ -3,30 +3,6 @@ import { loadStreetNames } from "./streetnames.js"
 // import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./opensensemap.js"
 import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./fake-opensensemap.js"
 import * as css from "./styling-constants.js"
-/*
-Provisional vanilla JS to populate sensor readings direcly from OpenMapSense API
-Expects itemListContainer to exist - injects DOM objects inside of that
-
-Experiments and custom CSS here:
-    https://codepen.io/Formidablr/pen/WNrGGLW?editors=0110
-
-*/
-
-
-
-/*
-
-get list
-  Work out if value is stale
-draw basic structure
-    calling back to populate the values async, 
-      (need Ids on elements for re-finding)
-        possibly show a spinner with some basic transition to show value
-
-
-
-Eventually move to PWA with a component framework, but need to plan build/packaging
-*/
 
 const boolSortAsc = (a, b) => (a === b) ? 0 : a ? 1 : -1;
 
@@ -39,15 +15,11 @@ function populateLiveView() {
     .catch(printError);
 }
 
-
-
 function populateSensorList(data) {
   data.sort((a, b) => alphaSort(a.name, b.name));
   data.sort((a, b) => boolSortAsc(a.readingIsStale(), b.readingIsStale()))
-
-
-  //move DOM manipulation to own module(s)
-  //populate itemListContainer from data
+  //TODO: move DOM manipulation to own module(s)
+  
   var section = document.querySelector("#itemListContainer");
   section.innerText = '';
   data.forEach(device => {
@@ -55,9 +27,8 @@ function populateSensorList(data) {
       device.defraAqi(),
       device.measurements,
       device.latestDustReadingDate()))
-  }
-  )
-  //Not sure whether to pass API fetch lambda into DOM generation or have success callback call into DOM
+  } )
+  
   loadStreetNames(data, device => {
     var card = document.querySelector("#" + device.name + "-title");
     card.innerText = device.streetname;
@@ -81,19 +52,15 @@ function addDeviceStats(boxid) {
             values.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"]));
             var valueBadge = values.querySelector(".value-badge");
             valueBadge.classList.add("invisible");
+            window.getComputedStyle(valueBadge).opacity;
 
-            setTimeout(() =>{
-              valueBadge.classList.add("make-visible")
-              ,0.3
-            });
+              valueBadge.classList.add("make-visible");
           });
       });
   }
   else {
     values.appendChild(sensorReading("", "-", ["value-badge-outline", "is-size-4"]))
   }
-
-  
 
 }
 
@@ -131,7 +98,7 @@ function cardHeaderWithTitle(titleText) {
 
   var info = document.createElement("DIV");
   info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6");
-  //TODO: create an interim store, or parse from OpenSenseMap description
+  //TODO: set description - create an interim store, or parse from OpenSenseMap description
   info.innerHTML = "5 meters from traffic<br>1 sensor";
 
   inner.appendChild(info);
@@ -149,7 +116,7 @@ function sensorReading(units, reading, valueClasslist) {
 
   var inner = document.createElement("DIV");
   var value = document.createElement("DIV");
-  // var colorClass = getColourClassForPollutionBandFromAqi(reading);
+  
   var colorClass = getColourClassForAqi(reading);
   value.classList.add("value-badge", "is-size-4", "border", colorClass, ...valueClasslist);
   var valueP = document.createElement("P");
