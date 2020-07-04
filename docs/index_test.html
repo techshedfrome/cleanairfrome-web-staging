@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clean Air Frome</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/overrides.css">
+  <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
+  <!-- write your code here -->
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="lib/animationTest.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6946A1BE53F4D31B2138B6617D168C7");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.Untitled2();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+
+<body class=" has-text-weight-medium" onload="init();">
+
+  
+ 
+
+    <section class="is-medium ">
+       
+          <div class="container has-text-centered is-fluid">
+            <div class="columns is-centered">
+              <div class="column is-8-desktop is-12-mobile ">
+                <figure>
+                  <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:480px; ">
+                    <canvas id="canvas" width="480px" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+                    <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:480px; position: absolute; left: 0px; top: 0px; display: block;">
+                    </div>
+                  </div>
+                </figure>
+                <h2 class="title is-4 ">Welcome to</h2>
+                <h1 class="title is-1">
+                  Clean Air Frome
+                </h1>
+                <h2 class="subtitle is-4">
+                  A network of air quality sensors in Frome, empowering the community to understand the impacts of the air we breathe and to take action to improve air quality.</h2>
+    
+                <div class="columns is-centered is-mobile">
+                  <div class="column has-text-right">
+                   
+                 
+                    
+                    <button class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile"><a href="#airsensorfrome" class="has-text-black">Air quality in Frome</a></button>
+    
+                   
+                  </div>
+                  <div class="column has-text-left">
+    
+    
+    <button class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile" onclick="window.location.href='get_involved.html'"><span class="has-text-black">Get involved now</span></button>
+     
+               
+               
+              </div>
+                </div>
+    
+                <div class="columns is-gapless">
+                  <div class="column">
+                    <h2 class="title is-size-5"><a href="#start" class="has-text-weight-semibold is-size-6-mobile"> Learn more about the project</a></h2>
+                    
+                  </div>
+                </div>
+               
+    
+                <div class="columns is-mobile is-centered ">
+                  <div class="column is-half">
+                    <div class="columns is-mobile">
+                      
+                      <div class="column"> 
+                        <h3 class="has-text-weight-light">Funded by </h3><br>
+                        <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="580px"></a></div>
+                      <div class="column">  <h3 class="has-text-weight-light">Developed by </h3><br><a href="https://www.techshedfrome.org"><img
+                            src="assets/TechShed_Logo_Ani_optimised.gif" width="180px"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        
+      </section>
+  
+  <footer class="footer has-text-centered">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8-desktop is-offset-2-desktop">
+              <div class="content">
+                <p><a href="#">Air Quaility in Frome</a></p>
+                <p><a href="#">Get involved </a></p>
+                <p><a href="#">Contact us</a></p>
+               
+              </div>
+            </div>
+          </div>
+      <div class="columns">
+        <div class="column is-8-desktop is-offset-2-desktop">
+
+         
+
+          <div class="columns is-mobile is-centered ">
+            <div class="column is-half">
+              <div class="columns is-mobile">
+                
+                <div class="column"> 
+                  <h3 class="has-text-weight-semibold">Funded by </h3><br>
+                  <a href="https://www.discoverfrome.co.uk/"><img src="assets/FTC_logo.png" width="180px"></a></div>
+                <div class="column">  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://www.techshedfrome.org"><img
+                      src="assets/TechShed_Logo_Ani_optimised.gif" width="190px"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+          <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
+          If you're interested in creating your own Tech project or want to meet the team to chat get in touch.
+          </p>
+          <p>
+          </p>
+          <p style="margin-top: 1rem;">
+            <a href="http://bulma.io">
+              <img src="made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="lib/main.js"></script>
+</body>
+
+</html>

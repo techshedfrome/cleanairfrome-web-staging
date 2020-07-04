@@ -1,63 +1,65 @@
-.modal-close {	
-    -moz-appearance: none;	
-    -webkit-appearance: none;	
-    background-color: rgba(10, 10, 10, .1)	!important;
-    border: none;	
-    border-radius: 290486px;	
-    cursor: pointer;	
-    pointer-events: auto;	
-    display: inline-block;	
-    flex-grow: 0;	
-    flex-shrink: 0;	
-    font-size: 0;	
-    height: 20px;	
-    max-height: 20px;	
-    max-width: 20px;	
-    min-height: 20px;	
-    min-width: 20px;	
-    outline: 0;	
-    position: relative;	
-    vertical-align: top;	
-    width: 20px	
+.modal-close {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: rgba(10, 10, 10, .1) !important;
+  border: none;
+  border-radius: 290486px;
+  cursor: pointer;
+  pointer-events: auto;
+  display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 0;
+  height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  outline: 0;
+  position: relative;
+  vertical-align: top;
+  width: 20px
 }
 
 .modal-close {
-    color:black !important;
-     float: right !important;
-     height: 40px;
-    top:0px !important;
-     width: 40px;
-     left:0px;
- }
+  color: black !important;
+  float: right !important;
+  height: 40px;
+  top: 0px !important;
+  width: 40px;
+  left: 0px;
+}
 
- .funkyUnderlineBlue {
-    cursor: pointer;
-   box-shadow:  0 10px 0 0 rgba(50,153,221,0), inset 0 -0.125em rgba(50,153,221,.2);
-         color:#06bcef;
+.modal-card table {
+  font-size: 0.86em;
 }
 
 #element-toggle {
-   display: none;
- }
- #element-toggle:checked ~ #myModal {
-   display: flex;
- }
- #ContactUsModal {
-   display: none;
- }
- #ContactUsModal:checked ~ #contactUs {
-   display: flex;
- }
+  display: none;
+}
+
+#element-toggle:checked~#myModal {
+  display: flex;
+  position: fixed;
+}
+
+#ContactUsModal {
+  display: none;
+}
+
+#ContactUsModal:checked~#contactUs {
+  display: flex;
+}
+
 .hideWidget a {
-display: none !important;
+  display: none !important;
 }
 
 
 
 
-a{
-  color:black;
-
+a {
+  color: black;
   text-decoration: underline;
 }
 
@@ -67,19 +69,19 @@ button a {
 
 }
 
- button a:active{
+button a:active {
   text-decoration: none;
   border-bottom: none;
 }
 
-image a:active{
+image a:active {
   border-bottom: none;
 
 }
 
-image a:hover{
+image a:hover {
 
-  background-color:none;
+  background-color: none;
 }
 
 
@@ -87,13 +89,156 @@ a:hover {
   background-color: #FBDD58;
   padding-bottom: 3px;
   padding-top: 3px;
-  color:black;
+  color: black;
   text-decoration: none;
 }
 
 
-a:active{
+a:active {
   border-bottom: 4px solid black;
-  
+
 }
 
+ul.is-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+.second-row {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red
+}
+
+.second-row iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.hero-buttons {
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons .level-item {
+  width: 240px;
+  max-width: 265px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons button {
+  min-width: 240px;
+}
+
+.btn-bg {
+
+  color: #FBDD58;
+  background-color: #FDEB97;
+}
+
+
+.nav-title-header {
+  color: #524E73;
+  text-decoration: none !important;
+}
+
+nav.nav-center ul {
+  text-align: center;
+}
+
+nav.nav-center ul li {
+  display: inline;
+  float: none;
+}
+
+nav.nav-center ul li a {
+  display: inline-block;
+}
+
+.imageLink a:hover {
+  background-color: none;
+  text-decoration: none;
+}
+
+.card-outline {
+
+  border: 2px solid #FBDD58;
+  border-radius: 8px;
+}
+
+
+@media screen and (max-width:1024px) {
+  .is-pulled-right {
+
+    float: none !important;
+  }
+
+  .is-pulled-left {
+
+    float: none !important;
+  }
+}
+
+.fa-stack-2x {
+  font-size: 2.5em !important;
+}
+
+.fa-stack {
+  line-height: 2.5.em !important;
+}
+
+.button:hover {
+  background-color: white !important;
+  color: white !important;
+  border: 1px solid #FBDD58 !important;
+
+}
+
+.icon.is-large {
+  height: 2em !important;
+}
+
+@media screen and (min-width: 769px) {
+
+  .modal-content,
+  .modal-card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .modal-card-head {
+    display: block;
+  }
+}
+
+.VERY_HIGH {
+  border-bottom: 5px solid #909;
+}
+
+.HIGH {
+  border-bottom: 5px solid red;
+}
+
+.MODERATE {
+  border-bottom: 5px solid #f90;
+}
+
+.LOW {
+  border-bottom: 5px solid #090;
+}
+
+.has-image-centered {
+  margin-left: auto;
+  margin-right: auto;
+}

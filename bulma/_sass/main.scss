@@ -11,19 +11,25 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 // 2. Set your own initial variables
 // Update the blue shade, used for links
-$blue: #06bcef;
-// Add pink and its invert
-$pink: #ff8080;
-$pink-invert: #fff;
+// $blue: #06bcef;
+
+// Add yellow and its invert
+// $yellow: #FADD6E;
+// $yellow-invert: #fff;
+
 // Update the sans-serif font family
 $family-sans-serif: "Quicksand", "Arial", sans-serif;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
-$primary: $pink;
-$primary-invert: $pink-invert;
+// $primary: $yellow;
+// $primary-invert: findColorInvert($yellow);
+
 
 // 4. Import the rest of Bulma
 
-
 @import "../node_modules/bulma/bulma";
+@import "../node_modules/bulma-switch/dist/css/bulma-switch";
+@import "../node_modules/bulma-divider/dist/css/bulma-divider";
+
+@import "./readings.scss";
