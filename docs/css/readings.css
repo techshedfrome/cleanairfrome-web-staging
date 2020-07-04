@@ -1,3 +1,16 @@
+:root {
+    --aqi-1-color: rgb(37, 255, 91);
+    --aqi-2-color: rgb(136, 253, 40);
+    --aqi-3-color: rgb(166, 226, 2);
+    --aqi-4-color: rgb(255, 230, 0);
+    --aqi-5-color: rgb(255, 208, 0);
+    --aqi-6-color: rgb(255, 187, 0);
+    --aqi-7-color: rgb(255, 145, 0);
+    --aqi-8-color: rgb(255, 123, 0);
+    --aqi-9-color: rgb(253, 83, 40);
+    --aqi-10-color: rgb(224, 28, 224);
+}
+
 .readings  {
     display: grid;
     grid-gap: 1.5em;
@@ -34,11 +47,10 @@
     transition-timing-function: ease-in-out;
     opacity: 1;
 }
-
-.make-visible.fast {
-    transition-delay: 0;
-    transition-duration: .3s;
-}
+    .make-visible.fast {
+        transition-delay: 0;
+        transition-duration: .3s;
+    }
 
 
 .aqi-1  {color: var(--aqi-1-color) ;}
@@ -65,18 +77,6 @@
 .aqi-10.border {border: 0.2em solid var(--aqi-10-color);}
 
 
-:root {
-    --aqi-1-color           : rgb(37, 255, 91);
-    --aqi-2-color           : rgb(136, 253, 40);
-    --aqi-3-color           : rgb(166, 226, 2);
-    --aqi-4-color           : rgb(255, 230, 0);
-    --aqi-5-color           : rgb(255, 208, 0);
-    --aqi-6-color           : rgb(255, 187, 0);
-    --aqi-7-color           : rgb(255, 145, 0);
-    --aqi-8-color           : rgb(255, 123, 0);
-    --aqi-9-color           : rgb(253, 83, 40);
-    --aqi-10-color          : rgb(224, 28, 224);
-}
 
 .main-link {
     color: black;
@@ -109,7 +109,4 @@
 }
 .main-link {
     font-size: 90%;
-}
-a.icon {
-    text-decoration: none !important;
 }
