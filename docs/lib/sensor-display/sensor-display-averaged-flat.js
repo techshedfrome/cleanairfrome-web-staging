@@ -5,6 +5,7 @@ import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./open
 import * as css from "./styling-constants.js"
 
 const boolSortAsc = (a, b) => (a === b) ? 0 : a ? 1 : -1;
+const samplePeriodHours = 1;
 
 document.addEventListener("DOMContentLoaded", populateLiveView);
 
@@ -47,9 +48,9 @@ function addDeviceStats(boxid) {
   var defraAqi;
 
   if (!stale) {
-    fetchDeviceStats(boxid, "PM2.5", "geometricMean", 3)
+    fetchDeviceStats(boxid, "PM2.5", "geometricMean", samplePeriodHours)
       .then(pm25 => {
-        fetchDeviceStats(boxid, "PM10", "geometricMean", 3)
+        fetchDeviceStats(boxid, "PM10", "geometricMean", samplePeriodHours)
           .then(pm10 => {
             defraAqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
             values.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"]));
