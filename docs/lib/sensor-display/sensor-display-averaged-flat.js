@@ -29,7 +29,7 @@ function populateSensorList(data) {
                                 device.latestDustReadingDate());
     infoBox.classList.add("invisible");
     section.appendChild(infoBox);
-    fadeElementInWhenAdding(infoBox);
+    fadeElementInWhenAdding(infoBox, true);
   });
 
   loadStreetNames(data, device => {
@@ -63,10 +63,11 @@ function addDeviceStats(boxid) {
 
 }
 
-function fadeElementInWhenAdding(e) {
+function fadeElementInWhenAdding(e, fast) {
   e.classList.add("invisible");
   window.getComputedStyle(e).opacity;
-  e.classList.add("make-visible");
+  e.classList.add("make-visible")
+  if (fast) e.classList.add("fast");
 }
 
 

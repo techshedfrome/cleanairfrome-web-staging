@@ -29,11 +29,17 @@
 }
 .make-visible {
     transition-property: opacity;
-    /* transition-delay: 0.2s; */
+    transition-delay: 0.2s;
     transition-duration: .8s;
     transition-timing-function: ease-in-out;
     opacity: 1;
 }
+
+.make-visible.fast {
+    transition-delay: 0;
+    transition-duration: .3s;
+}
+
 
 .aqi-1  {color: var(--aqi-1-color) ;}
 .aqi-2  {color: var(--aqi-2-color) ;}
