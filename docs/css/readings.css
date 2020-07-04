@@ -1,14 +1,24 @@
 :root {
     --aqi-1-color: rgb(37, 255, 91);
+    --aqi-1-color-text: rgb(30, 206, 74);
     --aqi-2-color: rgb(136, 253, 40);
+    --aqi-2-color-text: rgb(104, 194, 31);
     --aqi-3-color: rgb(166, 226, 2);
+    --aqi-3-color-text: rgb(125, 170, 0);
     --aqi-4-color: rgb(255, 230, 0);
+    --aqi-4-color-text: rgb(192, 157, 0);
     --aqi-5-color: rgb(255, 208, 0);
+    --aqi-5-color-text: rgb(214, 175, 0);
     --aqi-6-color: rgb(255, 187, 0);
+    --aqi-6-color-text: rgb(204, 150, 0);
     --aqi-7-color: rgb(255, 145, 0);
+    --aqi-7-color-text: rgb(192, 109, 0);
     --aqi-8-color: rgb(255, 123, 0);
-    --aqi-9-color: rgb(253, 83, 40);
+    --aqi-8-color-text: rgb(158, 58, 0);
+    --aqi-9-color: rgb(253, 73, 28);
+    --aqi-9-color-text: rgb(143, 39, 14);
     --aqi-10-color: rgb(224, 28, 224);
+    --aqi-10-color-text: rgb(139, 16, 139);
 }
 
 .readings  {
@@ -53,16 +63,16 @@
     }
 
 
-.aqi-1  {color: var(--aqi-1-color) ;}
-.aqi-2  {color: var(--aqi-2-color) ;}
-.aqi-3  {color: var(--aqi-3-color) ;}
-.aqi-4  {color: var(--aqi-4-color) ;}
-.aqi-5  {color: var(--aqi-5-color) ;}
-.aqi-6  {color: var(--aqi-6-color) ;}
-.aqi-7  {color: var(--aqi-7-color) ;}
-.aqi-8  {color: var(--aqi-8-color) ;}
-.aqi-9  {color: var(--aqi-9-color) ;}
-.aqi-10 {color: var(--aqi-10-color);}
+.aqi-1  {color: var(--aqi-1-color-text) ;}
+.aqi-2  {color: var(--aqi-2-color-text) ;}
+.aqi-3  {color: var(--aqi-3-color-text) ;}
+.aqi-4  {color: var(--aqi-4-color-text) ;}
+.aqi-5  {color: var(--aqi-5-color-text) ;}
+.aqi-6  {color: var(--aqi-6-color-text) ;}
+.aqi-7  {color: var(--aqi-7-color-text) ;}
+.aqi-8  {color: var(--aqi-8-color-text) ;}
+.aqi-9  {color: var(--aqi-9-color-text) ;}
+.aqi-10 {color: var(--aqi-10-color-text);}
 
 
 .aqi-1.border  {border: 0.2em solid var(--aqi-1-color) ;}
