@@ -1,7 +1,7 @@
 import { getColourClassForAqi, indexToPollutionBandFromAqi, getColourClassForPollutionBandFromAqi } from "./airquality-index.js"
 import { loadStreetNames } from "./streetnames.js"
-// import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./opensensemap.js"
-import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./fake-opensensemap.js"
+import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./opensensemap.js"
+// import { fetchMeasurements, checkReadingIsStale, fetchDeviceStats } from "./fake-opensensemap.js"
 import * as css from "./styling-constants.js"
 
 const boolSortAsc = (a, b) => (a === b) ? 0 : a ? 1 : -1;
