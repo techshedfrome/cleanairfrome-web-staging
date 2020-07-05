@@ -24,7 +24,8 @@ function populateSensorList(data) {
   var section = document.querySelector("#itemListContainer");
   section.innerText = '';
   data.forEach(device => {
-    var infoBox = createInfoBox(device.boxid, device.name,
+    var infoBox = createInfoBox(device.boxid, device.name, 
+                                device.description,
                                 device.defraAqi(),
                                 device.measurements,
                                 device.latestDustReadingDate());
@@ -72,8 +73,8 @@ function fadeElementInWhenAdding(e, fast) {
 }
 
 
-function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustReadingDate) {
-  var card = cardWithTitle(deviceName);
+function createInfoBox(boxid, deviceName, description, defraAqi, measurements, latestDustReadingDate) {
+  var card = cardWithTitle(deviceName, description);
   var values = document.createElement("DIV");
   values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
   values.id = "_" + boxid;
@@ -84,14 +85,14 @@ function createInfoBox(boxid, deviceName, defraAqi, measurements, latestDustRead
 }
 
 
-function cardWithTitle(titleText, iconColorClass) {
+function cardWithTitle(titleText, description) {
   var card = document.createElement("DIV");
   card.classList.add("reading", "reading-bare", "level", "is-mobile", "is-marginless");
-  card.appendChild(cardHeaderWithTitle(titleText, iconColorClass));
+  card.appendChild(cardHeaderWithTitle(titleText, description));
   return card;
 }
 
-function cardHeaderWithTitle(titleText) {
+function cardHeaderWithTitle(titleText, description) {
   var header = document.createElement("DIV");
   header.classList.add("level-left-tablet", "has-text-left");
 
@@ -106,7 +107,7 @@ function cardHeaderWithTitle(titleText) {
   var info = document.createElement("DIV");
   info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6");
   //TODO: set description - create an interim store, or parse from OpenSenseMap description
-  info.innerHTML = "5 meters from traffic<br>1 sensor";
+  info.innerHTML = description + "<br>1 sensor";
 
   inner.appendChild(info);
   header.appendChild(inner);
