@@ -21,7 +21,8 @@ const deviceWhitelist =
 "5eeb8c02ee9b25001b30c6e0",
 "5eeb9259ee9b25001b334899",
 "5ee60cf3dc1438001b1036ea",
-"5eeba101ee9b25001b391ca0"
+"5eeba101ee9b25001b391ca0",
+"5f021451b9d0aa001c3ebb78"
 ]
 
 function getSimpleDeviceObject(opensensemapDevices) {
