@@ -1,7 +1,8 @@
 
+const gaProperty = 'UA-171048144-1';
 
-//disable GA
-window['ga-disable-UA-171048144-1'] = true;
+//disable GA before it loads to enable user preference to take effect
+window['ga-disable-' + gaProperty] = true;
 
 window.addEventListener("load", () => {
     window.cookieconsent.initialise({
@@ -22,22 +23,30 @@ window.addEventListener("load", () => {
             "href": "https://www.frometowncouncil.gov.uk/cookie-policy/"
         },
         onStatusChange: function (status) {
-            console.log(this.hasConsented() ? 'enable cookies' : 'disable cookies');
-            console.log('Google Analytics disabled? - ' + window['ga-disable-UA-171048144-1']);
-            //toggle GA status to match new selection on change
-            window['ga-disable-UA-171048144-1'] = !this.hasConsented();
-            //reload page if newly consented to record page load in GA  (not sure if this is needed - will test)
-            // if (this.hasConsented()) window.location = window.location;
+            toggleAnalytics(this.hasConsented());
         },
         onInitialise: function (status) {
-            console.log(this.hasConsented() ? 'enable cookies' : 'disable cookies');
-            //toggle GA status to match existing cookie on page load
-            window['ga-disable-UA-171048144-1'] = !this.hasConsented();
-            console.log('Google Analytics disabled? - ' + window['ga-disable-UA-171048144-1']);
+            toggleAnalytics(this.hasConsented());
         },
     });
 });
 
+
+function toggleAnalytics(consented) {
+    console.log(consented ? 'enable cookies' : 'disable cookies');
+    //toggle GA status to match existing cookie on page load
+    window['ga-disable-' + gaProperty] = !consented;
+    console.log('Google Analytics disabled? - ' + window['ga-disable-' + gaProperty]);
+    //re-initialise analytics to pick up new setting
+    initialiseGAnalytics();
+}
+
+function initialiseGAnalytics(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', gaProperty);
+}
 /*
 Uses Osano open source Cookie Consent:
 * https://www.osano.com/cookieconsent/documentation/javascript-api/
@@ -46,6 +55,4 @@ Uses Osano open source Cookie Consent:
 Had to wrap in the load event to get it working - thanks to https://codepen.io/j_holtslander/pen/zmyMwR
 
 Google opt-out instructions: https://developers.google.com/analytics/devguides/collection/gtagjs/user-opt-out
-
-
 */
