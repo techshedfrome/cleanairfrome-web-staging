@@ -22,22 +22,33 @@ window.addEventListener("load", () => {
             "href": "https://www.frometowncouncil.gov.uk/cookie-policy/"
         },
         onStatusChange: function (status) {
-            console.log(this.hasConsented() ? 'enable cookies' : 'disable cookies');
+            var consented = this.hasConsented()
+            console.log(consented ? 'enable cookies' : 'disable cookies');
             console.log('Google Analytics disabled? - ' + window['ga-disable-UA-171048144-1']);
             //toggle GA status to match new selection on change
-            window['ga-disable-UA-171048144-1'] = !this.hasConsented();
+            window['ga-disable-UA-171048144-1'] = !consented;
             //reload page if newly consented to record page load in GA  (not sure if this is needed - will test)
             // if (this.hasConsented()) window.location = window.location;
+            initialiseGAnalytics();
         },
         onInitialise: function (status) {
-            console.log(this.hasConsented() ? 'enable cookies' : 'disable cookies');
+            var consented = this.hasConsented()
+            console.log(consented ? 'enable cookies' : 'disable cookies');
             //toggle GA status to match existing cookie on page load
-            window['ga-disable-UA-171048144-1'] = !this.hasConsented();
+            window['ga-disable-UA-171048144-1'] = !consented;
             console.log('Google Analytics disabled? - ' + window['ga-disable-UA-171048144-1']);
+            initialiseGAnalytics();
         },
     });
 });
 
+
+function initialiseGAnalytics(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-171048144-1');
+}
 /*
 Uses Osano open source Cookie Consent:
 * https://www.osano.com/cookieconsent/documentation/javascript-api/
