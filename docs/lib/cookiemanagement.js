@@ -37,3 +37,15 @@ window.addEventListener("load", () => {
         },
     });
 });
+
+/*
+Uses Osano open source Cookie Consent:
+* https://www.osano.com/cookieconsent/documentation/javascript-api/
+* https://www.osano.com/cookieconsent/download/
+* https://github.com/osano/cookieconsent
+Had to wrap in the load event to get it working - thanks to https://codepen.io/j_holtslander/pen/zmyMwR
+
+Google opt-out instructions: https://developers.google.com/analytics/devguides/collection/gtagjs/user-opt-out
+
+
+*/
