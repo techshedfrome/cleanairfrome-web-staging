@@ -92,9 +92,9 @@ const pollutionBandText = [
 ];
 
 export function indexToPollutionBandFromAqi(index) {
-    if (!index || index == "-") return 'Offline';
+    if (!index || index == "-") return 'Coming soon';
     var band = indexToPollutionBandNumberFromAqi(index);
-    if (!band || band == "-") return 'Offline';
+    if (!band || band == "-") return 'Coming soon';
     return pollutionBandText[band - 1];
 }
 
