@@ -12,6 +12,9 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Clean Air Frome - Get involved">
+  <meta name="keywords" content="Air Quality, Tech Shed Frome, Frome Town Council">
+  <meta name="author" content="Tech Shed Frome & Frome Town Council">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
@@ -20,199 +23,258 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
 
-  <title>Clean Air Frome</title>
+  <title>Clean Air Frome - Take Action</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="lib/animationTest.js"></script>
+
+  
+    <!-- write your code here -->
+
+    <script>
+      var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+      function init() {
+        canvas = document.getElementById("canvas");
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById("dom_overlay_container");
+        var comp=AdobeAn.getComposition("D6946A1BE53F4D31B2138B6617D168C7");
+        var lib=comp.getLibrary();
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+        loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+        var lib=comp.getLibrary();
+        loader.loadManifest(lib.properties.manifest);
+      }
+      function handleFileLoad(evt, comp) {
+        var images=comp.getImages();	
+        if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+      }
+      function handleComplete(evt,comp) {
+        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        var lib=comp.getLibrary();
+        var ss=comp.getSpriteSheet();
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for(i=0; i<ssMetadata.length; i++) {
+          ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+        }
+        exportRoot = new lib.animation_town();
+        stage = new lib.Stage(canvas);	
+        //Registers the "tick" event listener.
+        fnStartAnimation = function() {
+          stage.addChild(exportRoot);
+          createjs.Ticker.framerate = lib.properties.fps;
+          createjs.Ticker.addEventListener("tick", stage);
+        }	    
+        //Code to support hidpi screens and responsive scaling.
+        AdobeAn.makeResponsive(true,'width',false,1,[canvas,anim_container,dom_overlay_container]);	
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+      }
+      </script>
+      <!-- write your code here -->
 </head>
 
-<body class="is-size-8-desktop has-text-weight-medium">
-
-  <div class="columns is-centered">
-    <div class="column is-5-desktop is-12-mobile ">
-  
-    </div>
-  </div>
-  <section class="is-medium ">
-    <div class="hero-body has-text-centered">
+<body class=" has-text-weight-medium is-centered" onload="init();">
+  <section class="is-medium  ">
+    <div class="hero-body has-text-centered is-12-desktop">
       <div class="container ">
-        <div class="columns is-centered">
-          <div class="column is-8-desktop is-12-mobile ">
-            <figure>
-              <img src="assets/take_action_header.png" width="480px">
-            </figure>
-         
-            <h1 class="title is-1">
-             Take Action
-            </h1>
-            <h2 class="subtitle is-4">
-           Below are some useful steps you can take to reduce air pollution and improve your health in Frome.</h2>
+        <div class="columns"></div>
+          <div class="column is-12-mobile ">
+            
+            <figure id="ani_box" style="overflow: hidden;">
+            <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:100%; height:240px" class="has-image-centered">
+              <canvas id="canvas" width="100%" height="240" style=" display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+              <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100%; height:240px; position: absolute; left: 0px; top: 0px; display: block;">
+              </div>
+            </div>
 
-    
 
-         
 
             
-
+          </figure>
+          
+            <h1 class="title is-size-1-desktop  is-size-2-mobile pt-5 ">
+              Take Action
+            </h1>
+            <h2 class="subtitle is-4 pt-4 is-size-5-mobile">
+              There are several ways you can get involved in the Clean Air Frome project</h2>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <section class="section has-text-centered pt-0 " id="airsensorfrome">
+   
+      <div class="container readings">
+       
+         <!-- <div class="column is-1-desktop"></div> -->
+
+         <div >
+          <div >
+            <div class="card-content" >
+              <a href="what_you_can_do.html"><img src="assets/take_action.png" class="imageLink" width="170px" class="pb-2" alt="Take Action, image shows woman walking through nature"></a>
+              <p class="title is-size-4  pb-2">
+                What you can do
+              </p>
+              <p class="subtitle is-size-5" >
+                Find out what you can do to directly impact the air quaility in Frome.
+              </p>
+              <button class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" onclick="window.location.href='what_you_can_do.html'"><span class="has-text-black">Learn more</span></button>
+            </div>
+          
+          </div>
+
+        <!--   <div class=" column ">
+            <div class="card btn-bg ">
+              <div class="card-content" >
+                <img src="assets/miniSensor.png" width="70px" class="pb-2">
+                <p class="title is-size-5  pb-2">
+                  Sponsor an air sensor
+                </p>
+                <p class="subtitle is-size-6" >
+                 Club together with neighbours to get a sensor for your street
+                </p>
+              </div>
+              
+            </div> -->
+                       
+                      </div>
+
+
+<div >
+  <div class="  ">
+    <div class="card-content" >
+      <a href="Sponsor_an_air_sensor.html" ><img src="assets/miniSensor.png"  class="imageLink" width="170px" class="pb-2" alt="Sponsor an air sensor"></a>
+      <p class="title is-size-4  pb-2">
+        Sponsor an air sensor
+      </p>
+      <p class="subtitle is-size-5" >
+       Club together with neighbours or local businesses to get a sensor for your street.
+      </p>
+      <button class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" onclick="window.location.href='Sponsor_an_air_sensor.html'"><span class="has-text-black">Learn more</span></button>
+    </div>
+    
+  </div>
+             
+            </div>
+
+            <div  >
+              <div class="">
+                <div class="card-content" >
+                  <a href="workshop_form.html" > <img src="assets/buildsensor.png" class="imageLink" width="170px" class="pb-2" alt="build your own sensor"></a>
+                  <p class="title is-size-4  pb-2">
+                    Build your own sensor
+                  </p>
+                  <p class="subtitle is-size-5" >
+                    Register your interest for an upcoming build your own sensor workshop
+                  </p>
+                  <button class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" onclick="window.location.href='workshop_form.html'"><span class="has-text-black">Learn more</span></button>
+                </div>
+              
+              </div>
+            </div>
+
+
+
+            </div>
+            
+     <!--     <div class="column is-1-desktop"></div> --> 
+
+
+
+
+
+        </div>
+        <div class="columns">
+          
+
+          <div class="column is-2-desktop"></div>
+          <div class="column is-8-desktop"></div>
+            
+            <div class="column is-2-desktop"></div>
+
+
+
+      </div>
+      </div>
+
+  </div>
+</div>
+            
+            
+          
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section pb-0 has-background-warning pb-6" id="start">
+    <div class="container ">
+     
+      <div class="columns is-tablet ">
+        
+        <div class="column is-12 has-text-centered"><h3 class="title is-4">Join Tech Shed Frome Air Quaility Team</h3>
+         <div class="is-size-5"> There's lots of oppportunites to join the team. <br> We need volunteers looking to help.  Can you help with any of the following?  If so <a href="mailto:team@techshedfrome.org">get in touch with the team</a></div>
+        </div>
+      </div>
+      <div class="columns is-tablet  ">
+      <div class="column  is-2 is-hidden-mobile"> </div>
+        <div class="column is-4 pb-0 pt-0">
+          <div class="content  has-text-centered">
+         
+          
+         
+
+            <br><strong class="is-size-5">Developers</strong> <br><div class="is-size-6">Front-end developers, HTML, CSS, Javascript, back-end developers, cloud/severless to work out the technical stuff <br></div>
+           
+            <br><strong class="is-size-5">Designers</strong><br><div class="is-size-6">UXers, graphic or brand designers that can make things simple, easy and
+            beautiful all at the same time.<br></div>
+            
+          </div></div>
+          <div class="column is-4 pb-0 pt-0">
+            <div class="content is-size-5 has-text-centered ">
+           
+              <br><strong class="is-size-5">Data Scientists</strong><br><div class="is-size-6">We've got data, and lots of it.  How can we best use it to tell interesting stories that draw out insights?<br>
+              <br><strong class="is-size-5">Copywriters, and Marketeers</strong><br><div class="is-size-6">We'd love to get better at getting out the word out, making more people aware of this project.<br>
+              </div>
+        
+          </div>
+        </div>
+       <!--<div class="column is-desktop is-4"><img src="assets/sensorgarden.png" width="450px"></div>--> 
+      </div>
+      <div class="column is-desktop is-2  pb-0"> </div>
+    </div>
+    <div class="columns  ">
+      <div class="column is-one-third pt-0"></div>
+<div class="column is-one-third has-text-centered pt-0">
+  <br><strong class="is-size-5">Technologists</strong><br><div class="is-size-6">Maybe you just play with a bit of everything from electronics and
+    programming to lasers, 3d printing.. whatever it's all welcome.<br></div>
+  </div>
+  <div class="column is-one-third"></div>
+</div>
+
+    </div>
+  </section>
  
-  
-  
-  
+ 
   
 
    <!-- Modal -->
   
-   
  
-      </div>
-      </div>
-
-    </div>
-     <!-- Modal -->
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section pb-0 " >
-    <div class="container ">
-     
-      <div class="columns is-tablet">
-        
-        <div class="column is-12 has-text-centered"><h3 class="title is-4">Reduce car use</h3></div>
-      </div>
-      <div class="columns is-tablet">
-      <div class="column  is-2 is-hidden-mobile"> </div>
-        <div class="column is-8">
-          <div class="content is-size-5 has-text-centered">
-            <img src="assets/reducecard.png" width="450px" class="is-centered"><br>
-           
-            Pollution from vehicles is the main source of air pollution in Frome. Harmful gases from exhausts not only affect pedestrians and local homes but also pass straight through car air filters and accumulate in car cabins making it more harmful to be inside a car than on the street! 40% of urban journeys are less than 2 miles which is the perfect length to walk or cycle. Reducing the need to travel in the first place is even better (such as online meetings, local delivery and staycations). 
-            
-            
-          </div>
-        </div>
-       
-      </div>
-      <div class="column is-desktop is-2"> </div>
-    </div>
-  </section>
-  <section class="section has-text-centered pt-6" id="start">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-desktop-12"><h3 class="title is-4">Get active</h3>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column is-desktop is-2 is-hidden-mobile"> </div>
-        <div class="column is-desktop is-4 container mr-5 is-hidden-mobile" ><img src="assets/active.png" width="350px"></div>
-        <div class="column  is-desktop is-4">
-          <div class="content has-text-left">
-            
-            <p class="is-size-5 has-text-centered-mobile">
-              Walking and cycling have many health benefits and not only help to reduce air pollution but can reduce the risk of major illnesses, such as heart disease, stroke, type 2 diabetes and cancer by up to 50%, lowering risk of early death by up to 30%. Along with health benefits commuters switching from car to bike are saving around £3000 a year. 
-              
-            </p>
-           
-
-          
-          </div>
-        </div>
-        <div class="column is-desktop is-4 container mr-5 is-hidden-tablet" ><img src="assets/active.png"></div>
-        <div class="column is-desktop is-2"> </div>
-      </div>
-      <div class="columns">
-
-        <div class="column is-desktop is-2"> </div>
-          <div class="column is-size-5">
-            Electric bikes are a great solution for a hilly place like Frome and the Town Council have two e-bikes available for hire in partnership with Cycology, you can book online here. You could also encourage your employer to join a bike to work scheme to save tax on buying a bike, electric bikes are now eligible too. 
-              Air pollution levels can change significantly within only a few metres, walking on the building side of a pavement versus the roadside can reduce exposure by up to 30%. Children breathe more polluted air closer to the ground, so always keep buggies back from the roadside when waiting to cross the road and choose quieter less congested roads to walk and cycle on if you can.<br>
-            
-          </div>
-          <div class="column is-desktop is-2"> </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section pb-0 " >
-    <div class="container ">
-     
-      <div class="columns is-tablet">
-        
-        <div class="column is-12 has-text-centered"><h3 class="title is-4">Go electric</h3></div>
-      </div>
-      <div class="columns is-tablet">
-      <div class="column  is-2 is-hidden-mobile"> </div>
-        <div class="column is-4">
-          <div class="content is-size-5 has-text-centered-mobile">
-            
-           
-            If it’s too far to walk or cycle, switching to electric or hybrid vehicles can help to reduce local air pollution. In Frome there are two hybrid vehicles available for affordable rent via Co-Wheels. There is also a network of electric vehicle chargers e.g. Zap Map and Book My Charge who are enabling residents to share charge points. 
-
-            
-          </div>
-        </div>
-        <div class="column is-desktop is-4"><img src="assets/electric.png" width="450px"></div>
-      </div>
-      <div class="column is-desktop is-2"> </div>
-    </div>
-  </section>
-
-  <section class="section has-text-centered pt-6" id="start">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-desktop-12"><h3 class="title is-4">Watch the wood burner</h3>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column is-desktop is-2 is-hidden-mobile"> </div>
-        <div class="column  is-desktop is-8">
-          <div class="content has-text-left">
-            
-            <p class="is-size-5 has-text-centered">
-              Indoor wood burners, especially older versions, can release high levels of particles inside, as well as out into the environment. Check yours, and ensure you ventilate your house frequently.
-
-            </p>
-            <br>
-           
-
-          
-          </div>
-        </div>
-      
-        <div class="column is-desktop is-2"> </div>
-      </div>
-      <div class="columns">
-
-        <div class="column is-desktop is-2"> </div>
-          <div class="column is-size-5">
-            <div class="title is-4">Air pollution</div> 
-            Although our project is focussing on air pollution outside initially indoor air pollution also has an impact on health and wellbeing. Gases and particles are given off when cooking, ensuring the kitchen is properly ventilated when cooking and keeping children away if you smell smoke is important. <br><br>Most cleaning products and household goods such as paint and air fresheners also release gases. That “clean” smell is actually a mix of Volatile Organic Compounds. VOCs have been linked to a broad spectrum of health problems, from headaches to asthma and cancer. Reducing use, using eco alternatives and properly ventilating after cleaning and painting helps reduce exposure.  Smoking even when done outdoors also has an impact and you bring in many of the pollutants indoors on your clothes.
-          <br><br>
-          <strong>Useful reading          </strong><br>
-          <a href="https://en.wikipedia.org/wiki/Staycation">Staycation (wikipeadia)<i class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;" aria-hidden="true"></i></a><br>
-          <a href="https://www.nhs.uk/live-well/exercise/exercise-health-benefits/">exercise-health-benefits (nhs)<i class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;" aria-hidden="true"></i></a><br>
-            <a href="https://www.cyclescheme.co.uk/community/featured/how-much-money-does-cycling-save-you">how much money does cycling save you (cycle scheme)<i class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;" aria-hidden="true"></i></a><br>
-              <a href="https://www.somersethouse.org.uk/blog/10-ways-reduce-your-exposure-air-pollution-london">10 ways to reduce air pollution (somersethouse)<i class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;" aria-hidden="true"></i></a><br>
-          </div>
-          <div class="column is-desktop is-2"> </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer class="footer has-text-centered has-background-warning-light">
+  
+   <footer class="footer has-text-centered has-background-warning-light">
     <div class="container">
         <div class="columns">
             <div class="column is-8-desktop is-offset-2-desktop">
               <div class="content">
                 <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
-                <p><a href="get_involved.html">Get involved </a></p>
+                <p><a href="take_action.html">Take action</a></p>
                 <p><a href="mailto:team@techshedfrome.org">Contact Tech Shed Frome</a></p>
                 <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
               </div>

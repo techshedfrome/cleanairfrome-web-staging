@@ -31,15 +31,15 @@ function streetnameFromCoords(lat, lon, success) {
         return;
     }
 
-    console.log("fetching streetname from " + streetnameUrl)
     var url = streetnameUrl + '?format=json&lat=' + lat + '&lon=' + lon
+    console.log("fetching streetname from " + url)
+
     fetch(url).then(throwHttpErrors)
         .then(res => res.json())
-        .then(data => {
-            if (data.error) throw Error(data.error)
-            return;
-        })
         .then((data) => {
+            console.log("result from " + url)
+            console.log(data)
+            if (data.error) throw Error(data.error)
             knownLocationStreets.set(locationKey, data.address.road);
             success(knownLocationStreets.get(locationKey));
         })
