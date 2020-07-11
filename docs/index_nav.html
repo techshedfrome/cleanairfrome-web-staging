@@ -3,7 +3,8 @@
 
 <head>
   <!-- Cookie management -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <script type="text/javascript" src="lib/cookiemanagement.js"></script>
 
@@ -12,15 +13,16 @@
 
 
 
-<meta property="og:url"                content="http://www.cleanairfrome.org/index.html" />
-<meta property="og:type"               content="Content"/>
-<meta property="og:title"              content="Welcome to Clean Air Frome" />
-<meta property="fb:app_id"             content="572104106809191" />
+  <meta property="og:url" content="http://www.cleanairfrome.org/index.html" />
+  <meta property="og:type" content="Content" />
+  <meta property="og:title" content="Welcome to Clean Air Frome" />
+  <meta property="fb:app_id" content="572104106809191" />
 
-<meta property="og:description"        content="A network of air quality sensors in Frome, empowering the community to understand the impacts of the air we breathe and to take action." />
-<meta property="og:image"              content="http://www.cleanairfrome.org/assets/CleanAirFromeFB.png" />
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="628">
+  <meta property="og:description"
+    content="A network of air quality sensors in Frome, empowering the community to understand the impacts of the air we breathe and to take action." />
+  <meta property="og:image" content="http://www.cleanairfrome.org/assets/CleanAirFromeFB.png" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
 
 
   <meta name="msapplication-TileColor" content="#2b5797">
@@ -48,104 +50,110 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-// Get all "navbar-burger" elements
-const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-// Check if there are any navbar burgers
-if ($navbarBurgers.length > 0) {
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
 
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
-    el.addEventListener('click', () => {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
 
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
 
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
 
     });
-  });
-}
-
-});
   </script>
 </head>
 
 <body class=" has-text-weight-medium has-navbar-fixed-top">
 
-  
 
-    <nav class=" is-fixed-top is-warning navbar pt-2 pb-2 navbar-menu" role="navigation" aria-label="main navigation">
-  
-      <div class="container has-text-centered is-size-5 has-text-weight-semibold">
-        <p class=" has-text-centered navbar-brand img  mr-5 mt-2">
-            <img src="assets/header_banner.png"  >
-        </p>
-       
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link ">
-                    Latest pollution levels <i
-                  class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" 
-                  aria-hidden="true"></i>
-                </a>
-        
-                <div class="navbar-dropdown is-size-5">
-                  <a class="navbar-item ">
-                    Sensor Readings
-                  </a>
-                  <hr class="navbar-divider">
-                  <a class="navbar-item">
-                    What is the aim of the project?
-                  </a>
-                  <a class="navbar-item">
-                   What air quaility are you measuring?
-                  </a>
-                  <a class="navbar-item">
-                    Why does air quaility matter?
-                   </a>
-                  
-            
-                </div>
-              </div>
-        
-  
-            <div class="navbar-item has-dropdown is-hoverable ">
-                <a class="navbar-link">
-                  Take Action <i
-                  class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" 
-                  aria-hidden="true"></i>
-                </a>
-        
-                <div class="navbar-dropdown is-size-5">
-                  <a class="navbar-item">
-                    What you can do
-                  </a>
-                  <a class="navbar-item">
-                    Sponsor a sensor
-                  </a>
-                  <a class="navbar-item">
-                    Build your own sensor
-                  </a>
-                  
-            
-                </div>
-              </div>
-           
-      
+  <nav class=" is-fixed-top is-warning navbar pt-2 pb-2" role="navigation" aria-label="main navigation">
+
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold">
+      <div class=" has-text-centered navbar-brand img  mr-5">
+        <div class="navbar-item">
+          <img src="assets/header_banner.png">
+        </div>
+
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link ">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
+              aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item ">
+              Sensor Readings
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              What is the aim of the project?
+            </a>
+            <a class="navbar-item">
+              What air quaility are you measuring?
+            </a>
+            <a class="navbar-item">
+              Why does air quaility matter?
+            </a>
+
+          </div>
+        </div>
+
+
+        <div class="navbar-item has-dropdown is-hoverable ">
+          <a class="navbar-link">
+            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item">
+              What you can do
+            </a>
+            <a class="navbar-item">
+              Sponsor a sensor
+            </a>
+            <a class="navbar-item">
+              Build your own sensor
+            </a>
+
+
+          </div>
+        </div>
+
+
         <div class="navbar-item is-hoverable has-dropdown">
-            
+
           <a class="navbar-link has-text-centered">Blog</a>
         </div>
         <div class="navbar-item ">
           <a class="navbar-link is-info navbar-end">Contact us</a>
         </div>
+      </div>
     </div>
-      </nav>
+  </nav>
 
-      
+
   <div id="fullheight-hero" class=" is-fullwidth">
     <section class="hero  is-fullheight">
       <div class="hero-body pt-0">
@@ -179,7 +187,7 @@ if ($navbarBurgers.length > 0) {
 
                   <button class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-left"
                     onclick="window.location.href='take_action.html'"><span class="has-text-black">Take action now
-                      </span></button>
+                    </span></button>
 
 
 
@@ -231,17 +239,19 @@ if ($navbarBurgers.length > 0) {
             <h3>Air quality in Frome</h3>
             <p class="is-size-5">
               Tech Shed Frome, in partnership with Frome Town Council, are developing a network of sensors to enable the
-              community to see live data on air quality around the town. Below are the sensors we have installed in Frome so far and we've got more coming so
-                keep checking back. You can <a href="take_action.html">take action</a> and help us grow the sensor
-                network.
+              community to see live data on air quality around the town. Below are the sensors we have installed in
+              Frome so far and we've got more coming so
+              keep checking back. You can <a href="take_action.html">take action</a> and help us grow the sensor
+              network.
 
             </p>
             <div class="title is-size-5 mt-6">Latest air pollution readings </div>
-          
+
             <div class="subtitle is-size-5"> Readings based on UK gov <a
-                href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index (DAQI)</a><i
-                class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;"
-                aria-hidden="true"></i> that is numbered 1-10 and divided into four bands, low (1) to very high (10).<br><br>
+                href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index
+                (DAQI)</a><i class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;"
+                aria-hidden="true"></i> that is numbered 1-10 and divided into four bands, low (1) to very high
+              (10).<br><br>
               <div class="is-italic">Indicates average air pollution level readings over last hour. </div>
             </div>
           </div>
@@ -426,18 +436,19 @@ if ($navbarBurgers.length > 0) {
         <div class="column is-size-5">
           Particulates also have an environmental impact and can contribute to making lakes and streams acidic,
           depleting nutrients in soil, damaging sensitive forests and farm crops, affecting the diversity of ecosystems
-          and contributing to <a href="https://www.epa.gov/acidrain/effects-acid-rain" target="_blank">acid rain effects<i
-              class="fas fa-external-link-alt has-text-black is-size-5" style="margin-left:6px;"
+          and contributing to <a href="https://www.epa.gov/acidrain/effects-acid-rain" target="_blank">acid rain
+            effects<i class="fas fa-external-link-alt has-text-black is-size-5" style="margin-left:6px;"
               aria-hidden="true"></i></a> causing damage to buildings and stonework.<br>
           <br>
           <strong>More information on air quality</strong><br>
 
           The Department for Environment Food & Rural Affairs measure Nitrogen Dioxide, Sulphur Dioxide, Ozone, PM2.5,
-          PM10 and is <a href="https://uk-air.defra.gov.uk/library/annualreport/index" target="_blank">reported on quarterly<i
-              class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;"
+          PM10 and is <a href="https://uk-air.defra.gov.uk/library/annualreport/index" target="_blank">reported on
+            quarterly<i class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;"
               aria-hidden="true"></i></a>.<br>Mendip District Council monitor Nitrogen Dioxide monthly and report on
           this annually via their <a
-            href="https://www.mendip.gov.uk/media/20828/2018-Air-Quality-Annual-Status-Report/pdf/2018_Air_Quality_Annual_Status_Report.pdf?m=636854941860330000" target="_blank">Air
+            href="https://www.mendip.gov.uk/media/20828/2018-Air-Quality-Annual-Status-Report/pdf/2018_Air_Quality_Annual_Status_Report.pdf?m=636854941860330000"
+            target="_blank">Air
             status report<i class="fas fa-external-link-alt has-text-black " style="margin-left:6px;"
               aria-hidden="true"></i></a>
 
@@ -467,10 +478,10 @@ if ($navbarBurgers.length > 0) {
             <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
             <p><a href="take_action.html">Take action </a></p>
             <p class="has-text-weight-semibold is-size-5 mb-0">Contact Clean Air Frome</p>
-           <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p> 
-           <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
+            <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p>
+            <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
             <p><a href="mailto:team@techshedfrome.org">Contact Tech Shed Frome</a></p>
-  
+
           </div>
         </div>
       </div>
