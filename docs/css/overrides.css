@@ -188,6 +188,21 @@ nav.nav-center ul li a {
   text-decoration: none !important;
 }
 
+.navbar-item img {
+
+  max-height: 2.5rem !important;
+}
+
+.navbar-brand img {
+  max-height: 2.5rem !important;
+
+
+}
+
+.navbar-item a {
+  text-decoration: none !important;
+}
+
 .imageLink a:hover {
   background-color: none;
   text-decoration: none;
