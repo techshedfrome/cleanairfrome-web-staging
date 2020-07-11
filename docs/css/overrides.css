@@ -247,7 +247,11 @@ nav.nav-center ul li a {
 
   max-height: 2.5rem !important;
 }
+.navbar-brand img{
+  max-height: 2.5rem !important;
 
+
+}
 .navbar-item  a {
   text-decoration: none !important;
 }
