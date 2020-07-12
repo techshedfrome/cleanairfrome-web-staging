@@ -67,10 +67,14 @@
             // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
             el.classList.toggle('is-active');
             $target.classList.toggle('is-active');
+            
 
           });
         });
       }
+    
+
+
 
     });
   </script>
@@ -85,19 +89,20 @@
       <div class=" has-text-centered navbar-brand img  mr-5">
         <div class="navbar-item">
           <img class="is-hidden-mobile" src="assets/header_banner.png">
-          <img class="is-hidden-tablet" src="assets/favicon.png">
+          <img class="is-hidden-tablet" src="assets/mobile_logo.png"><div class="is-size-4 ml-2">Clean Air Frome</div>
         </div>
 
 
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+        <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
+          
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-item has-dropdown is-hoverable  " >
           <a class="navbar-link ">
             Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
               aria-hidden="true"></i>
