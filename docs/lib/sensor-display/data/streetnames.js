@@ -2,6 +2,8 @@
 const streetnameUrl = 'https://nominatim.openstreetmap.org/reverse';
 //alternative - https://geocode.xyz/51.22927,-2.33726?json=1
 
+import { printError, throwHttpErrors } from "../utils.js"
+
 export function loadStreetNames(data, success) {
     //TODO: should proably simplify the input to coords only
     data.forEach(device => {
@@ -44,14 +46,4 @@ function streetnameFromCoords(lat, lon, success) {
             success(knownLocationStreets.get(locationKey));
         })
         .catch(printError);
-}
-
-function throwHttpErrors(request) {
-    if (!request.ok) {
-        throw Error(request.status);
-    }
-    return request;
-}
-function printError(error) {
-    console.log(error);
 }
