@@ -316,7 +316,7 @@ text-align: center !important;
   border: 6px solid !important;
   width: 1.6em;
   height: 1.6em;
-  line-height: 2em;
+  line-height: 1.4em !important;
   box-sizing: content-box;
   line-height: 1.6em;
   margin: 0 0 0 auto !important;
@@ -361,6 +361,7 @@ padding:8px 16px 8px 20px !important;
   border-color: #FBDD58 !important ;
   text-decoration: none;
   padding:8px 16px 8px 20px !important;
+  background-color: #fffbeb !important;
 }
 .tabs.is-toggle.is-toggle-rounded li:first-child a {
   background-attachment: #FBDD58 !important;
@@ -368,3 +369,13 @@ padding:8px 16px 8px 20px !important;
 }
 .tabs.is-toggle li.is-active li:last-child{
  background-attachment: #FBDD58 !important; }
+
+ #tab-content p {
+  display: none;
+}
+
+#tab-content p.is-active {
+  display: block;
+}
+
+
