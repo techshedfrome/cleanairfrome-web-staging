@@ -87,8 +87,7 @@ image a:hover {
 
 a:hover {
   background-color: #FBDD58;
-  padding-bottom: 3px;
-  padding-top: 3px;
+
   color: black;
   text-decoration: none;
 }
