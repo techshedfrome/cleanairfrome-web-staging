@@ -64,15 +64,6 @@ a {
 }
 
 
-button a {
-  text-decoration: none !important;
-
-}
-
-button a:active {
-  text-decoration: none;
-  border-bottom: none;
-}
 
 image a:active {
   border-bottom: none;
@@ -213,9 +204,16 @@ nav.nav-center ul li a {
 
 .button:hover {
   background-color: white !important;
-  color: white !important;
   border: 1px solid #FBDD58 !important;
+}
 
+a.button:active {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+a.button {
+  text-decoration: none;
 }
 
 .icon.is-large {
@@ -376,5 +374,4 @@ padding:8px 16px 8px 20px !important;
 #tab-content p.is-active {
   display: block;
 }
-
 
