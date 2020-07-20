@@ -35,7 +35,7 @@
         ID.className = "is-active"
         document.getElementById('PM25').style.display = "block"
         document.getElementById('PM10').style.display = "none"
-      }
+      } 
       else {
         var element = document.getElementById('PM25Selector')
         element.classList.remove("is-active");
@@ -46,6 +46,24 @@
       }
     }
 
+    function openTabBig(varTabName, ID) {
+      if (varTabName == "PM25") {
+        var element = document.getElementById('PM10Selector')
+        element.classList.remove("is-active");
+
+        ID.className = "is-active"
+        document.getElementById('PM25').style.display = "block"
+        document.getElementById('PM10').style.display = "none"
+      } 
+      else {
+        var element = document.getElementById('PM25Selector')
+        element.classList.remove("is-active");
+
+        ID.className = "is-active"
+        document.getElementById('PM25').style.display = "none"
+        document.getElementById('PM10').style.display = "block"
+      }
+    }
 
   </script>
 </head>
@@ -76,20 +94,20 @@
       <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
         <div class="level-left-tablet has-text-left">
           <div>
-            <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-              <p>1</p>
-            </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                  class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-          </div>
-        </div>
-        <div class="level-item ml-5">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3 " id="cleanairfrome-1-title">The Butts</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">5 meters from traffic<br>1 sensor</div>
+            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-1-title">The Butts</div>
+            <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
           </div><span class="level-item"></span>
         </div>
-        <div class="level-right-tablet has-text-centered mt-2 "  >
-          <i class="fas fa-chevron-right is-size-1 " ></i>
+        <div class="level-right-tablet has-text-centered mt-2" id="_5ee618b7dc1438001b14eb7f"
+          readingdate="2020-07-17T15:58:14+01:00">
+          <div class="level-item">
+            <div>
+              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                <p>1</p>
+              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+            </div>
+          </div>
         </div>
       </div>
       <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
@@ -512,7 +530,7 @@
 </div>
 
  -->
-
+ 
   <script type="text/javascript" src="lib/main.js"></script>
 </body>
 
