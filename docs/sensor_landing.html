@@ -35,7 +35,7 @@
         ID.className = "is-active"
         document.getElementById('PM25').style.display = "block"
         document.getElementById('PM10').style.display = "none"
-      }
+      } 
       else {
         var element = document.getElementById('PM25Selector')
         element.classList.remove("is-active");
@@ -46,6 +46,24 @@
       }
     }
 
+    function openTabBig(varTabName, ID) {
+      if (varTabName == "PM25") {
+        var element = document.getElementById('PM10Selector')
+        element.classList.remove("is-active");
+
+        ID.className = "is-active"
+        document.getElementById('PM25').style.display = "block"
+        document.getElementById('PM10').style.display = "none"
+      } 
+      else {
+        var element = document.getElementById('PM25Selector')
+        element.classList.remove("is-active");
+
+        ID.className = "is-active"
+        document.getElementById('PM25').style.display = "none"
+        document.getElementById('PM10').style.display = "block"
+      }
+    }
 
   </script>
 </head>
@@ -512,7 +530,7 @@
 </div>
 
  -->
-
+ 
   <script type="text/javascript" src="lib/main.js"></script>
 </body>
 
