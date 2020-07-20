@@ -198,7 +198,9 @@ nav.nav-center ul li a {
 
 
 }
-
+.fas {
+  text-decoration: none !important;
+}
 .navbar-item a {
   text-decoration: none !important;
 }
