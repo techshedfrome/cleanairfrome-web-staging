@@ -44,14 +44,21 @@
       <div class="container ">
           <div class="columns is-centered">
               <div class="column is-6-desktop is-centered">
-                <div id="retainable-rss-embed" 
-                data-rss="https://medium.com/feed/@team_78163/"
-                data-maxcols="1" 
-                data-layout="slider" 
-                data-poststyle="inline" 
-                data-readmore="Read the rest" 
-                data-buttonclass="btn btn-primary" 
-                data-offset="-100"></div>
+                <script src='http://your-blog.com/feeds/posts/default?alt=json-in-script&callback=latestPost' async='async'></script>
+                <script>
+                  function latestPost(json) {
+                    var entry = json.feed.entry;
+                    for(var i = 0; i < entry.length; i++) {
+                      var link, title = entry[i].title.$t;
+                      for(var j = 0; j < entry[i].link.length; j++) {
+                        if(entry[i].link[j].rel === "alternate") {
+                          link = entry[i].link[j].href;
+                        }
+                        document.getElementById("latest-post").innerHTML += "<a href='" + link + "'>" + title + "</a>";
+                      }
+                    }
+                  }
+                </script>
       </div>
     </div></div>
 </div>
