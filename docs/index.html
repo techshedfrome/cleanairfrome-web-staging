@@ -47,7 +47,82 @@
   <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" crossorigin="anonymous"></script>
 </head>
 
-<body class=" has-text-weight-medium">
+<body class=" has-text-weight-medium has-navbar-fixed-top">
+
+
+  <nav class=" is-fixed-top is-warning navbar pt-2 pb-2" role="navigation" aria-label="main navigation">
+
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold">
+      <div class=" has-text-centered navbar-brand img  ">
+        <div class="navbar-item">
+          <img class="is-hidden-mobile" src="assets/header_banner.png">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png"><div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
+        </div>
+
+
+        <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-item has-dropdown is-hoverable  " >
+          <a class="navbar-link " href="index.html#LatestAir">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
+              aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item " href="index.html#LatestAir">
+              Sensor Readings
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item " href="index.html#Aim">
+              What is the aim of the project?
+            </a>
+            <a class="navbar-item " href="index.html#Measuring">
+              What air quaility are you measuring?
+            </a>
+            <a class="navbar-item" href="index.html#Matter">
+              Why does air quaility matter?
+            </a>
+
+          </div>
+        </div>
+
+
+        <div class="navbar-item has-dropdown is-hoverable ">
+          <a class="navbar-link" href="take_action.html">
+            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item" href="what_you_can_do.html">
+              What you can do
+            </a>
+            <a class="navbar-item" href="sponsor_an_air_sensor.html">
+              Sponsor a sensor
+            </a>
+            <a class="navbar-item" href="workshop_form.html">
+              Build your own sensor
+            </a>
+
+
+          </div>
+        </div>
+
+
+        <div class="navbar-item is-hoverable has-dropdown">
+
+          <div class="navbar-item ">
+          <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <div id="fullheight-hero" class=" is-fullwidth">
     <section class="hero  is-fullheight">
       <div class="hero-body pt-0">
@@ -70,18 +145,18 @@
 
 
 
-                  <button class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-right"
-                    onclick="window.location.href='#airsensorfrome'"><span class="has-text-black">Air quality in
-                      Frome</span></button>
+                  <a class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-right"
+                    href='#airsensorfrome'><span class="has-text-black">Air quality in
+                      Frome</span></a>
 
 
                 </div>
                 <div class="column pt-0  ">
 
 
-                  <button class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-left"
-                    onclick="window.location.href='take_action.html'"><span class="has-text-black">Take action now
-                      </span></button>
+                  <a class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-left"
+                    href='take_action.html'><span class="has-text-black">Take action now
+                      </span></a>
 
 
 
@@ -110,7 +185,7 @@
                     </div>
                     <div class="column pt-0">
                       <h3 class="has-text-weight-semibold ">Developed by </h3><a
-                        href="https://www.techshedfrome.org"><img src="assets/TechShed_Logo_Ani_optimised.gif"
+                        href="https://techshedfrome.org"><img src="assets/TechShed_Logo_Ani_optimised.gif"
                           width="180px" class="mb-6 has-text-centered pt-0"></a>
                     </div>
                   </div>
@@ -138,7 +213,7 @@
                 network.
 
             </p>
-            <div class="title is-size-5 mt-6">Latest air pollution readings </div>
+            <div class="title is-size-5 mt-6" id="LatestAir">Latest air pollution readings </div>
           
             <div class="subtitle is-size-5"> Readings based on UK gov <a
                 href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index (DAQI)</a><i
@@ -156,7 +231,7 @@
   </section>
   <section class="section has-text-centered" id="start">
     <div class="container">
-      <h3 class="title is-size-4">What's the aim of the project?</h3>
+      <h3 class="title is-size-4" id="Aim">What's the aim of the project?</h3>
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content ">
@@ -271,7 +346,7 @@
       <div class="columns is-tablet">
 
         <div class="column is-12 has-text-centered">
-          <h3 class="title is-4">What air quaility are you measuring?</h3>
+          <h3 class="title is-4" id="Measuring">What air quaility are you measuring?</h3>
         </div>
       </div>
       <div class="columns is-tablet">
@@ -282,7 +357,7 @@
 
             We measure air quality by capturing the levels of particulate matter. Particulates are produced by vehicle
             exhaust emissions, dust from vehicle brake linings and burning wood. The particulate matter is measured in
-            2/.5 and 10.0 micron sizes. This is important as smaller particles cause significant health and
+            2.5 and 10.0 micron sizes. This is important as smaller particles cause significant health and
             environmental issues.
 
 
@@ -297,7 +372,7 @@
     <div class="container">
       <div class="columns">
         <div class="column is-desktop-12">
-          <h3 class="title is-4">Why does air quaility matter?</h3>
+          <h3 class="title is-4" id="Matter">Why does air quaility matter?</h3>
         </div>
       </div>
       <div class="columns">
@@ -368,8 +443,11 @@
           <div class="content">
             <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
             <p><a href="take_action.html">Take action </a></p>
-            <p><a href="mailto:team@techshedfrome.org">Contact Tech Shed Frome</a></p>
+            <p class="has-text-weight-semibold is-size-5 mb-0" id="ContactUs">Contact Clean Air Frome</p>
+            <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p>
             <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
+            <p><a href="mailto:cleanair@techshedfrome.org">Contact Clean Air Team</a></p>
+
           </div>
         </div>
       </div>
@@ -396,7 +474,7 @@
           <p>
           <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
           If you're interested in creating your own Tech project or want to meet the team to chat, <a
-            href="mailto:team@techshedfrome.org">get in touch</a>
+            href="mailto:info@techshedfrome.org">get in touch</a>
           </p><br>
 
           <p>

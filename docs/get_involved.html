@@ -77,7 +77,84 @@
       <!-- write your code here -->
 </head>
 
-<body class=" has-text-weight-medium is-centered" onload="init();">
+<body class=" has-text-weight-medium has-navbar-fixed-top is-centered" onload="init();">
+
+
+  <nav class=" is-fixed-top is-warning navbar pt-2 pb-2" role="navigation" aria-label="main navigation">
+
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold">
+      <div class=" has-text-centered navbar-brand img  ">
+        <div class="navbar-item">
+          <img class="is-hidden-mobile" src="assets/header_banner.png">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png"><div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
+        </div>
+
+
+        <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-item has-dropdown is-hoverable  " >
+          <a class="navbar-link ">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
+              aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item " href="index.html#LatestAir">
+              Sensor Readings
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item " href="index.html#Aim">
+              What is the aim of the project?
+            </a>
+            <a class="navbar-item " href="index.html#Measuring">
+              What air quaility are you measuring?
+            </a>
+            <a class="navbar-item" href="index.html#Matter">
+              Why does air quaility matter?
+            </a>
+
+          </div>
+        </div>
+
+
+        <div class="navbar-item has-dropdown is-hoverable ">
+          <a class="navbar-link" href="take_action.html">
+            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item" href="what_you_can_do.html">
+              What you can do
+            </a>
+            <a class="navbar-item" href="sponsor_an_air_sensor.html">
+              Sponsor a sensor
+            </a>
+            <a class="navbar-item" href="workshop_form.html">
+              Build your own sensor
+            </a>
+
+
+          </div>
+        </div>
+
+
+        <div class="navbar-item is-hoverable has-dropdown">
+
+          <div class="navbar-item ">
+          <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
   <section class="is-medium  ">
     <div class="hero-body has-text-centered is-12-desktop">
       <div class="container ">
@@ -122,7 +199,7 @@
               <p class="subtitle is-size-5" >
                 Find out what you can do to directly impact the air quaility in Frome.
               </p>
-              <button class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" onclick="window.location.href='take_action.html'"><span class="has-text-black">Learn more</span></button>
+              <a class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" href='take_action.html'><span class="has-text-black">Learn more</span></a>
             </div>
           
           </div>
@@ -147,14 +224,14 @@
 <div >
   <div class="  ">
     <div class="card-content" >
-      <a href="Sponsor_an_air_sensor.html" ><img src="assets/miniSensor.png"  class="imageLink" width="170px" class="pb-2" alt="Sponsor an air sensor"></a>
+      <a href="sponsor_an_air_sensor.html" ><img src="assets/miniSensor.png"  class="imageLink" width="170px" class="pb-2" alt="Sponsor an air sensor"></a>
       <p class="title is-size-4  pb-2">
         Sponsor an air sensor
       </p>
       <p class="subtitle is-size-5" >
        Club together with neighbours or local businesses to get a sensor for your street.
       </p>
-      <button class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" onclick="window.location.href='Sponsor_an_air_sensor.html'"><span class="has-text-black">Learn more</span></button>
+      <a class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" href='sponsor_an_air_sensor.html'><span class="has-text-black">Learn more</span></a>
     </div>
     
   </div>
@@ -171,7 +248,7 @@
                   <p class="subtitle is-size-5" >
                     Register your interest for an upcoming build your own sensor workshop
                   </p>
-                  <button class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" onclick="window.location.href='workshop_form.html'"><span class="has-text-black">Learn more</span></button>
+                  <a class="button is-warning has-text-weight-semibold  is-size-6 is-size-6-mobile" href='workshop_form.html'><span class="has-text-black">Learn more</span></a>
                 </div>
               
               </div>
@@ -219,7 +296,7 @@
       <div class="columns is-tablet ">
         
         <div class="column is-12 has-text-centered"><h3 class="title is-4">Join Tech Shed Frome Air Quaility Team</h3>
-         <div class="is-size-5"> There's lots of oppportunites to join the team. <br> We need volunteers looking to help.  Can you help with any of the following?  If so <a href="mailto:team@techshedfrome.org">get in touch with the team</a></div>
+         <div class="is-size-5"> There's lots of oppportunites to join the team. <br> We need volunteers looking to help.  Can you help with any of the following?  If so <a href="mailto:info@techshedfrome.org">get in touch with the team</a></div>
         </div>
       </div>
       <div class="columns is-tablet  ">
@@ -275,7 +352,7 @@
               <div class="content">
                 <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
                 <p><a href="get_involved.html">Get involved </a></p>
-                <p><a href="mailto:team@techshedfrome.org">Contact Tech Shed Frome</a></p>
+                <p><a href="mailto:info@techshedfrome.org">Contact Tech Shed Frome</a></p>
                 <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
               </div>
             </div>
@@ -300,7 +377,7 @@
           </div>
           <p>
           <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
-          If you're interested in creating your own Tech project or want to meet the team to chat, <a href="mailto:team@techshedfrome.org">get in touch</a>
+          If you're interested in creating your own Tech project or want to meet the team to chat, <a href="mailto:info@techshedfrome.org">get in touch</a>
           </p><br>
           
           <p>
