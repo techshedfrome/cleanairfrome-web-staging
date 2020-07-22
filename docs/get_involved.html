@@ -80,13 +80,14 @@
 <body class=" has-text-weight-medium has-navbar-fixed-top is-centered" onload="init();">
 
 
-  <nav class=" is-fixed-top is-warning navbar pt-2 pb-2" role="navigation" aria-label="main navigation">
+  <nav class=" is-fixed-top is-warning navbar" role="navigation" aria-label="main navigation">
 
-    <div class=" container has-text-centered is-size-5 has-text-weight-semibold">
-      <div class=" has-text-centered navbar-brand img  ">
-        <div class="navbar-item">
-          <img class="is-hidden-mobile" src="assets/header_banner.png">
-          <img class="is-hidden-tablet " src="assets/mobile_logo.png"><div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold ">
+      <div class=" has-text-centered navbar-brand img ">
+       <div class="navbar-item">
+         <img class="is-hidden-mobile" src="assets/header_banner.png" onclick="location='index.html'" style="cursor: pointer;">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png" onclick="location='index.html'" style="cursor: pointer;">
+          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet has-text-weight-semibold"> <a href="index.html">Clean Air Frome</a></div></a>
         </div>
 
 
@@ -100,8 +101,8 @@
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-item has-dropdown is-hoverable  " >
-          <a class="navbar-link ">
-            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
+          <a class="navbar-link firstNavItemMobile is-size-4-mobile" href="index.html#LatestAir">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1 is-hidden-mobile "
               aria-hidden="true"></i>
           </a>
 
@@ -111,22 +112,22 @@
             </a>
             <hr class="navbar-divider">
             <a class="navbar-item " href="index.html#Aim">
-              What is the aim of the project?
+              Aim of the project
             </a>
             <a class="navbar-item " href="index.html#Measuring">
-              What air quaility are you measuring?
+              Measuring air quality 
             </a>
             <a class="navbar-item" href="index.html#Matter">
-              Why does air quaility matter?
+              Why air quality matters
             </a>
 
           </div>
         </div>
 
-
+        <hr>
         <div class="navbar-item has-dropdown is-hoverable ">
-          <a class="navbar-link" href="take_action.html">
-            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" aria-hidden="true"></i>
+          <a class="navbar-link NavbarItemMobile is-size-4-mobile" href="take_action.html">
+            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1 is-hidden-mobile " aria-hidden="true"></i>
           </a>
 
           <div class="navbar-dropdown is-size-5">
@@ -143,14 +144,16 @@
 
           </div>
         </div>
-
+        <hr>
 
         <div class="navbar-item is-hoverable has-dropdown">
+
           <div class="navbar-item ">
-            <a class="navbar-link is-info " a href="https://cleanairinfrome.blogspot.com/">Latest News</a>
+            <a class="navbar-link is-info is-size-4-mobile" a href="https://cleanairinfrome.blogspot.com/"><span class="menuHover">Latest News</span></a>
           </div>
+          <hr>
           <div class="navbar-item ">
-          <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+          <a class="navbar-link is-info navbar-end is-size-4-mobile" a href="#ContactUs">Contact us</a>
         </div>
       </div>
     </div>
