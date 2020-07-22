@@ -154,6 +154,9 @@ nav.nav-center ul li {
 nav.nav-center ul li a {
   display: inline-block;
 }
+.navbar-link a{
+  text-decoration: none !important;
+}
 
 .navbar-item img {
 
@@ -165,7 +168,9 @@ nav.nav-center ul li a {
 
 
 }
-
+.fas {
+  text-decoration: none !important;
+}
 .navbar-item a {
   text-decoration: none !important;
 }
@@ -196,6 +201,7 @@ nav.nav-center ul li a {
 
 .fa-stack-2x {
   font-size: 2.5em !important;
+ 
 }
 
 .fa-stack {
@@ -214,6 +220,10 @@ a.button:active {
 
 a.button {
   text-decoration: none;
+}
+
+button a {
+text-decoration: none !important;
 }
 
 .icon.is-large {
