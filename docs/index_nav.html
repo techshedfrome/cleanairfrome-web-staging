@@ -47,38 +47,7 @@
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
 
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-      // Check if there are any navbar burgers
-      if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach(el => {
-          el.addEventListener('click', () => {
-
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
-
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-            
-
-          });
-        });
-      }
-    
-
-
-
-    });
-    
-  </script>
 </head>
 
 <body class=" has-text-weight-medium has-navbar-fixed-top">
@@ -90,20 +59,21 @@
       <div class=" has-text-centered navbar-brand img  ">
         <div class="navbar-item">
           <img class="is-hidden-mobile" src="assets/header_banner.png">
-          <img class="is-hidden-tablet " src="assets/mobile_logo.png"><div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png">
+          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
         </div>
 
 
         <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
-          
+
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-item has-dropdown is-hoverable  " >
+        <div class="navbar-item has-dropdown is-hoverable  ">
           <a class="navbar-link ">
             Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
               aria-hidden="true"></i>
@@ -152,10 +122,10 @@
         <div class="navbar-item is-hoverable has-dropdown">
 
           <div class="navbar-item ">
-          <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+            <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+          </div>
         </div>
       </div>
-    </div>
   </nav>
 
 
@@ -170,7 +140,7 @@
               </figure>
 
               <h1 class="title is-size-1-desktop  is-size-2-mobile mb-5">
-                Clean Air Frome
+                Clean Air Frome - NAV
               </h1>
               <h2 class="subtitle is-size-4-desktop is-size-5-mobile">
                 A network of air quality sensors in Frome, empowering the community to understand the impacts of the air
@@ -220,9 +190,9 @@
                           class="mt-2 has-text-centered"></a>
                     </div>
                     <div class="column pt-0">
-                      <h3 class="has-text-weight-semibold ">Developed by </h3><a
-                        href="https://techshedfrome.org"><img src="assets/TechShed_Logo_Ani_optimised.gif"
-                          width="180px" class="mb-6 has-text-centered pt-0"></a>
+                      <h3 class="has-text-weight-semibold ">Developed by </h3><a href="https://techshedfrome.org"><img
+                          src="assets/TechShed_Logo_Ani_optimised.gif" width="180px"
+                          class="mb-6 has-text-centered pt-0"></a>
                     </div>
                   </div>
                 </div>
@@ -263,18 +233,28 @@
         </div>
       </div>
       <div class="container readings" id="itemListContainer">
-        
-      </div> <div class="columns is-tablet"><div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
-      <article class="message is-warning is-marginless  mt-6 has-text-centered ">
-        <div class="message-header has-text-centered" style="text-align: center !important;"><span class="has-text-centered">How should I interpret the readings?</span>
+
+      </div>
+      <div class="columns is-tablet">
+        <div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
+          <article class="message is-warning is-marginless  mt-6 has-text-centered ">
+            <div class="message-header has-text-centered" style="text-align: center !important;"><span
+                class="has-text-centered">How should I interpret the readings?</span>
+            </div>
+            <div class="message-body has-text-centered-mobile px-1">Whilst every effort has been made to make good
+              quaility sensors at a very low cost, they are never going to be as accurate as professional grade sensors
+              worth thousounds of pounds. So we suggest you view these readings as an 'indication' of what the readings
+              are. The sensor readings are also only showing you what's been sensed over the last hour. <br><br> In the
+              near future we aim to improve accuracy with revisions to the unit and additional senors, as well as the
+              ability to view the data over time, which will give you a better sense of the peaks and throughs
+              throughout the day and weeks.
+            </div>
+
+          </article>
         </div>
-        <div class="message-body has-text-centered-mobile px-1">Whilst every effort has been made to make good quaility sensors at a very low cost, they are never going to be as accurate as professional grade sensors worth thousounds of pounds. So we suggest you view these readings as an 'indication' of what the readings are. The sensor readings are also only showing you what's been sensed over the last hour. <br><br> In the near future we aim to improve accuracy with revisions to the unit and additional senors, as well as the ability to view the data over time, which will give you a better sense of the peaks and throughs throughout the day and weeks. 
-        </div>
-     
-    </article>
-  </div></div>
+      </div>
     </div>
-   
+
   </section>
   <section class="section has-text-centered" id="start">
     <div class="container">
