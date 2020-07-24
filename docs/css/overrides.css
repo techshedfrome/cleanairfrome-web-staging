@@ -255,6 +255,9 @@ text-decoration: none !important;
   .modal-card-head {
     display: block;
   }
+  .main-link span {
+    font-size: 1.4em !important;
+  }
   
 }
 
@@ -435,4 +438,5 @@ padding:8px 16px 8px 20px !important;
 #tab-content p.is-active {
   display: block;
 }
+
 
