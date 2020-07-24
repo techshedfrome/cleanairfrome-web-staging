@@ -50,6 +50,7 @@
               src='https://cleanairinfrome.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost'
               async='async'></script>
             <script>
+              //Should be moved to script file
               function latestPost(json) {
                 console.log(json);
                 var entry = json.feed.entry;
