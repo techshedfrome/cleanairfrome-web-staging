@@ -6,9 +6,10 @@ Landing pages for our air quality monitoring project based in Frome, UK
 
 > TODO: write contribution guidlines
 
-At a minimum, make changes on the `/develop` branch rather than directly onto `/master`, then use a pull request to make the changes live - makes it easier to track things.
+Since we're using GitHub Pages for staging, `master` has to be the WIP branch in order to get anything built for staging.
 
-I'm in the process of moving to 2 repos using github Pages on both, so we can use one for staging and the other for live.
+A GitHub action is set up to auto deploy to live once a pull request is completed from `master` into the `deploy` branch.
+
 
 ## Repository Layout
 
