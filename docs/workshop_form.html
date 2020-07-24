@@ -28,13 +28,14 @@
 <body class=" has-text-weight-medium has-navbar-fixed-top is-size-8-desktop">
 
 
-  <nav class=" is-fixed-top is-warning navbar pt-2 pb-2" role="navigation" aria-label="main navigation">
+  <nav class=" is-fixed-top is-warning navbar" role="navigation" aria-label="main navigation">
 
-    <div class=" container has-text-centered is-size-5 has-text-weight-semibold">
-      <div class=" has-text-centered navbar-brand img  ">
-        <div class="navbar-item">
-          <img class="is-hidden-mobile" src="assets/header_banner.png">
-          <img class="is-hidden-tablet " src="assets/mobile_logo.png"><div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold ">
+      <div class=" has-text-centered navbar-brand img ">
+       <div class="navbar-item">
+         <img class="is-hidden-mobile" src="assets/header_banner.png" onclick="location='index.html'" style="cursor: pointer;">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png" onclick="location='index.html'" style="cursor: pointer;">
+          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet has-text-weight-semibold"> <a href="index.html">Clean Air Frome</a></div></a>
         </div>
 
 
@@ -48,8 +49,8 @@
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-item has-dropdown is-hoverable  " >
-          <a class="navbar-link ">
-            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
+          <a class="navbar-link firstNavItemMobile is-size-4-mobile" href="index.html#LatestAir">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1 is-hidden-mobile "
               aria-hidden="true"></i>
           </a>
 
@@ -59,22 +60,22 @@
             </a>
             <hr class="navbar-divider">
             <a class="navbar-item " href="index.html#Aim">
-              What is the aim of the project?
+              Aim of the project
             </a>
             <a class="navbar-item " href="index.html#Measuring">
-              What air quaility are you measuring?
+              Measuring air quality 
             </a>
             <a class="navbar-item" href="index.html#Matter">
-              Why does air quaility matter?
+              Why air quality matters
             </a>
 
           </div>
         </div>
 
-
+        <hr>
         <div class="navbar-item has-dropdown is-hoverable ">
-          <a class="navbar-link" href="take_action.html">
-            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" aria-hidden="true"></i>
+          <a class="navbar-link NavbarItemMobile is-size-4-mobile" href="take_action.html">
+            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1 is-hidden-mobile " aria-hidden="true"></i>
           </a>
 
           <div class="navbar-dropdown is-size-5">
@@ -91,12 +92,16 @@
 
           </div>
         </div>
-
+        <hr>
 
         <div class="navbar-item is-hoverable has-dropdown">
 
           <div class="navbar-item ">
-          <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+            <a class="navbar-link is-info is-size-4-mobile" a href="https://cleanairinfrome.blogspot.com/"><span class="menuHover">Latest News</span></a>
+          </div>
+          <hr>
+          <div class="navbar-item ">
+          <a class="navbar-link is-info navbar-end is-size-4-mobile" a href="#ContactUs">Contact us</a>
         </div>
       </div>
     </div>
@@ -137,29 +142,32 @@
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content">
-            <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
-            <p><a href="take_action.html">Take action </a></p>
             <p class="has-text-weight-semibold is-size-5 mb-0" id="ContactUs">Contact Clean Air Frome</p>
             <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p>
             <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
             <p><a href="mailto:cleanair@techshedfrome.org">Contact Clean Air Team</a></p>
-
+            <p class="has-text-weight-semibold">Follow us on..</p>
+            <p><i class="fab fa-facebook-square is-size-3 has-text-dark" onclick="location='https://www.facebook.com/Clean-Air-Frome-113809790395405'" style=" cursor: pointer;"></i>
+              <i class="fab fa-blogger ml-3 is-size-3 has-text-dark" onclick="location='https://cleanairinfrome.blogspot.com/'" style=" cursor: pointer;"></i></a></p>
+            <p></p>
           </div>
         </div>
       </div>
       <div class="columns ">
         <div class="column is-8-desktop is-offset-2-desktop  ">
 
-         
+
 
           <div class="columns is-mobile is-centered mt-3   ">
             <div class="column is-half-desktop is-10-mobile card-outline has-background-white">
               <div class="columns is-mobile ">
-                
-                <div class="column "> 
+
+                <div class="column ">
                   <h3 class="has-text-weight-semibold">Funded by </h3><br>
-                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a></div>
-                <div class="column">  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
+                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a>
+                </div>
+                <div class="column">
+                  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
                       src="assets/TechShed_Logo_Ani_optimised.gif" width="190px"></a>
                 </div>
               </div>
@@ -167,11 +175,12 @@
           </div>
           <p>
           <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
-          If you're interested in creating your own Tech project or want to meet the team to chat, <a href="mailto:info@techshedfrome.org">get in touch</a>
+          If you're interested in creating your own Tech project or want to meet the team to chat, <a
+            href="mailto:info@techshedfrome.org">get in touch</a>
           </p><br>
-          
+
           <p>
-           <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a> 
+            <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a>
           </p>
           <p style="margin-top: 1rem;">
             <a href="http://bulma.io">

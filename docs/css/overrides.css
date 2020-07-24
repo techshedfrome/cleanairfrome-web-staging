@@ -154,6 +154,22 @@ nav.nav-center ul li {
 nav.nav-center ul li a {
   display: inline-block;
 }
+.navbar-link a{
+  text-decoration: none !important;
+}
+
+.is-info:hover, .navbar-link:hover {
+  
+
+  }
+
+.is-info .nav-link{
+  text-align: center !important;
+}
+
+
+
+
 
 .navbar-item img {
 
@@ -165,7 +181,9 @@ nav.nav-center ul li a {
 
 
 }
-
+.fas {
+  text-decoration: none !important;
+}
 .navbar-item a {
   text-decoration: none !important;
 }
@@ -196,6 +214,7 @@ nav.nav-center ul li a {
 
 .fa-stack-2x {
   font-size: 2.5em !important;
+ 
 }
 
 .fa-stack {
@@ -216,6 +235,10 @@ a.button {
   text-decoration: none;
 }
 
+button a {
+text-decoration: none !important;
+}
+
 .icon.is-large {
   height: 2em !important;
 }
@@ -232,6 +255,44 @@ a.button {
   .modal-card-head {
     display: block;
   }
+  
+}
+
+@media screen and (max-width: 1023px) {
+ 
+  .navbar-link:not(.is-arrowless) {
+    padding-right:0 !important;
+  }
+  .navbar-end {
+    margin-bottom: 20px !important;
+  }
+  .firstNavItemMobile {
+    margin-top: 10px !important;
+    padding-bottom:0px !important;
+    
+  }
+  .NavbarItemMobile {
+    padding-bottom:0px !important;
+    padding-top:0px !important;
+  }
+  .is-info {
+    padding-top:0px !important;
+    padding-bottom: 0px !important;
+  }
+  .navbar-dropdown{
+padding:0px !important;
+  }
+  hr {
+
+    width: 50% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+    border: #FBDD58 1px dashed;
+  }
+  
+  
 }
 
 .VERY_HIGH {

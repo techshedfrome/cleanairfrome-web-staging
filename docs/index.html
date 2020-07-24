@@ -50,13 +50,14 @@
 <body class=" has-text-weight-medium has-navbar-fixed-top">
 
 
-  <nav class=" is-fixed-top is-warning navbar pt-2 pb-2" role="navigation" aria-label="main navigation">
+  <nav class=" is-fixed-top is-warning navbar" role="navigation" aria-label="main navigation">
 
-    <div class=" container has-text-centered is-size-5 has-text-weight-semibold">
-      <div class=" has-text-centered navbar-brand img  ">
-        <div class="navbar-item">
-          <img class="is-hidden-mobile" src="assets/header_banner.png">
-          <img class="is-hidden-tablet " src="assets/mobile_logo.png"><div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet">Clean Air Frome</div>
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold ">
+      <div class=" has-text-centered navbar-brand img ">
+       <div class="navbar-item">
+         <img class="is-hidden-mobile" src="assets/header_banner.png" onclick="location='index.html'" style="cursor: pointer;">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png" onclick="location='index.html'" style="cursor: pointer;">
+          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet has-text-weight-semibold has-text-dark"> <a href="index.html">Clean Air Frome</a></div></a>
         </div>
 
 
@@ -70,8 +71,8 @@
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-item has-dropdown is-hoverable  " >
-          <a class="navbar-link " href="index.html#LatestAir">
-            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1"
+          <a class="navbar-link firstNavItemMobile is-size-4-mobile  has-text-dark" href="index.html#LatestAir">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-dark text-is-7 ml-2 mt-1 is-hidden-mobile "
               aria-hidden="true"></i>
           </a>
 
@@ -81,22 +82,22 @@
             </a>
             <hr class="navbar-divider">
             <a class="navbar-item " href="index.html#Aim">
-              What is the aim of the project?
+              Aim of the project
             </a>
             <a class="navbar-item " href="index.html#Measuring">
-              What air quaility are you measuring?
+              Measuring air quality 
             </a>
             <a class="navbar-item" href="index.html#Matter">
-              Why does air quaility matter?
+              Why air quality matters
             </a>
 
           </div>
         </div>
 
-
+        <hr>
         <div class="navbar-item has-dropdown is-hoverable ">
-          <a class="navbar-link" href="take_action.html">
-            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1" aria-hidden="true"></i>
+          <a class="navbar-link NavbarItemMobile is-size-4-mobile" href="take_action.html">
+            Take Action <i class="fas fa-chevron-down has-text-dark text-is-7 ml-2 mt-1 is-hidden-mobile " aria-hidden="true"></i>
           </a>
 
           <div class="navbar-dropdown is-size-5">
@@ -113,12 +114,16 @@
 
           </div>
         </div>
-
+        <hr>
 
         <div class="navbar-item is-hoverable has-dropdown">
 
           <div class="navbar-item ">
-          <a class="navbar-link is-info navbar-end" a href="#ContactUs">Contact us</a>
+            <a class="navbar-link is-info is-size-4-mobile" a href="https://cleanairinfrome.blogspot.com/"><span class="menuHover">Latest News</span></a>
+          </div>
+          <hr>
+          <div class="navbar-item ">
+          <a class="navbar-link is-info navbar-end is-size-4-mobile  has-text-dark" a href="#ContactUs">Contact us</a>
         </div>
       </div>
     </div>
@@ -133,7 +138,7 @@
                 <img src="assets/sqHeader.png" width="550px">
               </figure>
 
-              <h1 class="title is-size-1-desktop  is-size-2-mobile mb-5">
+              <h1 class="title is-size-1-desktop  is-size-2-mobile mb-5 ">
                 Clean Air Frome
               </h1>
               <h2 class="subtitle is-size-4-desktop is-size-5-mobile">
@@ -146,7 +151,7 @@
 
 
                   <a class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-right"
-                    href='#airsensorfrome'><span class="has-text-black">Air quality in
+                    href='#airsensorfrome'><span class="has-text-dark">Air quality in
                       Frome</span></a>
 
 
@@ -155,7 +160,7 @@
 
 
                   <a class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-left"
-                    href='take_action.html'><span class="has-text-black">Take action now
+                    href='take_action.html'><span class="has-text-dark">Take action now
                       </span></a>
 
 
@@ -217,7 +222,7 @@
           
             <div class="subtitle is-size-5"> Readings based on UK gov <a
                 href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index (DAQI)</a><i
-                class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;"
+                class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
                 aria-hidden="true"></i> that is numbered 1-10 and divided into four bands, low (1) to very high (10).<br><br>
               <div class="is-italic">Indicates average air pollution level readings over last hour. </div>
             </div>
@@ -228,6 +233,25 @@
       </div>
 
     </div>
+    <div class="columns is-tablet">
+      <div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
+        <article class="message is-warning is-marginless  mt-6 has-text-centered ">
+          <div class="message-header has-text-centered" style="text-align: center !important;"><span
+              class="has-text-centered">How should I interpret the readings?</span>
+          </div>
+          <div class="message-body has-text-centered-mobile px-1">Whilst every effort has been made to make good
+            quaility sensors at a very low cost, they are never going to be as accurate as professional grade sensors
+            worth thousounds of pounds. So we suggest you view these readings as an 'indication' of what the readings
+            are. The sensor readings are also only showing you what's been sensed over the last hour. <br><br> In the
+            near future we aim to improve accuracy with revisions to the unit and additional senors, as well as the
+            ability to view the data over time, which will give you a better sense of the peaks and throughs
+            throughout the day and weeks.
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </div>
   </section>
   <section class="section has-text-centered" id="start">
     <div class="container">
@@ -249,7 +273,7 @@
                   <p class="modal-card-title mb-0">Daily Air Quality Index <br><span class="subtitle is-size-5 ">
                       Information taken only as reference from, <a
                         href="https://uk-air.defra.gov.uk/air-pollution/daqi">Defra<i
-                          class="fas fa-external-link-alt has-text-black text-is-7 ml-1"
+                          class="fas fa-external-link-alt has-text-dark text-is-7 ml-1"
                           aria-hidden="true"></i></a></span></p>
 
                   <label class="modal-close is-large " for="element-toggle"></label>
@@ -346,7 +370,7 @@
       <div class="columns is-tablet">
 
         <div class="column is-12 has-text-centered">
-          <h3 class="title is-4" id="Measuring">What air quaility are you measuring?</h3>
+          <h3 class="title is-4" id="Measuring">What air quality are you measuring?</h3>
         </div>
       </div>
       <div class="columns is-tablet">
@@ -372,7 +396,7 @@
     <div class="container">
       <div class="columns">
         <div class="column is-desktop-12">
-          <h3 class="title is-4" id="Matter">Why does air quaility matter?</h3>
+          <h3 class="title is-4" id="Matter">Why does air quality matter?</h3>
         </div>
       </div>
       <div class="columns">
@@ -404,18 +428,18 @@
           Particulates also have an environmental impact and can contribute to making lakes and streams acidic,
           depleting nutrients in soil, damaging sensitive forests and farm crops, affecting the diversity of ecosystems
           and contributing to <a href="https://www.epa.gov/acidrain/effects-acid-rain" target="_blank">acid rain effects<i
-              class="fas fa-external-link-alt has-text-black is-size-5" style="margin-left:6px;"
+              class="fas fa-external-link-alt has-text-dark is-size-5" style="margin-left:6px;"
               aria-hidden="true"></i></a> causing damage to buildings and stonework.<br>
           <br>
           <strong>More information on air quality</strong><br>
 
           The Department for Environment Food & Rural Affairs measure Nitrogen Dioxide, Sulphur Dioxide, Ozone, PM2.5,
           PM10 and is <a href="https://uk-air.defra.gov.uk/library/annualreport/index" target="_blank">reported on quarterly<i
-              class="fas fa-external-link-alt has-text-black text-is-7" style="margin-left:6px;"
+              class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
               aria-hidden="true"></i></a>.<br>Mendip District Council monitor Nitrogen Dioxide monthly and report on
           this annually via their <a
             href="https://www.mendip.gov.uk/media/20828/2018-Air-Quality-Annual-Status-Report/pdf/2018_Air_Quality_Annual_Status_Report.pdf?m=636854941860330000" target="_blank">Air
-            status report<i class="fas fa-external-link-alt has-text-black " style="margin-left:6px;"
+            status report<i class="fas fa-external-link-alt has-text-dark " style="margin-left:6px;"
               aria-hidden="true"></i></a>
 
         </div>
@@ -441,13 +465,14 @@
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content">
-            <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
-            <p><a href="take_action.html">Take action </a></p>
             <p class="has-text-weight-semibold is-size-5 mb-0" id="ContactUs">Contact Clean Air Frome</p>
             <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p>
             <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
             <p><a href="mailto:cleanair@techshedfrome.org">Contact Clean Air Team</a></p>
-
+            <p class="has-text-weight-semibold">Follow us on..</p>
+            <p><i class="fab fa-facebook-square is-size-3 has-text-dark" onclick="location='https://www.facebook.com/Clean-Air-Frome-113809790395405'" style=" cursor: pointer;"></i>
+              <i class="fab fa-blogger ml-3 is-size-3 has-text-dark" onclick="location='https://cleanairinfrome.blogspot.com/'" style=" cursor: pointer;"></i></a></p>
+            <p></p>
           </div>
         </div>
       </div>

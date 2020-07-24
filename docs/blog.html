@@ -3,7 +3,8 @@
 
 <head>
   <!-- Cookie management -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <script type="text/javascript" src="lib/cookiemanagement.js"></script>
   <script type="text/javascript" src="lib/blog.js"></script>
@@ -31,67 +32,107 @@
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="lib/animationTest.js"></script>
 
-  
-    <!-- write your code here -->
 
-    
-      <!-- write your code here -->
+  <!-- write your code here -->
+
+
+  <!-- write your code here -->
 </head>
 
-<body class=" has-text-weight-medium is-centered" >
+<body class=" has-text-weight-medium is-centered">
   <section class="is-medium  ">
     <div class=" has-text-centered ">
       <div class="container ">
-          <div class="columns is-centered">
-              <div class="column is-6-desktop is-centered">
-                <script src='http://your-blog.com/feeds/posts/default?alt=json-in-script&callback=latestPost' async='async'></script>
-                <script>
-                  function latestPost(json) {
-                    var entry = json.feed.entry;
-                    for(var i = 0; i < entry.length; i++) {
-                      var link, title = entry[i].title.$t;
-                      for(var j = 0; j < entry[i].link.length; j++) {
-                        if(entry[i].link[j].rel === "alternate") {
-                          link = entry[i].link[j].href;
-                        }
-                        document.getElementById("latest-post").innerHTML += "<a href='" + link + "'>" + title + "</a>";
-                      }
-                    }
+        <div class="columns is-centered">
+          <div class="column is-6-desktop is-centered">
+            <div id="blogPosts"></div>
+            <script
+              src='https://cleanairinfrome.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost'
+              async='async'></script>
+            <script>
+              //Should be moved to script file
+              function latestPost(json) {
+                console.log(json);
+                var entry = json.feed.entry;
+                var blogPosts = document.getElementById("blogPosts");
+                if (blogPosts) {
+                  blogPosts.innerHTML = "";
+                  blogPosts.classList.add("section");
+
+                  var card = document.createElement("DIV");
+                  card.classList.add("card", "section", "is-shadowless");
+                  blogPosts.appendChild(card);
+
+                  for (var i = 0; i < entry.length; i++) {
+                    var title = entry[i].title.$t;
+                    
+                    var link = entry[i].link.find((x) => x.rel === "alternate")?.href;
+
+                    var a = document.createElement("A");
+                    a.href = link;
+                    a.classList.add("post-title");
+                    var h = document.createElement("H1");
+                    h.innerText = title;
+                    a.appendChild(h);
+                    card.appendChild(a);
+
+                    var text = document.createElement("span");
+                    //text.innerText =
+                    //unsafe rendering! - should really be using a pure json feed and reconstructing the layout from text/image refs
+                    text.innerHTML = entry[i].content.$t;
+                    card.appendChild(text);
+
                   }
-                </script>
-      </div>
-    </div></div>
-</div>
-  </section>
-  
-  
- 
-  <script src="lib/blog_code.js"></script>
-   <footer class="footer has-text-centered has-background-warning-light">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-8-desktop is-offset-2-desktop">
-              <div class="content">
-                <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
-                <p><a href="get_involved.html">Get involved </a></p>
-                <p><a href="mailto:info@techshedfrome.org">Contact Tech Shed Frome</a></p>
-                <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
-              </div>
-            </div>
+                }
+              }
+            </script>
+
+            <div id="retainable-rss-embed" 
+            data-rss="https://medium.com/feed/@team_78163/"
+            data-maxcols="1" 
+            data-layout="slider" 
+            data-poststyle="inline" 
+            data-readmore="Read the rest" 
+            data-buttonclass="btn btn-primary" 
+            data-offset="-100"></div>
+            
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script src="lib/blog_code.js"></script>
+  <footer class="footer has-text-centered has-background-warning-light">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8-desktop is-offset-2-desktop">
+          <div class="content">
+            <p><a href="index.html#airsensorfrome">Air Quaility in Frome</a></p>
+            <p><a href="get_involved.html">Get involved </a></p>
+            <p><a href="mailto:info@techshedfrome.org">Contact Tech Shed Frome</a></p>
+            <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
+          </div>
+        </div>
+      </div>
       <div class="columns ">
         <div class="column is-8-desktop is-offset-2-desktop  ">
 
-         
+
 
           <div class="columns is-mobile is-centered mt-3   ">
             <div class="column is-half-desktop is-10-mobile card-outline has-background-white">
               <div class="columns is-mobile ">
-                
-                <div class="column "> 
+
+                <div class="column ">
                   <h3 class="has-text-weight-semibold">Funded by </h3><br>
-                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a></div>
-                <div class="column">  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
+                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a>
+                </div>
+                <div class="column">
+                  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
                       src="assets/TechShed_Logo_Ani_optimised.gif" width="190px"></a>
                 </div>
               </div>
@@ -99,11 +140,12 @@
           </div>
           <p>
           <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
-          If you're interested in creating your own Tech project or want to meet the team to chat, <a href="mailto:info@techshedfrome.org">get in touch</a>
+          If you're interested in creating your own Tech project or want to meet the team to chat, <a
+            href="mailto:info@techshedfrome.org">get in touch</a>
           </p><br>
-          
+
           <p>
-           <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a> 
+            <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a>
           </p>
           <p style="margin-top: 1rem;">
             <a href="http://bulma.io">
