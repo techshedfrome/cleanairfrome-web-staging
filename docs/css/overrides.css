@@ -158,6 +158,8 @@ nav.nav-center ul li a {
   text-decoration: none !important;
 }
 
+
+
 .is-info:hover, .navbar-link:hover {
   
 
@@ -295,7 +297,9 @@ padding:0px !important;
     border: #FBDD58 1px dashed;
   }
   
-  
+  .navbar-menu {
+    height: 100vh !important;
+  }
 }
 
 .VERY_HIGH {

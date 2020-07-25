@@ -45,14 +45,24 @@
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" crossorigin="anonymous"></script>
+
+  <script>
+function CloseNav() {
+var x 
+x =  document.getElementById('navbarBasicExample')	
+
+x.classList.remove('is-active')
+}
+
+  </script>
 </head>
 
 <body class=" has-text-weight-medium has-navbar-fixed-top">
 
 
-  <nav class=" is-fixed-top is-warning navbar" role="navigation" aria-label="main navigation">
+  <nav class=" is-fixed-top is-warning navbar " role="navigation" aria-label="main navigation">
 
-    <div class=" container has-text-centered is-size-5 has-text-weight-semibold ">
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold is-fullheight">
       <div class=" has-text-centered navbar-brand img ">
        <div class="navbar-item">
          <img class="is-hidden-mobile" src="assets/header_banner.png" onclick="location='index.html'" style="cursor: pointer;">
@@ -61,7 +71,7 @@
         </div>
 
 
-        <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
+        <a role="button" class="navbar-burger burger mt-1 " aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           
@@ -69,25 +79,25 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu ">
         <div class="navbar-item has-dropdown is-hoverable  " >
-          <a class="navbar-link firstNavItemMobile is-size-4-mobile  has-text-dark" href="index.html#LatestAir">
+          <a class="navbar-link firstNavItemMobile is-size-4-mobile  has-text-dark" href="index.html#LatestAir" onclick="CloseNav()">
             Latest pollution levels <i class="fas fa-chevron-down has-text-dark text-is-7 ml-2 mt-1 is-hidden-mobile "
               aria-hidden="true"></i>
           </a>
 
           <div class="navbar-dropdown is-size-5">
-            <a class="navbar-item " href="index.html#LatestAir">
+            <a class="navbar-item " href="index.html#LatestAir" onclick="CloseNav()">
               Sensor Readings
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item " href="index.html#Aim">
+            <a class="navbar-item " href="index.html#Aim" onclick="CloseNav()">
               Aim of the project
             </a>
-            <a class="navbar-item " href="index.html#Measuring">
+            <a class="navbar-item " href="index.html#Measuring" onclick="CloseNav()">
               Measuring air quality 
             </a>
-            <a class="navbar-item" href="index.html#Matter">
+            <a class="navbar-item" href="index.html#Matter" onclick="CloseNav()">
               Why air quality matters
             </a>
 
@@ -123,7 +133,7 @@
           </div>
           <hr>
           <div class="navbar-item ">
-          <a class="navbar-link is-info navbar-end is-size-4-mobile  has-text-dark" a href="#ContactUs">Contact us</a>
+          <a class="navbar-link is-info navbar-end is-size-4-mobile  has-text-dark" a href="#ContactUs" onclick="CloseNav()">Contact us</a>
         </div>
       </div>
     </div>
@@ -253,9 +263,9 @@
     </div>
   </div>
   </section>
-  <section class="section has-text-centered" id="start">
-    <div class="container">
-      <h3 class="title is-size-4" id="Aim">What's the aim of the project?</h3>
+  <section class="section has-text-centered" id="start" >
+    <div class="container" id="Aim">
+      <h3 class="title is-size-4" >What's the aim of the project?</h3>
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content ">
