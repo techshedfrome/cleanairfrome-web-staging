@@ -126,6 +126,10 @@ nav.nav-center ul li a {
     margin-top: 20px !important;
     border: #FBDD58 1px dashed;
   }
+  
+  .navbar-menu {
+    height: 100vh !important;
+  }
 }
 
 .VERY_HIGH {
