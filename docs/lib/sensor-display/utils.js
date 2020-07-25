@@ -9,7 +9,7 @@ export function fadeElementInWhenAdding(e, fast) {
 
 
 export function printError(error) {
-    console.log(error);
+    console.error(error);
 }
 
 
@@ -21,7 +21,7 @@ export function alphaSort(a, b) {
 
 export function throwHttpErrors(request) {
     if (!request.ok) {
-        console.log(request.Error);
+        console.error(request.Error);
         throw Error(request.status);
     };
     return request;
