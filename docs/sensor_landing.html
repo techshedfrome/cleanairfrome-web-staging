@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
   <script>
 
     function openTabNew(varTabName, ID) {
@@ -50,8 +52,13 @@
   </script>
 </head>
 
-<body class="has-text-weight-medium is-centered">
-  <section class=" is-medium ">
+<body class="has-text-weight-medium is-centered" >
+  <div  id="app">
+  <section class=" is-medium " >
+              <app myprop="test minimal embedding of VueJS">
+                <h1 class="is-size-1 mx-5 has-text-centered">{{ myprop }}</h1>
+                <h1 class="is-size-3 mt-3 mb-6 has-text-centered">Can't use <code>.vue</code> files without a build though</h1>
+              </app>
     <input id="element-toggle" type="checkbox" />
     <div class="container readings" id="itemListContainer">
       <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
@@ -248,7 +255,6 @@
               </div>
 
             </div>
-
             <div id="Now" class="content-tab mt-3">
               <div class="columns is-centered">
                 <div class="column is-12-mobile is-8-desktop ">
@@ -279,6 +285,7 @@
                 </div>
 
               </div>
+              
               <div id="PM25" class="content-tab mt-3">
                 <div class="columns is-centered">
                   <div class="column is-12-mobile is-8-desktop ">
@@ -512,8 +519,9 @@
 </div>
 
  -->
-
+</div>
   <script type="text/javascript" src="lib/main.js"></script>
+  <script type="text/javascript" src="lib/vue/app.js"></script>
 </body>
 
 </html>
