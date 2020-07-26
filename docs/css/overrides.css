@@ -50,6 +50,7 @@ nav.nav-center ul li a {
 
 .navbar-item img {
   max-height: 2.5rem !important;
+
 }
 
 .fas {
@@ -91,6 +92,9 @@ nav.nav-center ul li a {
   .is-pulled-left {
     float: none !important;
   }
+
+
+ 
 }
 
 .button:hover {
@@ -106,6 +110,10 @@ nav.nav-center ul li a {
   .modal-content,
   .modal-card {
     width: 90%;
+  }
+  .navbar-item img {
+  
+    width:220px !important;
   }
 }
 
