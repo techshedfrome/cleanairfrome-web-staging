@@ -12,14 +12,19 @@
   font-size: 0.86em;
 }
 
-#element-toggle {
+#detail-toggle,
+#element-toggle,
+#defra-toggle {
   display: none;
 }
-
-#element-toggle:checked~#myModal {
+#element-toggle:checked~#myModal,
+#detail-toggle:checked~#sensorDetail,
+#defra-toggle:checked~#defraInfo
+ {
   display: flex;
   position: fixed;
 }
+
 
 ul.is-unstyled {
   list-style: none;
@@ -39,10 +44,7 @@ nav.nav-center ul li {
   display: inline;
   float: none;
 }
-
-nav.nav-center ul li a {
-  display: inline-block;
-}
+ 
 
 .is-info .nav-link {
   text-align: center !important;
@@ -50,7 +52,6 @@ nav.nav-center ul li a {
 
 .navbar-item img {
   max-height: 2.5rem !important;
-
 }
 
 .fas {

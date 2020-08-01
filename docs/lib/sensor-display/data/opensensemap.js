@@ -73,12 +73,20 @@ export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sample
     console.debug(statsUrl);
     return fetch(statsUrl)
         .then(throwHttpErrors)
-        .then(res => res.json().then(x => processValues(x, phenomenon))
+        .then(res => res.json().then(x => {
+                // console.log(phenomenon+ " stats:");
+                // console.log(x);
+                return processValues(x, phenomenon)
+            })
         )
 }
 
 
 function processValues(values, phenomenon) {
+    if (!values) {
+        console.debug("empty response");
+        return [0];
+    }
     values = values[0];
     var mappedValues = getMappedValues(values);
     //not always a single value, even though sample window is the same ad the filter period
@@ -92,11 +100,15 @@ function processValues(values, phenomenon) {
 function getMappedValues(values) {
     //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
     if (!values) {
+        console.debug("no data");
+        return [0];
+    }
+    var valueFields = Object.keys(values).filter(y => moment(y).isValid());
+    if (!valueFields || valueFields.length == 0) {
         console.debug("no values");
         return [];
     }
-    console.debug("values: " + values);
-    var valueFields = Object.keys(values).filter(y => moment(y).isValid());
+    console.debug("values: " + valueFields);
     var mappedValues = valueFields?.map(x => values[x]);
     return mappedValues;
 }
@@ -266,4 +278,4 @@ or at the very least:
             ]
 
 
-*/
+        */
