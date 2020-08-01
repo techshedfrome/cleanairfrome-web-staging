@@ -5,32 +5,62 @@ import { checkReadingIsStale, fetchDeviceStats } from "../data/opensensemap.js"
 
 import {  fadeElementInWhenAdding } from "../utils.js"
 
-const samplePeriodHours = 1;
+const samplePeriodHours = 2;
 
 export function populateSensorReading(valuesContainer, boxid) {
     var latestDustReadingDate = valuesContainer.getAttribute("readingDate");
     var stale = checkReadingIsStale(latestDustReadingDate);
-    var defraAqi;
+    // device_id="1" pm2_5_value="47.6" pm10_value="86.4"
+    valuesContainer.setAttribute("device_id", boxid);
+    valuesContainer.setAttribute("last_seen", latestDustReadingDate);
 
     if (!stale) {
         fetchDeviceStats(boxid, "PM2.5", "geometricMean", samplePeriodHours)
             .then(pm25 => {
                 fetchDeviceStats(boxid, "PM10", "geometricMean", samplePeriodHours)
                     .then(pm10 => {
-                        defraAqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
-                        valuesContainer.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"]));
+
+                        valuesContainer.setAttribute("pm2_5_value", pm25);
+                        valuesContainer.setAttribute("pm10_value", pm10);
+                        
+                        var defraAqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
+                        valuesContainer.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"], "detail-toggle"));
                         fadeElementInWhenAdding(valuesContainer.querySelector(".value-badge"));
-                    });
+
+                        showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, pm10);
+                    });;
             });
     }
     else {
-        valuesContainer.appendChild(sensorReading("", "-", ["value-badge-outline", "is-size-4"]))
+        valuesContainer.appendChild(sensorReading("", "-", ["value-badge-outline", "is-size-4"], "coming-soon-toggle"))
     }
 }
 
 
 
-function sensorReading(units, reading, valueClasslist) {
+
+function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, pm10) {
+    valuesContainer.addEventListener("click", () => {
+        var view = document.createElement("device-measurement-selector");
+        view.setAttribute("device_id", boxid);
+        view.setAttribute("last_seen_string", latestDustReadingDate);
+        view.setAttribute("pm2_5_value", pm25.value.toFixed(2));
+        view.setAttribute("pm10_value", pm10.value.toFixed(2));
+        removeChildrenForSelector(valuesContainer, "device-measurement-selector");
+        var modal = document.querySelector("#sensorDetail .modal-card-body");
+        if (modal) {
+            modal.innerHTML = "";
+            modal.appendChild(view);
+        }
+    });
+}
+
+function removeChildrenForSelector(valuesContainer, childSelector) {
+    valuesContainer.querySelectorAll(childSelector)
+                   ?.forEach((x) => x.parentNode.removeChild(x));
+}
+
+function sensorReading(units, reading, valueClasslist, modalControlCheckboxId) {
     var readingLine = document.createElement("DIV");
     readingLine.classList.add("level-item");
 
@@ -43,7 +73,7 @@ function sensorReading(units, reading, valueClasslist) {
     valueP.innerText = '' + String(!reading || reading == "NaN" ? "-" : reading) + units;
     value.appendChild(valueP);
 
-    var labelDiv = getInfoIconLinkWithText(indexToPollutionBandFromAqi(reading), "element-toggle");
+    var labelDiv = getInfoIconLinkWithText(indexToPollutionBandFromAqi(reading), modalControlCheckboxId);
     inner.appendChild(value);
     inner.appendChild(labelDiv);
     readingLine.appendChild(inner);
