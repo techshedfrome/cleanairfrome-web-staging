@@ -1,11 +1,10 @@
 .modal-close {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   background-color: rgba(10, 10, 10, .1) !important;
   color: black !important;
-  float: right !important;
-  top: 0px !important;
-  left: 0px;
+  position: absolute;
+  top: 0px ;
+  right: 0px;
+  margin: 0.75rem;
 }
 
 .modal-card table {
