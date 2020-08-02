@@ -11,6 +11,10 @@
   font-size: 0.86em;
 }
 
+.modal-card {
+  min-height: 98%;
+}
+
 #detail-toggle,
 #element-toggle,
 #defra-toggle {
