@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
+  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="lib/vue/device.min.js"></script>
 </head>
 
 <body class=" has-text-weight-medium has-navbar-fixed-top is-size-8-desktop">
@@ -333,57 +336,12 @@
     </div>
   </section>
 
-  <footer class="footer has-text-centered has-background-warning-light underline-links">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <p class="has-text-weight-semibold is-size-5 mb-0" id="ContactUs">Contact Clean Air Frome</p>
-            <p class="pt-0"> Clean air Frome is an initiative setup by the Frome Town Council. </p>
-            <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
-            <p><a href="mailto:cleanair@techshedfrome.org">Contact Clean Air Team</a></p>
-            <p class="has-text-weight-semibold">Follow us on..</p>
-            <p class="no-underline-links">
-              <a href="https://www.facebook.com/Clean-Air-Frome-113809790395405'">
-                <i class="fab fa-facebook-square is-size-3 has-text-dark"></i>
-              </a>
-              <a href="https://cleanairinfrome.blogspot.com/">
-                <i class="fab fa-blogger ml-3 is-size-3 has-text-dark"></i>
-              </a>
-            </p>
-            <p></p>
-          </div>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop  ">
-          <div class="columns is-mobile is-centered mt-3   ">
-            <div class="column is-half-desktop is-10-mobile card-outline has-background-white">
-              <div class="columns is-mobile no-underline-links with-hover">
-                <div class="column ">
-                  <h3 class="has-text-weight-semibold">Funded by </h3><br>
-                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a>
-                </div>
-                <div class="column">
-                  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
-                      src="assets/TechShed_Logo_Ani_optimised.gif" width="190px"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
-          <p>
-            If you're interested in creating your own Tech project or want to meet the team to chat, <a
-              href="mailto:info@techshedfrome.org">get in touch</a>
-          </p>
-          <br>
-          <p>
-            <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <device-standard-footer 
+    council_email="afrancis@frometowncouncil.gov.uk"
+    clean_air_email="cleanair@techshedfrome.org"
+    techshed_email="info@techshedfrome.org"
+  >
+  </device-standard-footer>  
 
   <script type="text/javascript" src="lib/main.js"></script>
 </body>
