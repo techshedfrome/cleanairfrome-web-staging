@@ -15,10 +15,12 @@
     text-decoration: none;
 
     &:hover {
-        background-color: none;
+        background-color: transparent;
+        text-decoration: none;
     }
 
     &:active {
+        background-color: transparent;
         border-bottom: none;
     }
 }
