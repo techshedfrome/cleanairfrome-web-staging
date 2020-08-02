@@ -47,7 +47,7 @@ function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, p
         view.setAttribute("pm2_5_value", pm25.value.toFixed(2));
         view.setAttribute("pm10_value", pm10.value.toFixed(2));
         removeChildrenForSelector(valuesContainer, "device-measurement-selector");
-        var modal = document.querySelector("#sensorDetail .modal-card-body");
+        var modal = document.querySelector("#sensorDetail #Now");
         if (modal) {
             modal.innerHTML = "";
             modal.appendChild(view);
@@ -90,12 +90,12 @@ function getInfoIconLinkWithText(text, forId) {
     var textSpan = document.createElement("SPAN");
     textSpan.innerText = text;
 
-    var i = document.createElement("I");
-    i.classList.add("fas", "fa-info-circle", "has-text-grey", "ml-1");
-    i.setAttribute("aria-hidden", "true");
+    // var i = document.createElement("I");
+    // i.classList.add("fas", "fa-info-circle", "has-text-grey", "ml-1");
+    // i.setAttribute("aria-hidden", "true");
 
     a.appendChild(textSpan);
-    a.appendChild(i);
+    // a.appendChild(i);
 
     label.appendChild(a);
     return label;

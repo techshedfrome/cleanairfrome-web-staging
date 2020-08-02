@@ -15,6 +15,10 @@
   min-height: 98%;
 }
 
+#didYouKnow p{
+  text-align: justify;
+}
+
 #detail-toggle,
 #element-toggle,
 #defra-toggle {
@@ -73,10 +77,7 @@ nav.nav-center ul li {
   }
   .is-pulled-left {
     float: none !important;
-  }
-
-
- 
+  } 
 }
 
 .button:hover {
