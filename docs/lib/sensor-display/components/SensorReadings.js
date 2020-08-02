@@ -5,7 +5,7 @@ import { checkReadingIsStale, fetchDeviceStats } from "../data/opensensemap.js"
 
 import {  fadeElementInWhenAdding } from "../utils.js"
 
-const samplePeriodHours = 2;
+const samplePeriodHours = 1;
 
 export function populateSensorReading(valuesContainer, boxid) {
     var latestDustReadingDate = valuesContainer.getAttribute("readingDate");
