@@ -72,7 +72,7 @@ function sensorReading(units, reading, valueClasslist, modalControlCheckboxId) {
     var colorClass = getColourClassForAqi(reading);
     value.classList.add("value-badge", "is-size-4", "border", colorClass, ...valueClasslist);
     var valueP = document.createElement("P");
-    valueP.innerText = '' + String(!reading || reading == "NaN" ? "-" : reading) + units;
+    valueP.innerText = '' + String(!reading || reading == "NaN" || reading == -Infinity ? "0" : reading) + units;
     value.appendChild(valueP);
 
     var labelDiv = getInfoIconLinkWithText(indexToPollutionBandFromAqi(reading), modalControlCheckboxId);
