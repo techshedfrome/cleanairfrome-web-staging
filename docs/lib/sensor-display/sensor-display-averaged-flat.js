@@ -38,16 +38,14 @@ function populateSensorList(data) {
   });
 
   loadStreetNames(data, device => {
-    var listItemTitle = document.querySelector("#" + device.name + "-title");
+    var listItemTitle = document.querySelector(`#_${device.boxid}-title`);
     if (listItemTitle) listItemTitle.innerText = device.streetname;
-    var detailTitle = document.querySelector(`#detail-${device.boxid}-title`)
-    if (detailTitle) detailTitle.innerText = device.streetname;
   });
 
   data.forEach(device => addDeviceStats(device.boxid));
 }
 
 function addDeviceStats(boxid) {
-  populateSensorReading(document.querySelector("#_" + boxid), boxid);
+  populateSensorReading(document.querySelector(`#_${boxid}`), boxid);
 }
 

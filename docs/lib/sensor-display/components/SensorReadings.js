@@ -46,6 +46,8 @@ function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, p
         view.setAttribute("last_seen_string", latestDustReadingDate);
         view.setAttribute("pm2_5_value", pm25.value.toFixed(2));
         view.setAttribute("pm10_value", pm10.value.toFixed(2));
+        var title = document.querySelector(`#_${boxid}-title`);
+        if(title) view.setAttribute("name", title.innerText);
         removeChildrenForSelector(valuesContainer, "device-sensor-view-selector");
         var modal = document.querySelector("#sensorDetailPlaceholder");
         if (modal) {
