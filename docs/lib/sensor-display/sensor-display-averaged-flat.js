@@ -38,8 +38,10 @@ function populateSensorList(data) {
   });
 
   loadStreetNames(data, device => {
-    var card = document.querySelector("#" + device.name + "-title");
-    card.innerText = device.streetname;
+    var listItemTitle = document.querySelector("#" + device.name + "-title");
+    if (listItemTitle) listItemTitle.innerText = device.streetname;
+    var detailTitle = document.querySelector(`#detail-${device.boxid}-title`)
+    if (detailTitle) detailTitle.innerText = device.streetname;
   });
 
   data.forEach(device => addDeviceStats(device.boxid));

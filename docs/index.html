@@ -385,7 +385,8 @@
       <div class="modal-card is-fullheight">
         <header class="modal-card-head  pt-4">
           <p class="modal-card-title mb-0 has-text-centered">Sensor Detail
-            <label class="modal-close is-large mt-3 mr-3" for="detail-toggle"></label></p>
+            <label class="modal-close is-large mt-3 mr-3" for="detail-toggle"></label>
+          </p>
         </header>
         <section class="modal-card-body px-0"></section>
       </div>
@@ -393,77 +394,9 @@
 
     <div class="modal" id="sensorDetail">
       <div class="modal-background"></div>
-      <div class="modal-card ">
-        <script>
-          function tabClick(thisTab, allTabsSelector, allTabContentSelector, thisTabContentSelector) {
-            var thisTabContent = document.querySelector(thisTabContentSelector);
-            if (thisTabContent.classList.contains('is-hidden')) { 
-              document.querySelectorAll(allTabContentSelector).forEach(x => x.classList.add('is-hidden')); 
-              thisTabContent.classList.remove('is-hidden') ;
-              document.querySelectorAll(allTabsSelector).forEach(x => x.classList.remove('is-active')); 
-              thisTab.classList.add('is-active')
-            }
-          }
-        </script>
-        <section class="modal-card-body px-0">
-          <label class="modal-close is-large mr-4" for="detail-toggle"></label>
-          <div class="hero-body has-text-centered is-12-desktop">
-
-            <div id="subjectTabs" class="container ">
-              <div class="columns is-centered">
-                <div class="column is-12-mobile is-8-desktop ">
-                  <div class="title">Sensor Detail</div>
-                  <div class="pt-1 tabs is-toggle is-toggle-rounded is-centered has-text-black has-text-weight-medium"
-                    id="subjectTabs">
-                    <ul class="has-text-weight-medium">
-                      <li class="is-active  has-text-black has-text-weight-medium tab" 
-                          onclick="tabClick(this, '#subjectTabs .tab', '#subjectTabsContent .tab-content', '#Now.tab-content')">
-                        <a>
-                          <span class="icon is-small has-text-black"><i class="far fa-clock"></i></span>
-                          <span class="has-text-black has-text-weight-bold">Last hour</span>
-                        </a>
-                      </li>
-                      <li class="has-text-black has-text-weight-medium tab" 
-                          onclick="tabClick(this, '#subjectTabs .tab', '#subjectTabsContent .tab-content', '#OverTime.tab-content')">
-                        <a>
-                          <span class="icon is-small has-text-black"><i class="far fa-calendar-alt"></i></span>
-                          <span class="has-text-black has-text-weight-bold">Over time</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <section id="subjectTabsContent">
-              <div id="Now" class="tab-content mt-3">
-                <!-- tab content -->
-                <device-measurement-selector device_id="1" pm2_5_value="47.6" pm10_value="86.4">
-                </device-measurement-selector>
-              </div>              
-              <div id="OverTime" class="tab-content section is-hidden" >
-                <!-- tab content -->
-                Coming Soon: view data over time
-              </div>
-            </section>
-
-            <div id="didYouKnow" class="container is-centered">
-              <div class="columns mt-4 is-mobile">
-                <div class="column is-2-mobile is-1-tablet is-1-desktop is-offset-2-desktop has-text-right mr-2">
-                  <i class="is-pulled-right far fa-lightbulb is-size-2 "></i>
-                </div>
-                <div class="column is-mobile-11 has-text-left">
-                  <div class="has-text-weight-bold is-size-6">Did you know</div>
-                  <p>Air pollution tends to get trapped within roads with tall buildings on either side, so this
-                  type of road usually has poor air quality and should be avoided for exercise.</p> 
-                </div>
-                <div class="column is-3-desktop is-hidden-mobile"></div>
-              </div>
-            </div>
-
-          </div>
-        </section>
+      <div class="modal-card has-background-white	section">
+        <label class="modal-close is-large mr-4" for="detail-toggle"></label>
+        <section id="sensorDetailPlaceholder"></section>
       </div>
     </div>
 

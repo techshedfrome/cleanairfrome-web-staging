@@ -41,13 +41,13 @@ export function populateSensorReading(valuesContainer, boxid) {
 
 function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, pm10) {
     valuesContainer.addEventListener("click", () => {
-        var view = document.createElement("device-measurement-selector");
+        var view = document.createElement("device-sensor-view-selector");
         view.setAttribute("device_id", boxid);
         view.setAttribute("last_seen_string", latestDustReadingDate);
         view.setAttribute("pm2_5_value", pm25.value.toFixed(2));
         view.setAttribute("pm10_value", pm10.value.toFixed(2));
-        removeChildrenForSelector(valuesContainer, "device-measurement-selector");
-        var modal = document.querySelector("#sensorDetail #Now");
+        removeChildrenForSelector(valuesContainer, "device-sensor-view-selector");
+        var modal = document.querySelector("#sensorDetailPlaceholder");
         if (modal) {
             modal.innerHTML = "";
             modal.appendChild(view);
