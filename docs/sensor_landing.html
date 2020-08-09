@@ -25,331 +25,213 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
-  <script>
 
-    function openTabNew(varTabName, ID) {
-      if (varTabName == "PM25") {
-        var element = document.getElementById('PM10Selector')
-        element.classList.remove("is-active");
-
-        ID.className = "is-active"
-        document.getElementById('PM25').style.display = "block"
-        document.getElementById('PM10').style.display = "none"
-      } 
-      else {
-        var element = document.getElementById('PM25Selector')
-        element.classList.remove("is-active");
-
-        ID.className = "is-active"
-        document.getElementById('PM25').style.display = "none"
-        document.getElementById('PM10').style.display = "block"
-      }
-    }
-
-    function openTabBig(varTabName, ID) {
-      if (varTabName == "PM25") {
-        var element = document.getElementById('PM10Selector')
-        element.classList.remove("is-active");
-
-        ID.className = "is-active"
-        document.getElementById('PM25').style.display = "block"
-        document.getElementById('PM10').style.display = "none"
-      } 
-      else {
-        var element = document.getElementById('PM25Selector')
-        element.classList.remove("is-active");
-
-        ID.className = "is-active"
-        document.getElementById('PM25').style.display = "none"
-        document.getElementById('PM10').style.display = "block"
-      }
-    }
-
-  </script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="lib/vue/device.min.js"></script>
 </head>
 
 <body class="has-text-weight-medium is-centered">
-  <section class=" is-medium ">
-    <input id="element-toggle" type="checkbox" />
-    <div class="container readings" id="itemListContainer">
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-0-title">Rossiter's Road</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5eeba76aee9b25001b3ba5c7"
-          readingdate="2020-07-17T15:57:53+01:00">
-          <div class="level-item">
+  <div>
+    <section class=" is-medium ">
+      <input id="element-toggle" type="checkbox" />
+      <div class="container readings" id="itemListContainer">
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
             <div>
-              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-                <p>1</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-0-title">Rossiter's Road</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
+            </div><span class="level-item"></span>
           </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-1-title">The Butts</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5ee618b7dc1438001b14eb7f"
-          readingdate="2020-07-17T15:58:14+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-                <p>1</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-3-title">Bath Street</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">5 meters from traffic<br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5eeb8c02ee9b25001b30c6e0"
-          readingdate="2020-07-17T15:59:25+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-                <p>1</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-4-title">Rodden Road</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5eeb9259ee9b25001b334899"
-          readingdate="2020-07-17T15:57:57+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-                <p>1</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-5-title">Nunney Road</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">4 meters from traffic<br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5ee60cf3dc1438001b1036ea"
-          readingdate="2020-07-17T15:56:59+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-                <p>1</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-7-title">Market Place</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5f021451b9d0aa001c3ebb78"
-          readingdate="2020-07-17T15:58:35+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
-                <p>1</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-2-title">Christchurch Street East
-            </div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6">5 meters from traffic<br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5ee63c4adc1438001b233b53"
-          readingdate="2020-07-07T19:12:04+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border undefined value-badge-outline">
-                <p>-</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Coming soon</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
-        <div class="level-left-tablet has-text-left">
-          <div>
-            <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-6-title">Bath Road</div>
-            <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
-          </div><span class="level-item"></span>
-        </div>
-        <div class="level-right-tablet has-text-centered mt-2" id="_5eeba101ee9b25001b391ca0"
-          readingdate="2020-06-18T18:23:16+01:00">
-          <div class="level-item">
-            <div>
-              <div class="value-badge is-size-4 border undefined value-badge-outline">
-                <p>-</p>
-              </div><label for="element-toggle"><a class="main-link"><span>Coming soon</span><i
-                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal" id="myModal">
-      <div class="modal-background"></div>
-      <div class="modal-card ">
 
-        <section class="modal-card-body px-0">
-          <label class="modal-close is-large mr-4" for="element-toggle"></label>
-          <div class="hero-body has-text-centered is-12-desktop">
-
-            <div class="container ">
-
-              <div class="columns is-centered">
-                <div class="column is-12-mobile is-8-desktop ">
-                  <div class="title">The Butts</div>
-
-                  <div class="pt-1 tabs is-toggle is-toggle-rounded is-centered has-text-black has-text-weight-medium"
-                    id="tabs">
-                    <ul class="has-text-weight-medium">
-
-                      <li class="is-active  has-text-black has-text-weight-medium tab" onclick="openTab(event,'Now')">
-                        <a>
-                          <span class="icon is-small has-text-black"><i class="far fa-clock"></i></span>
-                          <span class="has-text-black has-text-weight-bold">Last hour</span>
-                        </a>
-                      </li>
-
-
-                      <li class="has-text-black has-text-weight-medium tab" onclick="openTab(event,'OverTime')">
-                        <a>
-                          <span class="icon is-small has-text-black"><i class="far fa-calendar-alt"></i></span>
-                          <span class="has-text-black has-text-weight-bold">Over time</span>
-                        </a>
-                      </li>
-                    </ul>
-
-                  </div>
-                </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5eeba76aee9b25001b3ba5c7"
+            readingdate="2020-07-17T15:57:53+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                  <p>1</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
               </div>
-
             </div>
-
-            <div id="Now" class="content-tab mt-3">
-              <div class="columns is-centered">
-                <div class="column is-12-mobile is-8-desktop ">
-                  <div class="subtitle is-size-6 has-text-weight-bold mb-0 has-text-black"> Size of dust particale<i
-                      class="far fa-question-circle ml-1"></i></div>
-                  <div class="pt-1 tabs is-toggle is-toggle-rounded is-centered has-text-black has-text-weight-medium"
-                    id="tabs">
-
-                    <ul class="has-text-weight-medium">
-
-                      <li class="is-active  " onclick="openTabNew('PM25',this)" id="PM25Selector">
-                        <a>
-
-                          <span class="has-text-black has-text-weight-bold">PM 2.5</span>
-                        </a>
-                      </li>
-
-
-                      <li class="" onclick="openTabNew('PM10',this)" id="PM10Selector">
-                        <a>
-
-                          <span class="has-text-black has-text-weight-bold">PM 10</span>
-                        </a>
-                      </li>
-                    </ul>
-
-                  </div>
-                </div>
-
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                <p>1</p>
+              </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                    class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+            </div>
+          </div>
+          <div class="level-item ml-5">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3 " id="cleanairfrome-1-title">The Butts</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">5 meters from traffic<br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2 ">
+            <i class="fas fa-chevron-right is-size-1 "></i>
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-3-title">Bath Street</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">5 meters from traffic<br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5eeb8c02ee9b25001b30c6e0"
+            readingdate="2020-07-17T15:59:25+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                  <p>1</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
               </div>
-              <div id="PM25" class="content-tab mt-3">
+            </div>
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-4-title">Rodden Road</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5eeb9259ee9b25001b334899"
+            readingdate="2020-07-17T15:57:57+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                  <p>1</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-5-title">Nunney Road</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">4 meters from traffic<br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5ee60cf3dc1438001b1036ea"
+            readingdate="2020-07-17T15:56:59+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                  <p>1</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-7-title">Market Place</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5f021451b9d0aa001c3ebb78"
+            readingdate="2020-07-17T15:58:35+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border aqi-1 title invisible make-visible">
+                  <p>1</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Low</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-2-title">Christchurch Street East
+              </div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6">5 meters from traffic<br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5ee63c4adc1438001b233b53"
+            readingdate="2020-07-07T19:12:04+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border undefined value-badge-outline">
+                  <p>-</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Coming soon</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reading reading-bare level is-mobile is-marginless invisible make-visible fast">
+          <div class="level-left-tablet has-text-left">
+            <div>
+              <div class="title is-size-5 has-text-left-tablet mb-3" id="cleanairfrome-6-title">Bath Road</div>
+              <div class="has-text-left-tablet has-text-weight-normal is-size-6"><br>1 sensor</div>
+            </div><span class="level-item"></span>
+          </div>
+          <div class="level-right-tablet has-text-centered mt-2" id="_5eeba101ee9b25001b391ca0"
+            readingdate="2020-06-18T18:23:16+01:00">
+            <div class="level-item">
+              <div>
+                <div class="value-badge is-size-4 border undefined value-badge-outline">
+                  <p>-</p>
+                </div><label for="element-toggle"><a class="main-link"><span>Coming soon</span><i
+                      class="fas fa-info-circle has-text-grey ml-1" aria-hidden="true"></i></a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="myModal">
+        <div class="modal-background"></div>
+        <div class="modal-card ">
+
+          <section class="modal-card-body px-0">
+            <label class="modal-close is-large mr-4" for="element-toggle"></label>
+            <div class="hero-body has-text-centered is-12-desktop">
+
+              <div class="container ">
+
                 <div class="columns is-centered">
                   <div class="column is-12-mobile is-8-desktop ">
-                    <div class="level-right-tablet has-text-centered mt-2" id="_5eeba76aee9b25001b3ba5c7"
-                      readingdate="2020-07-12T16:33:04+01:00">
-                      <div class="level-item">
-                        <div>
-                          <div class="value-badge-large is-size-1 border aqi-1 title invisible make-visible">
-                            <span>1</span>
+                    <div class="title">The Butts</div>
 
-                          </div>
-                          <div class="is-size-6 has-text-weight-bold" style="margin-top: -45px;"> 1.8 µg/m³</div>
-                          <div class=" is-size-4 mt-5 has-text-weight-bold">Low </div>
-                        </div>
-                      </div>
+                    <div class="pt-1 tabs is-toggle is-toggle-rounded is-centered has-text-black has-text-weight-medium"
+                      id="tabs">
+                      <ul class="has-text-weight-medium">
+
+                        <li class="is-active  has-text-black has-text-weight-medium tab" onclick="openTab(event,'Now')">
+                          <a>
+                            <span class="icon is-small has-text-black"><i class="far fa-clock"></i></span>
+                            <span class="has-text-black has-text-weight-bold">Last hour</span>
+                          </a>
+                        </li>
+
+
+                        <li class="has-text-black has-text-weight-medium tab" onclick="openTab(event,'OverTime')">
+                          <a>
+                            <span class="icon is-small has-text-black"><i class="far fa-calendar-alt"></i></span>
+                            <span class="has-text-black has-text-weight-bold">Over time</span>
+                          </a>
+                        </li>
+                      </ul>
+
                     </div>
                   </div>
                 </div>
+
               </div>
-
-              <div id="PM10" class="content-tab mt-3" style="display: none;">
-                <div class="columns is-centered">
-                  <div class="column is-12-mobile is-8-desktop ">
-                    <div class="level-right-tablet has-text-centered mt-2" id="_5eeba76aee9b25001b3ba5c7"
-                      readingdate="2020-07-12T16:33:04+01:00">
-                      <div class="level-item">
-                        <div>
-                          <div class="value-badge-large is-size-1 border aqi-1 title invisible make-visible">
-                            <span>5</span>
-
-                          </div>
-                          <div class="is-size-6 has-text-weight-bold" style="margin-top: -45px;"> 2.8 µg/m³</div>
-                          <div class=" is-size-4 mt-5 has-text-weight-bold">Medium </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="container readings mt-5 ">
-                <div class="AdviceBox reading-bare  is-mobile has-background-warning-light ">
-                  <div class="has-text-centered ">
-
-                    <div class="title is-size-6 mb-3 has-text-centered has-text-weight-semibold">
-                      Accompanying health messages for at-risk individuals
-
-                    </div>
-                    Enjoy your usual outdoor activities.
-
-                  </div>
-                </div>
+              <div id="Now" class="content-tab mt-3">
+                <device-measurement-selector device_id="1" pm2_5_value="47.6" pm10_value="86.4">
+                </device-measurement-selector>
               </div>
 
 
@@ -379,158 +261,21 @@
               Over Time
 
             </div>
-          </div>
-      </div>
-  </section>
-
-  <!-- Modal 
-    <div class="hero-body has-text-centered is-12-desktop">
-      <div class="container ">
-        <div class="columns is-centered">
-          <div class="column is-12-mobile is-8-desktop ">
-           <div class="title">The Butts</div>
- 
-           <div class="pt-1 tabs is-toggle is-toggle-rounded is-centered has-text-black has-text-weight-medium" id="tabs">
-            <ul class="has-text-weight-medium">
-            
-              <li class="is-active  has-text-black has-text-weight-medium tab"  onclick="openTab(event,'Now')">
-                <a>
-                  <span class="icon is-small has-text-black"><i class="far fa-clock"></i></span>
-                  <span class="has-text-black has-text-weight-bold">Last hour</span>
-                </a>
-              </li>
-              
-              
-              <li class="has-text-black has-text-weight-medium tab" onclick="openTab(event,'OverTime')">
-                <a>
-                  <span class="icon is-small has-text-black"><i class="far fa-calendar-alt"></i></span>
-                  <span class="has-text-black has-text-weight-bold">Over time</span>
-                </a>
-              </li>
-            </ul>
-            
-          </div>
-           </div>
-           </div>
-           
-        </div>
-        
-          <div id="Now" class="content-tab mt-3">
-            <div class="columns is-centered">
-              <div class="column is-12-mobile is-8-desktop ">
-                <div class="subtitle is-size-6 has-text-weight-bold mb-0 has-text-black"> Size of dust particale<i class="far fa-question-circle ml-1"></i></div>
-                <div class="pt-1 tabs is-toggle is-toggle-rounded is-centered has-text-black has-text-weight-medium" id="tabs">
-              
-                 <ul class="has-text-weight-medium">
-                 
-                   <li class="is-active  "  onclick="openTabNew('PM25',this)" id="PM25Selector">
-                     <a>
-                       
-                       <span class="has-text-black has-text-weight-bold">PM 2.5</span>
-                     </a>
-                   </li>
-                   
-                   
-                   <li class="" onclick="openTabNew('PM10',this)" id="PM10Selector">
-                     <a>
-                     
-                       <span class="has-text-black has-text-weight-bold">PM 10</span>
-                     </a>
-                   </li>
-                 </ul>
-                 
-               </div>
-             </div>
-  
-             </div>
-             <div id="PM25" class="content-tab mt-3">
-              <div class="columns is-centered">
-                <div class="column is-12-mobile is-8-desktop ">
-        <div class="level-right-tablet has-text-centered mt-2" id="_5eeba76aee9b25001b3ba5c7" readingdate="2020-07-12T16:33:04+01:00">
-          <div class="level-item">
-            <div>
-            <div class="value-badge-large is-size-1 border aqi-1 title invisible make-visible">
-            <span >1</span>
-       
-          </div>
-          <div class="is-size-6 has-text-weight-bold" style="margin-top: -45px;"> 1.8 µg/m³</div>
-            <div class=" is-size-4 mt-5 has-text-weight-bold">Low </div>
-          </div>
+          </section>
         </div>
       </div>
-</div>
-              </div>
-             </div>
+    </section>
 
-             <div id="PM10" class="content-tab mt-3" style="display: none;">
-              <div class="columns is-centered">
-                <div class="column is-12-mobile is-8-desktop ">
-        <div class="level-right-tablet has-text-centered mt-2" id="_5eeba76aee9b25001b3ba5c7" readingdate="2020-07-12T16:33:04+01:00">
-          <div class="level-item">
-            <div>
-            <div class="value-badge-large is-size-1 border aqi-1 title invisible make-visible">
-            <span >5</span>
-       
-          </div>
-          <div class="is-size-6 has-text-weight-bold" style="margin-top: -45px;"> 2.8 µg/m³</div>
-            <div class=" is-size-4 mt-5 has-text-weight-bold">Medium </div>
-          </div>
-        </div>
-      </div>
-</div>
-              </div>
-             </div>
+    <device-measurement-selector class="section" device_id="1" pm2_5_value="47.6" pm10_value="86.4">
+    </device-measurement-selector>
 
+    <device-measurement-selector class="section" device_id="2" pm2_5_value="2.32" pm10_value="14.76">
+    </device-measurement-selector>
 
-  
-   
-    
- 
-  <div class="container readings mt-5 " >
-    <div class="AdviceBox reading-bare  is-mobile has-background-warning-light ">
-      <div class="has-text-centered ">
-       
-          <div class="title is-size-6 mb-3 has-text-centered has-text-weight-semibold" >
-            Accompanying health messages for at-risk individuals
+    <device-measurement-selector class="section" device_id="3" pm2_5_value="6.23" pm10_value="100.32">
+    </device-measurement-selector>
 
-          </div>
-          Enjoy your usual outdoor activities.
-        
-      </div>
-    </div>
   </div>
-
-
-  <div class="container is-centered">
-    <div class="columns mt-4 is-mobile has-text-left ">
-      <div class="column  is-1-mobile is-tablet-2  is-2-desktop is-offset-2-desktop has-text-right mr-2">
-      <div class="is-pulled-right">
-
-    <i class="far fa-lightbulb is-size-2 "></i>
-    
-  </div>
-      </div>
-      <div class="column is-mobile-11">
-
-   
-    <span class="has-text-weight-bold is-size-6 ">Did you know</span>
-    <br> Air pollution tends to get trapped within roads with tall buildings on either side, so this type of road usually has poor air quality and should be avoided for exercise.
-
-    </div>
-    <div class="column is-3-desktop is-hidden-mobile"></div>
-</div>
-</div>
-</div>
-
-<div id="OverTime" class="content-tab" style="display: none;">
-  Over Time
-
-</div>
-</div>
-</div>
-
- -->
- 
   <script type="text/javascript" src="lib/main.js"></script>
 </body>
 
