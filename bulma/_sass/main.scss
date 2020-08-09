@@ -21,15 +21,21 @@
 $family-sans-serif: "Quicksand", "Arial", sans-serif;
 
 // 3. Set the derived variables
-// Use the new pink as the primary color
-// $primary: $yellow;
-// $primary-invert: findColorInvert($yellow);
+$primary: $yellow;
+$primary-invert: findColorInvert($yellow);
+$link:$black;
 
+$tab-color: $primary;
+$tab-color-light: #fbdd5853;
+@import "./tabs-overrides.scss";
 
 // 4. Import the rest of Bulma
 
 @import "../node_modules/bulma/bulma";
 @import "../node_modules/bulma-switch/dist/css/bulma-switch";
 @import "../node_modules/bulma-divider/dist/css/bulma-divider";
+@import "../node_modules/@creativebulma/bulma-tooltip/dist/bulma-tooltip";
 
 @import "./readings.scss";
+@import "./link-decoration.scss";
+

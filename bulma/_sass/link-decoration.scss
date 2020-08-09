@@ -1,0 +1,33 @@
+.underline-links a {
+    text-decoration: underline;
+
+    &:hover {
+        background-color: #FBDD58;
+        text-decoration: none;
+    }
+
+    &:active {
+        border-bottom: 4px solid black;
+    }
+}
+
+.no-underline-links a {
+    text-decoration: none;
+
+    &:hover {
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    &:active {
+        background-color: transparent;
+        border-bottom: none;
+    }
+}
+
+.no-underline-links.with-hover a {
+    &:hover {
+        background-color: #FBDD58;
+        text-decoration: none;
+    }
+}

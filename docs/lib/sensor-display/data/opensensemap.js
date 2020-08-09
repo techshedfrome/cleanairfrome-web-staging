@@ -31,7 +31,7 @@ function getSimpleDeviceObject(opensensemapDevices) {
     return opensensemapDevices
         .filter(x => deviceWhitelist.includes(x._id))
         .map(x => {
-        // console.log(x);
+        console.debug(x);
         return {
             boxid: x._id, 
             name: x.name,
@@ -70,28 +70,47 @@ export function fetchDeviceStats(boxid, phenomenon, statisticalOperation, sample
     statsUrl += "&fromDate=" + fromDate.toISOString();
     statsUrl += "&toDate=" + toDate.toISOString()
 
-    // console.log(statsUrl);
-
-
+    console.debug(statsUrl);
     return fetch(statsUrl)
         .then(throwHttpErrors)
-        .then(res => res.json().then(x => processValues(x, phenomenon))
+        .then(res => res.json().then(x => {
+                // console.log(phenomenon+ " stats:");
+                // console.log(x);
+                return processValues(x, phenomenon)
+            })
         )
 }
 
 
 function processValues(values, phenomenon) {
+    if (!values) {
+        console.debug("empty response");
+        return [0];
+    }
     values = values[0];
-    //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
-    var valueFields = Object.keys(values).filter(y => moment(y).isValid());
-    var values = valueFields.map(x => values[x]);
+    var mappedValues = getMappedValues(values);
     //not always a single value, even though sample window is the same ad the filter period
     // so we us a dumb MAX of the values provided (could use latest...?)
-    values.value = Math.max(...values);
-    if (phenomenon === "PM2.5") values.defraAqi = pm25ToIndex(values.value);
-    if (phenomenon === "PM10")  values.defraAqi = pm10ToIndex(values.value);
-    // console.log(values);
-    return values;
+    mappedValues.value = Math.max(...mappedValues);
+    if (phenomenon === "PM2.5") mappedValues.defraAqi = pm25ToIndex(mappedValues.value);
+    if (phenomenon === "PM10")  mappedValues.defraAqi = pm10ToIndex(mappedValues.value);
+    return mappedValues;
+}
+
+function getMappedValues(values) {
+    //values are keyed by datetime, and not contained in a values array, so we have to find properties that are valid dates...
+    if (!values) {
+        console.debug("no data");
+        return [0];
+    }
+    var valueFields = Object.keys(values).filter(y => moment(y).isValid());
+    if (!valueFields || valueFields.length == 0) {
+        console.debug("no values");
+        return [];
+    }
+    console.debug("values: " + valueFields);
+    var mappedValues = valueFields?.map(x => values[x]);
+    return mappedValues;
 }
 
 export function checkReadingIsStale(latestDustReadingDate) {
@@ -259,4 +278,4 @@ or at the very least:
             ]
 
 
-*/
+        */

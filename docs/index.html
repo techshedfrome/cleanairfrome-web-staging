@@ -3,8 +3,9 @@
 
 <head>
   <!-- Cookie management -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" />    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" data-cfasync="false"></script>
   <script type="text/javascript" src="lib/cookiemanagement.js"></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -12,15 +13,16 @@
 
 
 
-<meta property="og:url"                content="http://www.cleanairfrome.org/index.html" />
-<meta property="og:type"               content="Content"/>
-<meta property="og:title"              content="Welcome to Clean Air Frome" />
-<meta property="fb:app_id"             content="572104106809191" />
+  <meta property="og:url" content="http://www.cleanairfrome.org/index.html" />
+  <meta property="og:type" content="Content" />
+  <meta property="og:title" content="Welcome to Clean Air Frome" />
+  <meta property="fb:app_id" content="572104106809191" />
 
-<meta property="og:description"        content="A network of air quality sensors in Frome, empowering the community to understand the impacts of the air we breathe and to take action." />
-<meta property="og:image"              content="http://www.cleanairfrome.org/assets/CleanAirFromeFB.png" />
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="628">
+  <meta property="og:description"
+    content="A network of air quality sensors in Frome, empowering the community to understand the impacts of the air we breathe and to take action." />
+  <meta property="og:image" content="http://www.cleanairfrome.org/assets/CleanAirFromeFB.png" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
 
 
   <meta name="msapplication-TileColor" content="#2b5797">
@@ -45,49 +47,59 @@
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" crossorigin="anonymous"></script>
+
+  <script>
+    function CloseNav() {
+      var x = document.getElementById('navbarBasicExample')
+      x.classList.remove('is-active')
+    }
+  </script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="lib/vue/device.min.js"></script>
 </head>
 
 <body class=" has-text-weight-medium has-navbar-fixed-top">
 
 
-  <nav class=" is-fixed-top is-warning navbar" role="navigation" aria-label="main navigation">
+  <nav class=" is-fixed-top is-warning navbar " role="navigation" aria-label="main navigation">
 
-    <div class=" container has-text-centered is-size-5 has-text-weight-semibold ">
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold is-fullheight">
       <div class=" has-text-centered navbar-brand img ">
-       <div class="navbar-item">
-         <img class="is-hidden-mobile" src="assets/header_banner.png" onclick="location='index.html'" style="cursor: pointer;">
-          <img class="is-hidden-tablet " src="assets/mobile_logo.png" onclick="location='index.html'" style="cursor: pointer;">
-          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet has-text-weight-semibold has-text-dark"> <a href="index.html">Clean Air Frome</a></div></a>
-        </div>
+        <a class="navbar-item" href="./index.html" class="pb-0">
+          <img class="is-hidden-mobile" src="assets/header_banner.png">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png">
+          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet has-text-weight-semibold "
+            style="color:#363636">
+            Clean Air Frome
+          </div>
+        </a>
 
-
-        <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
+        <a role="button" class="navbar-burger burger mt-1 " aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
-          
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-item has-dropdown is-hoverable  " >
-          <a class="navbar-link firstNavItemMobile is-size-4-mobile  has-text-dark" href="index.html#LatestAir">
+      <div id="navbarBasicExample" class="navbar-menu ">
+        <div class="navbar-item has-dropdown is-hoverable  ">
+          <a class="navbar-link firstNavItemMobile is-size-4-mobile  " href="index.html#LatestAir" onclick="CloseNav()">
             Latest pollution levels <i class="fas fa-chevron-down has-text-dark text-is-7 ml-2 mt-1 is-hidden-mobile "
               aria-hidden="true"></i>
           </a>
 
           <div class="navbar-dropdown is-size-5">
-            <a class="navbar-item " href="index.html#LatestAir">
+            <a class="navbar-item " href="index.html#LatestAir" onclick="CloseNav()">
               Sensor Readings
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item " href="index.html#Aim">
+            <a class="navbar-item " href="index.html#Aim" onclick="CloseNav()">
               Aim of the project
             </a>
-            <a class="navbar-item " href="index.html#Measuring">
-              Measuring air quality 
+            <a class="navbar-item " href="index.html#Measuring" onclick="CloseNav()">
+              Measuring air quality
             </a>
-            <a class="navbar-item" href="index.html#Matter">
+            <a class="navbar-item" href="index.html#Matter" onclick="CloseNav()">
               Why air quality matters
             </a>
 
@@ -97,7 +109,8 @@
         <hr>
         <div class="navbar-item has-dropdown is-hoverable ">
           <a class="navbar-link NavbarItemMobile is-size-4-mobile" href="take_action.html">
-            Take Action <i class="fas fa-chevron-down has-text-dark text-is-7 ml-2 mt-1 is-hidden-mobile " aria-hidden="true"></i>
+            Take Action <i class="fas fa-chevron-down has-text-dark text-is-7 ml-2 mt-1 is-hidden-mobile "
+              aria-hidden="true"></i>
           </a>
 
           <div class="navbar-dropdown is-size-5">
@@ -119,14 +132,16 @@
         <div class="navbar-item is-hoverable has-dropdown">
 
           <div class="navbar-item ">
-            <a class="navbar-link is-info is-size-4-mobile" a href="https://cleanairinfrome.blogspot.com/"><span class="menuHover">Latest News</span></a>
+            <a class="navbar-link is-info is-size-4-mobile" href="https://cleanairinfrome.blogspot.com/">
+              <span class="menuHover">Latest News</span></a>
           </div>
           <hr>
           <div class="navbar-item ">
-          <a class="navbar-link is-info navbar-end is-size-4-mobile  has-text-dark" a href="#ContactUs">Contact us</a>
+            <a class="navbar-link is-info navbar-end is-size-4-mobile has-text-dark" href="#ContactUs"
+              onclick="CloseNav()">Contact us</a>
+          </div>
         </div>
       </div>
-    </div>
   </nav>
   <div id="fullheight-hero" class=" is-fullwidth">
     <section class="hero  is-fullheight">
@@ -161,14 +176,14 @@
 
                   <a class="button is-warning has-text-weight-semibold is-size-5 is-size-6-mobile is-pulled-left"
                     href='take_action.html'><span class="has-text-dark">Take action now
-                      </span></a>
+                    </span></a>
 
 
 
                 </div>
               </div>
 
-              <div class="columns ">
+              <div class="columns underline-links">
                 <div class="column pt-3">
                   <h2 class="title is-size-5"><a href="#start" class="has-text-weight-semibold is-size-6-mobile"> Learn
                       more about the project</a></h2>
@@ -177,21 +192,20 @@
               </div>
 
 
-              <div class="columns is-mobile is-centered ">
+              <div class="columns is-mobile is-centered  underline-links">
                 <div class="column is-half">
                   <div class="columns is-centered is-desktop is-tablet mt-2  ">
 
-                    <div class="column pt-0">
+                    <div class="column pt-0 no-underline-links with-hover">
                       <div>
                         <h3 class="has-text-weight-semibold  ">Funded by </h3>
                       </div>
                       <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="140px"
-                          class="mt-2 has-text-centered"></a>
+                          class="mt-2"></a>
                     </div>
                     <div class="column pt-0">
-                      <h3 class="has-text-weight-semibold ">Developed by </h3><a
-                        href="https://techshedfrome.org"><img src="assets/TechShed_Logo_Ani_optimised.gif"
-                          width="180px" class="mb-6 has-text-centered pt-0"></a>
+                      <h3 class="has-text-weight-semibold ">Developed by </h3><a href="https://techshedfrome.org"><img
+                          src="assets/TechShed_Logo_Ani_optimised.gif" width="190px" class="mt-2"></a>
                     </div>
                   </div>
                 </div>
@@ -207,23 +221,29 @@
 
   <section class="section has-text-centered has-background-warning-light " id="airsensorfrome">
     <div class="container pb-6 pt-6">
-      <div class="columns is-tablet">
+      <div class="columns is-tablet underline-links">
         <div class="column is-8-desktop is-12-mobile is-offset-2-desktop">
           <div class="content ">
             <h3>Air quality in Frome</h3>
             <p class="is-size-5">
               Tech Shed Frome, in partnership with Frome Town Council, are developing a network of sensors to enable the
-              community to see live data on air quality around the town. Below are the sensors we have installed in Frome so far and we've got more coming so
-                keep checking back. You can <a href="take_action.html">take action</a> and help us grow the sensor
-                network.
+              community to see live data on air quality around the town. Below are the sensors we have installed in
+              Frome so far and we've got more coming so
+              keep checking back. You can <a href="take_action.html">take action</a> and help us grow the sensor
+              network.
 
             </p>
             <div class="title is-size-5 mt-6" id="LatestAir">Latest air pollution readings </div>
-          
+
             <div class="subtitle is-size-5"> Readings based on UK gov <a
-                href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index (DAQI)</a><i
-                class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
-                aria-hidden="true"></i> that is numbered 1-10 and divided into four bands, low (1) to very high (10).<br><br>
+                href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index
+                (DAQI)</a><i class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
+                aria-hidden="true"></i> that is numbered 1-10 and divided into four bands, low (1) to very high
+              (10).
+              <label for="defra-toggle">
+                <i class="fas fa-info-circle has-text-dark text-is-1" aria-hidden="true"></i><br><br>
+              </label>
+
               <div class="is-italic">Indicates average air pollution level readings over last hour. </div>
             </div>
           </div>
@@ -233,7 +253,7 @@
       </div>
 
     </div>
-    <div class="columns is-tablet">
+    <div class="columns is-tablet underline-links">
       <div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
         <article class="message is-warning is-marginless  mt-6 has-text-centered ">
           <div class="message-header has-text-centered" style="text-align: center !important;"><span
@@ -251,119 +271,137 @@
         </article>
       </div>
     </div>
-  </div>
+    </div>
   </section>
-  <section class="section has-text-centered" id="start">
-    <div class="container">
-      <h3 class="title is-size-4" id="Aim">What's the aim of the project?</h3>
+  <section class="section has-text-centered underline-links" id="start">
+    <div class="container" id="Aim">
+      <h3 class="title is-size-4">What's the aim of the project?</h3>
       <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
           <div class="content ">
             <p class="is-size-5">
               Our vision is of a healthy town where everyone can breathe clean air, vehicle use is low and walking and
               cycling is the norm for local journeys. Clean Air for Frome aims to empower the community to take action
-              by understanding air quality impacts around the town.
+              by understanding <label class="main-link is-small" for="defra-toggle" aria-haspopup="true">air
+                quality</label> impacts around the town.
             </p>
-            <input id="element-toggle" type="checkbox" />
-            <!-- Modal -->
-            <div class="modal" id="myModal">
-              <div class="modal-background"></div>
-              <div class="modal-card ">
-                <header class="modal-card-head  pt-4">
-                  <p class="modal-card-title mb-0">Daily Air Quality Index <br><span class="subtitle is-size-5 ">
-                      Information taken only as reference from, <a
-                        href="https://uk-air.defra.gov.uk/air-pollution/daqi">Defra<i
-                          class="fas fa-external-link-alt has-text-dark text-is-7 ml-1"
-                          aria-hidden="true"></i></a></span></p>
-
-                  <label class="modal-close is-large " for="element-toggle"></label>
-
-                </header>
-                <section class="modal-card-body px-0">
-                  <div class="box is-shadowless">
-                    <article class="media">
-
-                      <div class="media-content" style="overflow-x:visible !important;">
-
-                        <div class="columns">
-                          <div class="column is-10-mobile">
-                            <div class="content ">
-                              <table class="table is-bordered has-text-left">
-                                <thead>
-                                  <tr>
-                                    <th width="11%">Air Pollution Banding</th>
-                                    <th width="9%" align="center">Value</th>
-                                    <th width="44%">Accompanying health messages for at-risk individuals*</th>
-                                    <th width="36%">Accompanying health messages for the general population </th>
-                                  </tr>
-                                </thead>
-
-
-                                <tbody>
-                                  <tr>
-                                    <td class="has-text-centered"><span class="LOW ">Low</span> </td>
-                                    <td class="has-text-centered"><span class="LOW">1-3</span></td>
-                                    <td>Enjoy your usual outdoor activities. </td>
-                                    <td>Enjoy your usual outdoor activities. </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="has-text-centered"><span class="MODERATE">Moderate </span></td>
-                                    <td class="has-text-centered"><span class="MODERATE">4-6</span></td>
-                                    <td>Adults and children with lung problems, and adults with heart problems, who
-                                      experience symptoms, should consider reducing strenuous physical activity,
-                                      particularly outdoors. </td>
-                                    <td>Enjoy your usual outdoor activities. </td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="has-text-centered"><span class="HIGH">High</span> </td>
-                                    <td class="has-text-centered"><span class="HIGH">7-9</span></td>
-                                    <td>Adults and children with lung problems, and adults with heart problems, should
-                                      reduce strenuous physical exertion, particularly outdoors, and particularly if
-                                      they experience symptoms. People with asthma may find they need to use their
-                                      reliever inhaler more often. Older people should also reduce physical exertion.
-                                    </td>
-                                    <td>Anyone experiencing discomfort such as sore eyes, cough or sore throat should
-                                      consider reducing activity, particularly outdoors. </td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="has-text-centered"><span class="VERY_HIGH">Very High</span> </td>
-                                    <td class="has-text-centered"> <span class="VERY_HIGH">10</span></td>
-                                    <td>Adults and children with lung problems, adults with heart problems, and older
-                                      people, should avoid strenuous physical activity. People with asthma may find they
-                                      need to use their reliever inhaler more often. </td>
-                                    <td>Reduce physical exertion, particularly outdoors, especially if you experience
-                                      symptoms such as cough or sore throat. </td>
-                                  </tr>
-
-                                </tbody>
-                              </table>
-
-                              <br>*Adults and children with heart or lung problems are at greater risk of symptoms.
-                              Follow your doctor's usual advice about exercising and managing your condition. It is
-                              possible that very sensitive individuals may experience health effects even on Low air
-                              pollution days. Anyone experiencing symptoms should follow the guidance provided below.
-                            </div>
-                          </div>
-
-                        </div>
-
-                      </div>
-                    </article>
-                  </div>
-                </section>
-
-              </div>
-            </div>
-
           </div>
-          <!-- Modal -->
-
         </div>
       </div>
     </div>
   </section>
+
+  <section id="defraModalContainer">
+    <input id="defra-toggle" type="checkbox" />
+    <div class="modal" id="defraInfo">
+      <div class="modal-background"></div>
+      <div class="modal-card ">
+        <header class="modal-card-head  pt-4">
+          <p class="modal-card-title mb-0">Daily Air Quality Index <br><span class="subtitle is-size-5 ">
+              Information taken only as reference from, <a href="https://uk-air.defra.gov.uk/air-pollution/daqi">Defra<i
+                  class="fas fa-external-link-alt has-text-dark text-is-7 ml-1" aria-hidden="true"></i></a></span>
+          </p>
+
+          <label class="modal-close is-large " for="defra-toggle"></label>
+
+        </header>
+        <section class="modal-card-body px-0">
+          <div class="box is-shadowless">
+            <article class="media">
+
+              <div class="media-content" style="overflow-x:visible !important;">
+
+                <div class="columns">
+                  <div class="column is-10-mobile">
+                    <div class="content ">
+                      <table class="table is-bordered has-text-left">
+                        <thead>
+                          <tr>
+                            <th width="11%">Air Pollution Band</th>
+                            <th width="44%">Accompanying health messages for at-risk individuals*</th>
+                            <th width="36%">Accompanying health messages for the general population </th>
+                          </tr>
+                        </thead>
+
+
+                        <tbody>
+                          <tr>
+                            <td class="has-text-centered"><span class="LOW ">Low (1-3)</span> </td>
+                            <td>Enjoy your usual outdoor activities. </td>
+                            <td>Enjoy your usual outdoor activities. </td>
+                          </tr>
+                          <tr>
+                            <td class="has-text-centered"><span class="MODERATE">Moderate (4-6)</span></td>
+                            <td>Adults and children with lung problems, and adults with heart problems, who
+                              experience symptoms, should consider reducing strenuous physical activity,
+                              particularly outdoors. </td>
+                            <td>Enjoy your usual outdoor activities. </td>
+                          </tr>
+
+                          <tr>
+                            <td class="has-text-centered"><span class="HIGH">High (7-9)</span> </td>
+                            <td>Adults and children with lung problems, and adults with heart problems, should
+                              reduce strenuous physical exertion, particularly outdoors, and particularly if
+                              they experience symptoms. People with asthma may find they need to use their
+                              reliever inhaler more often. Older people should also reduce physical exertion.
+                            </td>
+                            <td>Anyone experiencing discomfort such as sore eyes, cough or sore throat should
+                              consider reducing activity, particularly outdoors. </td>
+                          </tr>
+
+                          <tr>
+                            <td class="has-text-centered"><span class="VERY_HIGH">Very High (10)</span> </td>
+                            <td>Adults and children with lung problems, adults with heart problems, and older
+                              people, should avoid strenuous physical activity. People with asthma may find they
+                              need to use their reliever inhaler more often. </td>
+                            <td>Reduce physical exertion, particularly outdoors, especially if you experience
+                              symptoms such as cough or sore throat. </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                      <br>*Adults and children with heart or lung problems are at greater risk of symptoms.
+                      Follow your doctor's usual advice about exercising and managing your condition. It is
+                      possible that very sensitive individuals may experience health effects even on Low air
+                      pollution days. Anyone experiencing symptoms should follow the guidance provided below.
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+  <section id="sensorModalContainer">
+    <input id="detail-toggle" type="checkbox" />
+    <div class="modal" id="myModal">
+      <div class="modal-background"></div>
+      <div class="modal-card is-fullheight">
+        <header class="modal-card-head  pt-4">
+          <p class="modal-card-title mb-0 has-text-centered">Sensor Detail
+            <label class="modal-close is-large mt-3 mr-3" for="detail-toggle"></label>
+          </p>
+        </header>
+        <section class="modal-card-body px-0"></section>
+      </div>
+    </div>
+
+    <div class="modal" id="sensorDetail">
+      <div class="modal-background"></div>
+      <div class="modal-card has-background-white	section">
+        <label class="modal-close is-large mr-4" for="detail-toggle"></label>
+        <section id="sensorDetailPlaceholder"></section>
+      </div>
+    </div>
+
+  </section>
+
   <section class="section pb-0 ">
     <div class="container ">
 
@@ -392,7 +430,7 @@
       <div class="column is-desktop is-2"> </div>
     </div>
   </section>
-  <section class="section has-text-centered pt-6" id="start">
+  <section class="section has-text-centered pt-6 underline-links" id="start">
     <div class="container">
       <div class="columns">
         <div class="column is-desktop-12">
@@ -427,18 +465,19 @@
         <div class="column is-size-5">
           Particulates also have an environmental impact and can contribute to making lakes and streams acidic,
           depleting nutrients in soil, damaging sensitive forests and farm crops, affecting the diversity of ecosystems
-          and contributing to <a href="https://www.epa.gov/acidrain/effects-acid-rain" target="_blank">acid rain effects<i
-              class="fas fa-external-link-alt has-text-dark is-size-5" style="margin-left:6px;"
+          and contributing to <a href="https://www.epa.gov/acidrain/effects-acid-rain" target="_blank">acid rain
+            effects<i class="fas fa-external-link-alt has-text-dark is-size-5" style="margin-left:6px;"
               aria-hidden="true"></i></a> causing damage to buildings and stonework.<br>
           <br>
           <strong>More information on air quality</strong><br>
 
           The Department for Environment Food & Rural Affairs measure Nitrogen Dioxide, Sulphur Dioxide, Ozone, PM2.5,
-          PM10 and is <a href="https://uk-air.defra.gov.uk/library/annualreport/index" target="_blank">reported on quarterly<i
-              class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
+          PM10 and is <a href="https://uk-air.defra.gov.uk/library/annualreport/index" target="_blank">reported on
+            quarterly<i class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
               aria-hidden="true"></i></a>.<br>Mendip District Council monitor Nitrogen Dioxide monthly and report on
           this annually via their <a
-            href="https://www.mendip.gov.uk/media/20828/2018-Air-Quality-Annual-Status-Report/pdf/2018_Air_Quality_Annual_Status_Report.pdf?m=636854941860330000" target="_blank">Air
+            href="https://www.mendip.gov.uk/media/20828/2018-Air-Quality-Annual-Status-Report/pdf/2018_Air_Quality_Annual_Status_Report.pdf?m=636854941860330000"
+            target="_blank">Air
             status report<i class="fas fa-external-link-alt has-text-dark " style="margin-left:6px;"
               aria-hidden="true"></i></a>
 
@@ -448,72 +487,12 @@
     </div>
   </section>
 
+  <section class="section has-text-centered"></section>
 
+  <device-standard-footer council_email="afrancis@frometowncouncil.gov.uk" clean_air_email="cleanair@techshedfrome.org"
+    techshed_email="info@techshedfrome.org">
+  </device-standard-footer>
 
-  <!-- Modal -->
-
-  <section class="section has-text-centered">
-
-
-
-
-
-  </section>
-
-  <footer class="footer has-text-centered has-background-warning-light">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <p class="has-text-weight-semibold is-size-5 mb-0" id="ContactUs">Contact Clean Air Frome</p>
-            <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p>
-            <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
-            <p><a href="mailto:cleanair@techshedfrome.org">Contact Clean Air Team</a></p>
-            <p class="has-text-weight-semibold">Follow us on..</p>
-            <p><i class="fab fa-facebook-square is-size-3 has-text-dark" onclick="location='https://www.facebook.com/Clean-Air-Frome-113809790395405'" style=" cursor: pointer;"></i>
-              <i class="fab fa-blogger ml-3 is-size-3 has-text-dark" onclick="location='https://cleanairinfrome.blogspot.com/'" style=" cursor: pointer;"></i></a></p>
-            <p></p>
-          </div>
-        </div>
-      </div>
-      <div class="columns ">
-        <div class="column is-8-desktop is-offset-2-desktop  ">
-
-
-
-          <div class="columns is-mobile is-centered mt-3   ">
-            <div class="column is-half-desktop is-10-mobile card-outline has-background-white">
-              <div class="columns is-mobile ">
-
-                <div class="column ">
-                  <h3 class="has-text-weight-semibold">Funded by </h3><br>
-                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a>
-                </div>
-                <div class="column">
-                  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
-                      src="assets/TechShed_Logo_Ani_optimised.gif" width="190px"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p>
-          <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
-          If you're interested in creating your own Tech project or want to meet the team to chat, <a
-            href="mailto:info@techshedfrome.org">get in touch</a>
-          </p><br>
-
-          <p>
-            <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a>
-          </p>
-          <p style="margin-top: 1rem;">
-            <a href="http://bulma.io">
-              <img src="made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
   <script type="text/javascript" src="lib/main.js"></script>
   <script type="module" src="lib/sensor-display/sensor-display-averaged-flat.js"></script>
 </body>

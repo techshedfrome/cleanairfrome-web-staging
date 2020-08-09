@@ -4,8 +4,8 @@
 <head>
   <!-- Cookie management -->
   <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" />    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" data-cfasync="false"></script>
   <script type="text/javascript" src="lib/cookiemanagement.js"></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/overrides.css">
   <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
+  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="lib/vue/device.min.js"></script>
 </head>
 
 <body class=" has-text-weight-medium has-navbar-fixed-top">
@@ -130,7 +133,7 @@
     </div>
   </section>
 
-  <section class="section ">
+  <section class="section  underline-links">
     <div class="container">
       <div class="columns is-tablet is-centered">
 
@@ -215,7 +218,7 @@
   </section>
 
 
-  <section class="section ">
+  <section class="section  underline-links">
     <div class="container">
 
       <div class="columns is-tablet is-vcentered">
@@ -304,7 +307,7 @@
 
           <article class="media">
             <figure class="has-image-centered">
-              <img src="assets/USBcable.png" width="250px;">
+              <img src="assets/USBcable.jpg" width="250px;">
             </figure>
           </article>
         </div>
@@ -380,60 +383,13 @@
     </div>
   </section>
 
-  <footer class="footer has-text-centered has-background-warning-light">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
-          <div class="content">
-            <p class="has-text-weight-semibold is-size-5 mb-0" id="ContactUs">Contact Clean Air Frome</p>
-            <p class="pt-0"> Clean air Frome is an initiaitve setup by the Frome Town Council. </p>
-            <p><a href="mailto:afrancis@frometowncouncil.gov.uk">Contact Frome Town Council</a></p>
-            <p><a href="mailto:cleanair@techshedfrome.org">Contact Clean Air Team</a></p>
-            <p class="has-text-weight-semibold">Follow us on..</p>
-            <p><i class="fab fa-facebook-square is-size-3 has-text-dark" onclick="location='https://www.facebook.com/Clean-Air-Frome-113809790395405'" style=" cursor: pointer;"></i>
-              <i class="fab fa-blogger ml-3 is-size-3 has-text-dark" onclick="location='https://cleanairinfrome.blogspot.com/'" style=" cursor: pointer;"></i></a></p>
-            <p></p>
-          </div>
-        </div>
-      </div>
-      <div class="columns ">
-        <div class="column is-8-desktop is-offset-2-desktop  ">
+  <device-standard-footer 
+    council_email="afrancis@frometowncouncil.gov.uk"
+    clean_air_email="cleanair@techshedfrome.org"
+    techshed_email="info@techshedfrome.org"
+  >
+  </device-standard-footer>  
 
-
-
-          <div class="columns is-mobile is-centered mt-3   ">
-            <div class="column is-half-desktop is-10-mobile card-outline has-background-white">
-              <div class="columns is-mobile ">
-
-                <div class="column ">
-                  <h3 class="has-text-weight-semibold">Funded by </h3><br>
-                  <a href="https://www.frometowncouncil.gov.uk/"><img src="assets/FTC_logo.png" width="160px"></a>
-                </div>
-                <div class="column">
-                  <h3 class="has-text-weight-semibold">Developed by </h3><br><a href="https://techshedfrome.org/"><img
-                      src="assets/TechShed_Logo_Ani_optimised.gif" width="190px"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p>
-          <h3 class="has-text-weight-semibold">Support Tech Shed Frome</h3>
-          If you're interested in creating your own Tech project or want to meet the team to chat, <a
-            href="mailto:info@techshedfrome.org">get in touch</a>
-          </p><br>
-
-          <p>
-            <a href="https://www.frometowncouncil.gov.uk/privacy-policy/">Privacy Policy</a>
-          </p>
-          <p style="margin-top: 1rem;">
-            <a href="http://bulma.io">
-              <img src="made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
   <script type="text/javascript" src="lib/main.js"></script>
 </body>
 

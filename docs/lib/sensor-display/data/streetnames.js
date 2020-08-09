@@ -34,13 +34,13 @@ function streetnameFromCoords(lat, lon, success) {
     }
 
     var url = streetnameUrl + '?format=json&lat=' + lat + '&lon=' + lon
-    console.log("fetching streetname from " + url)
+    console.debug("fetching streetname from " + url)
 
     fetch(url).then(throwHttpErrors)
         .then(res => res.json())
         .then((data) => {
-            console.log("result from " + url)
-            console.log(data)
+            console.debug("result from " + url)
+            console.debug(data)
             if (data.error) throw Error(data.error)
             knownLocationStreets.set(locationKey, data.address.road);
             success(knownLocationStreets.get(locationKey));

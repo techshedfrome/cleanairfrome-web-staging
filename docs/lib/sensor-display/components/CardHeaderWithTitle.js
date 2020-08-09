@@ -1,23 +1,23 @@
 
 export function createInfoBox(boxid, deviceName, description, defraAqi, measurements, latestDustReadingDate) {
-    var card = cardWithTitle(deviceName, description);
+    var card = cardWithTitle(deviceName, description, boxid);
     var values = document.createElement("DIV");
     values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
-    values.id = "_" + boxid;
+    values.id = `_${boxid}`;
     values.setAttribute("readingDate", moment(latestDustReadingDate).format());
 
     card.appendChild(values);
     return card;
 }
 
-function cardWithTitle(titleText, description) {
+function cardWithTitle(titleText, description, boxid) {
     var card = document.createElement("DIV");
     card.classList.add("reading", "reading-bare", "level", "is-mobile", "is-marginless");
-    card.appendChild(cardHeaderWithTitle(titleText, description));
+    card.appendChild(cardHeaderWithTitle(titleText, description, boxid));
     return card;
 }
 
-function cardHeaderWithTitle(titleText, description) {
+function cardHeaderWithTitle(titleText, description, boxid) {
     var header = document.createElement("DIV");
     header.classList.add("level-left-tablet", "has-text-left");
 
@@ -25,14 +25,14 @@ function cardHeaderWithTitle(titleText, description) {
 
     var title = document.createElement("DIV");
     title.classList.add("title", "is-size-5", "has-text-left-tablet", "mb-3");
-    title.id = titleText + '-title';
+    title.id = `_${boxid}-title`;
     title.innerText = titleText;
     inner.appendChild(title);
 
     var info = document.createElement("DIV");
     info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6");
     //TODO: set description - create an interim store, or parse from OpenSenseMap description
-    info.innerHTML = description + "<br>1 sensor";
+    info.innerHTML = `${description}<br>1 sensor`;
 
     inner.appendChild(info);
     header.appendChild(inner);
