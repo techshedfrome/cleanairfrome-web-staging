@@ -278,4 +278,20 @@ or at the very least:
             ]
 
 
+bulk data fetch
+?boxid=5eeba76aee9b25001b3ba5c7&
+https://api.opensensemap.org/boxes/5ee63c4adc1438001b233b53/data/5ee63c4adc1438001b233b57?from-date=2020-06-27T13:54:00Z&to-date=2020-06-27T14:54:00Z&download=true&format=json
+https://api.opensensemap.org/boxes/5ee63c4adc1438001b233b53/data/5ee63c4adc1438001b233b56?from-date=2020-06-27T13:54:00Z&to-date=2020-06-27T14:54:00Z&download=true&format=json
+
+
+
+Seems very fast to download 3000 records for a week's worth of data.
+Data is always a delimited file - default CSV
+Multiple boxes can be included in boxid, comma separated
+https://api.opensensemap.org/boxes/data?boxId=5ee63c4adc1438001b233b53&from-date=2020-06-27T13:54:00Z&to-date=2020-08-27T14:54:00Z&phenomenon=PM2.5
+https://api.opensensemap.org/boxes/data?boxId=5ee63c4adc1438001b233b53&from-date=2020-06-27T13:54:00Z&to-date=2020-08-27T14:54:00Z&phenomenon=PM10
+
+Can limit data going over the wire by selecting only the columns we need:
+https://api.opensensemap.org/boxes/data?boxId=5ee63c4adc1438001b233b53&from-date=2020-06-27T13:54:00Z&to-date=2020-08-27T14:54:00Z&phenomenon=PM2.5&columns=createdAt,value
+
         */
