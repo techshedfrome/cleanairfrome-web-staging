@@ -17,14 +17,15 @@ const staleDataAgeInHours = 2;
 
 const deviceWhitelist = 
 [
-"5eeba76aee9b25001b3ba5c7",
-"5ee618b7dc1438001b14eb7f",
-"5ee63c4adc1438001b233b53",
-"5eeb8c02ee9b25001b30c6e0",
-"5eeb9259ee9b25001b334899",
-"5ee60cf3dc1438001b1036ea",
-"5eeba101ee9b25001b391ca0",
-"5f021451b9d0aa001c3ebb78"
+"5eeba76aee9b25001b3ba5c7", //0
+"5ee618b7dc1438001b14eb7f", //1
+"5ee63c4adc1438001b233b53", //2
+"5eeb8c02ee9b25001b30c6e0", //3
+"5eeb9259ee9b25001b334899", //4
+"5ee60cf3dc1438001b1036ea", //5
+// "5eeba101ee9b25001b391ca0", //6
+"5f021451b9d0aa001c3ebb78", //7
+"5f06485a987fd4001b20527d", //8
 ]
 
 function getSimpleDeviceObject(opensensemapDevices) {
