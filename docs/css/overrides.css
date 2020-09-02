@@ -203,3 +203,10 @@ nav.nav-center ul li {
 #tab-content p.is-active {
   display: block;
 }
+
+.has-text-grey-lighter {
+  color: grey;
+}
+.has-text-grey-lighter.border {
+  border: 0.2em solid rgb(245, 245, 245);
+}

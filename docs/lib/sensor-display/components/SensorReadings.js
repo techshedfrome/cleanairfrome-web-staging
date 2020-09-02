@@ -24,7 +24,7 @@ export function populateSensorReading(valuesContainer, boxid) {
                         valuesContainer.setAttribute("pm10_value", pm10);
                         
                         var defraAqi = (pm25 && pm10) ? Math.max(pm25.defraAqi, pm10.defraAqi) : "-";
-                        valuesContainer.appendChild(sensorReading("", stale ? "-" : defraAqi ?? "-", ["title", "invisible"], "detail-toggle"));
+                        valuesContainer.appendChild(sensorReading(stale, "", stale ? "-" : defraAqi ?? "-", ["title", "invisible"], "detail-toggle"));
                         fadeElementInWhenAdding(valuesContainer.querySelector(".value-badge"));
 
                         showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, pm10);
@@ -32,7 +32,7 @@ export function populateSensorReading(valuesContainer, boxid) {
             });
     }
     else {
-        valuesContainer.appendChild(sensorReading("", "-", ["value-badge-outline", "is-size-4"], "coming-soon-toggle"))
+        valuesContainer.appendChild(sensorReading(stale, "", "-", ["value-badge-outline", "is-size-4"], "coming-soon-toggle"))
     }
 }
 
@@ -62,14 +62,14 @@ function removeChildrenForSelector(valuesContainer, childSelector) {
                    ?.forEach((x) => x.parentNode.removeChild(x));
 }
 
-function sensorReading(units, reading, valueClasslist, modalControlCheckboxId) {
+function sensorReading(stale, units, reading, valueClasslist, modalControlCheckboxId) {
     var readingLine = document.createElement("DIV");
     readingLine.classList.add("level-item");
 
     var inner = document.createElement("DIV");
     var value = document.createElement("DIV");
 
-    var colorClass = getColourClassForAqi(reading);
+    var colorClass = getColourClassForAqi(reading, stale);
     value.classList.add("value-badge", "is-size-4", "border", colorClass, ...valueClasslist);
     var valueP = document.createElement("P");
     valueP.innerText = '' + String(!reading || reading == "NaN" || reading == -Infinity ? "0" : reading) + units;
