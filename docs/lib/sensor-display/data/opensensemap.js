@@ -11,10 +11,6 @@ export function fetchMeasurements() {
             .then(getSimpleDeviceObject)
 }
 const staleDataAgeInHours = 2;
-
-//TODO: add whitelist/initial list cache
-
-
 const deviceWhitelist = 
 [
 "5eeba76aee9b25001b3ba5c7", //0
