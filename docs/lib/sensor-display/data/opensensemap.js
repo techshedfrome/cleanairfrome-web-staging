@@ -17,14 +17,15 @@ const staleDataAgeInHours = 2;
 
 const deviceWhitelist = 
 [
-"5eeba76aee9b25001b3ba5c7",
-"5ee618b7dc1438001b14eb7f",
-"5ee63c4adc1438001b233b53",
-"5eeb8c02ee9b25001b30c6e0",
-"5eeb9259ee9b25001b334899",
-"5ee60cf3dc1438001b1036ea",
-"5eeba101ee9b25001b391ca0",
-"5f021451b9d0aa001c3ebb78"
+"5eeba76aee9b25001b3ba5c7", //0
+"5ee618b7dc1438001b14eb7f", //1
+"5ee63c4adc1438001b233b53", //2
+"5eeb8c02ee9b25001b30c6e0", //3
+"5eeb9259ee9b25001b334899", //4
+"5ee60cf3dc1438001b1036ea", //5
+// "5eeba101ee9b25001b391ca0", //6
+"5f021451b9d0aa001c3ebb78", //7
+"5f06485a987fd4001b20527d", //8
 ]
 
 function getSimpleDeviceObject(opensensemapDevices) {
@@ -277,5 +278,21 @@ or at the very least:
                 "2020-06-27T14:00:00.000Z": 1.357849848222598
             ]
 
+
+bulk data fetch
+?boxid=5eeba76aee9b25001b3ba5c7&
+https://api.opensensemap.org/boxes/5ee63c4adc1438001b233b53/data/5ee63c4adc1438001b233b57?from-date=2020-06-27T13:54:00Z&to-date=2020-06-27T14:54:00Z&download=true&format=json
+https://api.opensensemap.org/boxes/5ee63c4adc1438001b233b53/data/5ee63c4adc1438001b233b56?from-date=2020-06-27T13:54:00Z&to-date=2020-06-27T14:54:00Z&download=true&format=json
+
+
+
+Seems very fast to download 3000 records for a week's worth of data.
+Data is always a delimited file - default CSV
+Multiple boxes can be included in boxid, comma separated
+https://api.opensensemap.org/boxes/data?boxId=5ee63c4adc1438001b233b53&from-date=2020-06-27T13:54:00Z&to-date=2020-08-27T14:54:00Z&phenomenon=PM2.5
+https://api.opensensemap.org/boxes/data?boxId=5ee63c4adc1438001b233b53&from-date=2020-06-27T13:54:00Z&to-date=2020-08-27T14:54:00Z&phenomenon=PM10
+
+Can limit data going over the wire by selecting only the columns we need:
+https://api.opensensemap.org/boxes/data?boxId=5ee63c4adc1438001b233b53&from-date=2020-06-27T13:54:00Z&to-date=2020-08-27T14:54:00Z&phenomenon=PM2.5&columns=createdAt,value
 
         */
