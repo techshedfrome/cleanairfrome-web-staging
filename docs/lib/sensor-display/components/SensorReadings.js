@@ -8,12 +8,14 @@ import {  fadeElementInWhenAdding } from "../utils.js"
 const samplePeriodHours = 1;
 
 export function populateSensorReading(valuesContainer, boxid) {
+    console.log('populateSensorReading');
     var latestDustReadingDate = valuesContainer.getAttribute("readingDate");
     var stale = checkReadingIsStale(latestDustReadingDate);
     // device_id="1" pm2_5_value="47.6" pm10_value="86.4"
     valuesContainer.setAttribute("device_id", boxid);
     valuesContainer.setAttribute("last_seen", latestDustReadingDate);
 
+    console.log(stale);
     if (!stale) {
         fetchDeviceStats(boxid, "PM2.5", "geometricMean", samplePeriodHours)
             .then(pm25 => {
@@ -32,7 +34,9 @@ export function populateSensorReading(valuesContainer, boxid) {
             });
     }
     else {
-        valuesContainer.appendChild(sensorReading(stale, "", "-", ["value-badge-outline", "is-size-4"], "coming-soon-toggle"))
+        valuesContainer.appendChild(sensorReading(stale, "", "-", ["value-badge-outline", "is-size-4"], "detail-toggle"))
+        fadeElementInWhenAdding(valuesContainer.querySelector(".value-badge"));
+        showModalOnClick(valuesContainer, boxid, latestDustReadingDate, '0', '0');
     }
 }
 
@@ -44,11 +48,13 @@ function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, p
         var view = document.createElement("device-sensor-view-selector");
         view.setAttribute("device_id", boxid);
         view.setAttribute("last_seen_string", latestDustReadingDate);
-        view.setAttribute("pm2_5_value", pm25.value.toFixed(2));
-        view.setAttribute("pm10_value", pm10.value.toFixed(2));
+        view.setAttribute("pm2_5_value", (pm25.value ?? 0).toFixed(2));
+        view.setAttribute("pm10_value", (pm10.value ?? 0).toFixed(2));
+        
         var title = document.querySelector(`#_${boxid}-title`);
         if(title) view.setAttribute("name", title.innerText);
         removeChildrenForSelector(valuesContainer, "device-sensor-view-selector");
+
         var modal = document.querySelector("#sensorDetailPlaceholder");
         if (modal) {
             modal.innerHTML = "";
@@ -92,13 +98,7 @@ function getInfoIconLinkWithText(text, forId) {
     var textSpan = document.createElement("SPAN");
     textSpan.innerText = text;
 
-    // var i = document.createElement("I");
-    // i.classList.add("fas", "fa-info-circle", "has-text-grey", "ml-1");
-    // i.setAttribute("aria-hidden", "true");
-
     a.appendChild(textSpan);
-    // a.appendChild(i);
-
     label.appendChild(a);
     return label;
 }
