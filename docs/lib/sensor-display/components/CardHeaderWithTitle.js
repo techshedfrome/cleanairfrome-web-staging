@@ -25,8 +25,12 @@ function cardHeaderWithTitle(titleText, description, boxid) {
 
     var title = document.createElement("DIV");
     title.classList.add("title", "is-size-5", "has-text-left-tablet", "mb-3");
-    title.id = `_${boxid}-title`;
-    title.innerText = titleText;
+    title.id = `_${boxid}-title-holder`;
+
+    var span = document.createElement("SPAN");
+    span.innerText = titleText;
+    span.id = `_${boxid}-title`;
+    title.appendChild(span);
     inner.appendChild(title);
 
     var info = document.createElement("DIV");
