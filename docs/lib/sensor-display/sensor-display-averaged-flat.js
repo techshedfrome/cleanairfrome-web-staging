@@ -42,10 +42,14 @@ function populateSensorList(data) {
     if (!listItemTitleSpan) return;
 
     appendMapLink(device.latitude, device.longitude, listItemTitleSpan.parentNode)
-    listItemTitleSpan.innerText = device.streetname;
+    listItemTitleSpan.innerText = preProcessStreetName(device.streetname);
   });
 
   data.forEach(device => addDeviceStats(device.boxid));
+}
+
+function preProcessStreetName(streetName) {
+  return streetName.replace("Street", "St");
 }
 
 function appendMapLink(latitude, longitude, parentNode) {

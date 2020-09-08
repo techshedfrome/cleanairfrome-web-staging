@@ -1,12 +1,23 @@
 
 export function createInfoBox(boxid, deviceName, description, defraAqi, measurements, latestDustReadingDate) {
-    var card = cardWithTitle(deviceName, description, boxid);
+    // var card = cardWithTitle(deviceName, description, boxid);
+
+    var card = document.createElement("DIV");
+    card.classList.add("reading", "reading-bare", "level", "is-mobile", "is-marginless");
+
     var values = document.createElement("DIV");
-    values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
+    values.classList.add("level-left-tablet", "has-text-centered", "mt-2");
     values.id = `_${boxid}`;
     values.setAttribute("readingDate", moment(latestDustReadingDate).format());
 
     card.appendChild(values);
+    card.appendChild(cardHeaderWithTitle(deviceName, description, boxid));
+
+    var chevron = document.createElement("LABEL");
+    chevron.className = "chevron";
+    chevron.id = `_${boxid}-chevron`;
+    chevron.setAttribute("for", "detail-toggle");
+    card.appendChild(chevron);
     return card;
 }
 
@@ -19,7 +30,8 @@ function cardWithTitle(titleText, description, boxid) {
 
 function cardHeaderWithTitle(titleText, description, boxid) {
     var header = document.createElement("DIV");
-    header.classList.add("level-left-tablet", "has-text-left");
+    header.classList.add("level-right-tablet", "has-text-left", "ml-4");
+    header.style.marginRight = "auto";
 
     var inner = document.createElement("DIV");
 
