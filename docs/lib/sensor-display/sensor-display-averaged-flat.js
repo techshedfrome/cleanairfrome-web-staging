@@ -38,11 +38,25 @@ function populateSensorList(data) {
   });
 
   loadStreetNames(data, device => {
-    var listItemTitle = document.querySelector(`#_${device.boxid}-title`);
-    if (listItemTitle) listItemTitle.innerText = device.streetname;
+    var listItemTitleSpan = document.querySelector(`#_${device.boxid}-title`);
+    if (!listItemTitleSpan) return;
+
+    appendMapLink(device.latitude, device.longitude, listItemTitleSpan.parentNode)
+    listItemTitleSpan.innerText = device.streetname;
   });
 
   data.forEach(device => addDeviceStats(device.boxid));
+}
+
+function appendMapLink(latitude, longitude, parentNode) {
+  var link = document.createElement("A");
+  link.href = `http://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=15&layers=H`;
+  link.target = "blank";
+  var mapIcon = document.createElement("I");
+  mapIcon.classList.add("fas", "fa-map-marked-alt", "mr-3", "has-text-info", "is-size-7");
+  mapIcon.title = "[view on map]";
+  link.appendChild(mapIcon);
+  parentNode.insertBefore(link, parentNode.childNodes[0]);
 }
 
 function addDeviceStats(boxid) {
