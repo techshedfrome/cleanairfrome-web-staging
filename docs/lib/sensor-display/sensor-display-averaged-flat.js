@@ -41,7 +41,7 @@ function populateSensorList(data) {
     var listItemTitleSpan = document.querySelector(`#_${device.boxid}-title`);
     if (!listItemTitleSpan) return;
 
-    appendMapLink(device.latitude, device.longitude, listItemTitleSpan.parentNode)
+    appendMapLink(device.latitude, device.longitude, listItemTitleSpan.parentNode.parentNode)
     listItemTitleSpan.innerText = preProcessStreetName(device.streetname);
   });
 
@@ -60,7 +60,7 @@ function appendMapLink(latitude, longitude, parentNode) {
   mapIcon.classList.add("fas", "fa-map-marked-alt", "mr-3", "has-text-info", "is-size-7");
   mapIcon.title = "[view on map]";
   link.appendChild(mapIcon);
-  parentNode.insertBefore(link, parentNode.childNodes[0]);
+  parentNode.appendChild(link);
 }
 
 function addDeviceStats(boxid) {
