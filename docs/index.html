@@ -4,8 +4,9 @@
 <head>
   <!-- Cookie management -->
   <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" />    
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" data-cfasync="false"></script>
+    href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js"
+    data-cfasync="false"></script>
   <script type="text/javascript" src="lib/cookiemanagement.js"></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -223,27 +224,11 @@
     <div class="container pb-6 pt-6">
       <div class="columns is-tablet underline-links">
         <div class="column is-8-desktop is-12-mobile is-offset-2-desktop">
-          <div class="content ">
+          <div class="content mt-6">
             <h3>Air quality in Frome</h3>
-            <p class="is-size-5">
-              Tech Shed Frome, in partnership with Frome Town Council, are developing a network of sensors to enable the
-              community to see live data on air quality around the town. Below are the sensors we have installed in
-              Frome so far and we've got more coming so
-              keep checking back. You can <a href="take_action.html">take action</a> and help us grow the sensor
-              network.
+            <div class="title is-size-5 " id="LatestAir">Latest pollution readings </div>
 
-            </p>
-            <div class="title is-size-5 mt-6" id="LatestAir">Latest air pollution readings </div>
-
-            <div class="subtitle is-size-5"> Readings based on UK gov <a
-                href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">Daily Air Quality Index
-                (DAQI)</a><i class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;"
-                aria-hidden="true"></i> that is numbered 1-10 and divided into four bands, low (1) to very high
-              (10).
-              <label for="defra-toggle">
-                <i class="fas fa-info-circle has-text-dark text-is-1" aria-hidden="true"></i><br><br>
-              </label>
-
+            <div class="subtitle is-size-5">
               <div class="is-italic">Indicates average air pollution level readings over last hour. </div>
             </div>
           </div>
@@ -251,15 +236,40 @@
       </div>
       <div class="container readings" id="itemListContainer">
       </div>
+      <div class="columns is-tablet underline-links mt-6" style="max-width:800px; margin:auto">
+        <div class="column is-8-desktop is-12-mobile is-offset-2-desktop">
+          <p class="is-size-5">
+            Clean Air Frome is a project by <a href="https://techshedfrome.org">Tech Shed Frome</a> in partnership with 
+            <a href="https://www.frometowncouncil.gov.uk/">Frome Town Council</a>, providing live air quality information for the community.
+          </p>
+          <div class="mt-6">
+            Readings based on UK gov 
+            <a href="https://uk-air.defra.gov.uk/air-pollution/daqi" target="_blank">
+              Daily Air Quality Index (DAQI)</a>
+            <i class="fas fa-external-link-alt has-text-dark text-is-7" style="margin-left:6px;" aria-hidden="true"></i>
+            from 1-10 and divided into four bands, low (1) to very high (10).
+            <label for="defra-toggle">
+              <i class="fas fa-info-circle has-text-dark text-is-1" aria-hidden="true"></i><br><br>
+            </label>
+          </div>
+          <div class="content">
+            We've got more sensors coming so keep checking back.
+          </div>
+          <div class="content">
+            You can also <a href="take_action.html">take action</a> and help us grow the sensor
+            network.
+          </div>
+        </div>
+      </div>
 
     </div>
     <div class="columns is-tablet underline-links">
       <div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
-        <article class="message is-warning is-marginless  mt-6 has-text-centered ">
+        <article class="message is-warning is-marginless  mt-2 has-text-centered ">
           <div class="message-header has-text-centered" style="text-align: center !important;"><span
               class="has-text-centered">How should I interpret the readings?</span>
           </div>
-          <div class="message-body has-text-centered-mobile px-1">Whilst every effort has been made to make good
+          <div class="message-body has-text-centered-mobile px-1 card is-shadowless">Whilst every effort has been made to make good
             quality sensors at a very low cost, they are never going to be as accurate as professional grade sensors
             worth thousands of pounds. So we suggest you view these readings as an 'indication' of what the readings
             are. The sensor readings are also only showing you what's been sensed over the last hour. <br><br> In the
