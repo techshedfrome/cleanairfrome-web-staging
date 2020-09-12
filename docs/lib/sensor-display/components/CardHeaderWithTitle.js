@@ -20,16 +20,17 @@ export function createInfoBox(boxid, deviceName, description, defraAqi, measurem
     // card.appendChild(chevron);
 
     var label = document.createElement("LABEL");
-    label.style.marginRight="-10px";
+    label.style.marginRight="-16px";
     var img = document.createElement("IMG");
     img.src = "assets/icons/line-chart.png";
-    img.style.width = "58px";
+    img.classList.add("ml-2");
+    img.style.width = "20px";
     label.setAttribute("for", "detail-toggle");
     label.id = `_${boxid}-chevron`;
-    // label.appendChild(img);
     var text = document.createElement("DIV");
-    text.innerHTML = "View<br>Chart";
-    text.classList.add("is-size-7", "view-chart", "button", "px-2", "py-5", "has-background-link-light", "is-borderless");
+    text.innerHTML = "<div>View<br>Chart</div>";
+    text.classList.add("is-size-7", "view-chart", "button", "px-2", "py-5",  "is-borderless");
+    text.appendChild(img);
     label.appendChild(text);
     card.appendChild(label);
     return card;
