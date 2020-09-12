@@ -13,11 +13,25 @@ export function createInfoBox(boxid, deviceName, description, defraAqi, measurem
     card.appendChild(values);
     card.appendChild(cardHeaderWithTitle(deviceName, description, boxid));
 
-    var chevron = document.createElement("LABEL");
-    chevron.className = "chevron";
-    chevron.id = `_${boxid}-chevron`;
-    chevron.setAttribute("for", "detail-toggle");
-    card.appendChild(chevron);
+    // var chevron = document.createElement("LABEL");
+    // chevron.className = "chevron";
+    // chevron.id = `_${boxid}-chevron`;
+    // chevron.setAttribute("for", "detail-toggle");
+    // card.appendChild(chevron);
+
+    var label = document.createElement("LABEL");
+    label.style.marginRight="-10px";
+    var img = document.createElement("IMG");
+    img.src = "assets/icons/line-chart.png";
+    img.style.width = "58px";
+    label.setAttribute("for", "detail-toggle");
+    label.id = `_${boxid}-chevron`;
+    // label.appendChild(img);
+    var text = document.createElement("DIV");
+    text.innerHTML = "View<br>Chart";
+    text.classList.add("is-size-7", "view-chart", "button", "px-2", "py-5", "has-background-link-light", "is-borderless");
+    label.appendChild(text);
+    card.appendChild(label);
     return card;
 }
 
