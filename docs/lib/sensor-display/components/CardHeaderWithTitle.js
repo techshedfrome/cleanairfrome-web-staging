@@ -61,9 +61,9 @@ function cardHeaderWithTitle(titleText, description, boxid) {
     inner.appendChild(title);
 
     var info = document.createElement("DIV");
-    info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6");
+    info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6", "card-info");
     //TODO: set description - create an interim store, or parse from OpenSenseMap description
-    info.innerHTML = `${description}<br>1 sensor`;
+    info.innerHTML = `${description}<br><span class='map-link-slot'></span>1 sensor`;
 
     inner.appendChild(info);
     header.appendChild(inner);

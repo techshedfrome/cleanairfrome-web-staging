@@ -53,14 +53,15 @@ function preProcessStreetName(streetName) {
 }
 
 function appendMapLink(latitude, longitude, parentNode) {
+  var target = parentNode.querySelector('.map-link-slot');
   var link = document.createElement("A");
   link.href = `http://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=15&layers=H`;
   link.target = "blank";
   var mapIcon = document.createElement("I");
   mapIcon.classList.add("fas", "fa-map-marked-alt", "mr-3", "has-text-info", "is-size-7");
-  mapIcon.title = "[view on map]";
+  mapIcon.title = "View on map";
   link.appendChild(mapIcon);
-  parentNode.appendChild(link);
+  target.appendChild(link);
 }
 
 function addDeviceStats(boxid) {
