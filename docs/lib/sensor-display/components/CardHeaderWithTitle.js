@@ -20,7 +20,7 @@ export function createInfoBox(boxid, deviceName, description, defraAqi, measurem
     // card.appendChild(chevron);
 
     var label = document.createElement("LABEL");
-    label.style.marginRight="-16px";
+    label.style.marginRight="-18px";
     var img = document.createElement("IMG");
     img.src = "assets/icons/line-chart.png";
     img.classList.add("ml-2");
@@ -45,7 +45,7 @@ function cardWithTitle(titleText, description, boxid) {
 
 function cardHeaderWithTitle(titleText, description, boxid) {
     var header = document.createElement("DIV");
-    header.classList.add("level-right-tablet", "has-text-left", "ml-4");
+    header.classList.add("level-right-tablet", "has-text-left", "ml-5");
     header.style.marginRight = "auto";
 
     var inner = document.createElement("DIV");
