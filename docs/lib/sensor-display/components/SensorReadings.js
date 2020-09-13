@@ -45,7 +45,6 @@ export function populateSensorReading(valuesContainer, boxid) {
 function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, pm10) {
     valuesContainer.addEventListener("click", showModal);
     var chevron = document.querySelector(`#_${boxid}-chevron`);
-    console.log(chevron);
     chevron?.addEventListener("click", showModal);
 
     function showModal() {
