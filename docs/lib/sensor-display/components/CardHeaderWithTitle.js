@@ -1,12 +1,38 @@
 
 export function createInfoBox(boxid, deviceName, description, defraAqi, measurements, latestDustReadingDate) {
-    var card = cardWithTitle(deviceName, description, boxid);
+    // var card = cardWithTitle(deviceName, description, boxid);
+
+    var card = document.createElement("DIV");
+    card.classList.add("reading", "reading-bare", "level", "is-mobile", "is-marginless");
+
     var values = document.createElement("DIV");
-    values.classList.add("level-right-tablet", "has-text-centered", "mt-2");
+    values.classList.add("level-left-tablet", "has-text-centered", "mt-2");
     values.id = `_${boxid}`;
     values.setAttribute("readingDate", moment(latestDustReadingDate).format());
 
     card.appendChild(values);
+    card.appendChild(cardHeaderWithTitle(deviceName, description, boxid));
+
+    // var chevron = document.createElement("LABEL");
+    // chevron.className = "chevron";
+    // chevron.id = `_${boxid}-chevron`;
+    // chevron.setAttribute("for", "detail-toggle");
+    // card.appendChild(chevron);
+
+    var label = document.createElement("LABEL");
+    label.style.marginRight="-18px";
+    var img = document.createElement("IMG");
+    img.src = "assets/icons/line-chart.png";
+    img.classList.add("ml-2");
+    img.style.width = "20px";
+    label.setAttribute("for", "detail-toggle");
+    label.id = `_${boxid}-chevron`;
+    var text = document.createElement("DIV");
+    text.innerHTML = "<div>View<br>Chart</div>";
+    text.classList.add("is-size-7", "view-chart", "button", "px-2", "py-5",  "is-borderless");
+    text.appendChild(img);
+    label.appendChild(text);
+    card.appendChild(label);
     return card;
 }
 
@@ -19,7 +45,8 @@ function cardWithTitle(titleText, description, boxid) {
 
 function cardHeaderWithTitle(titleText, description, boxid) {
     var header = document.createElement("DIV");
-    header.classList.add("level-left-tablet", "has-text-left");
+    header.classList.add("level-right-tablet", "has-text-left", "ml-5");
+    header.style.marginRight = "auto";
 
     var inner = document.createElement("DIV");
 
@@ -34,9 +61,9 @@ function cardHeaderWithTitle(titleText, description, boxid) {
     inner.appendChild(title);
 
     var info = document.createElement("DIV");
-    info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6");
+    info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6", "card-info");
     //TODO: set description - create an interim store, or parse from OpenSenseMap description
-    info.innerHTML = `${description}<br>1 sensor`;
+    info.innerHTML = `${description}<br><span class='map-link-slot'></span>1 sensor`;
 
     inner.appendChild(info);
     header.appendChild(inner);

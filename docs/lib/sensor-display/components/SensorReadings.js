@@ -15,7 +15,6 @@ export function populateSensorReading(valuesContainer, boxid) {
     valuesContainer.setAttribute("device_id", boxid);
     valuesContainer.setAttribute("last_seen", latestDustReadingDate);
 
-    console.log(stale);
     if (!stale) {
         fetchDeviceStats(boxid, "PM2.5", "geometricMean", samplePeriodHours)
             .then(pm25 => {
@@ -44,23 +43,28 @@ export function populateSensorReading(valuesContainer, boxid) {
 
 
 function showModalOnClick(valuesContainer, boxid, latestDustReadingDate, pm25, pm10) {
-    valuesContainer.addEventListener("click", () => {
-        var view = document.createElement("device-sensor-view-selector");
-        view.setAttribute("device_id", boxid);
-        view.setAttribute("last_seen_string", latestDustReadingDate);
-        view.setAttribute("pm2_5_value", (pm25.value ?? 0).toFixed(2));
-        view.setAttribute("pm10_value", (pm10.value ?? 0).toFixed(2));
-        
-        var title = document.querySelector(`#_${boxid}-title`);
-        if(title) view.setAttribute("name", title.innerText);
-        removeChildrenForSelector(valuesContainer, "device-sensor-view-selector");
+    valuesContainer.addEventListener("click", showModal);
+    var chevron = document.querySelector(`#_${boxid}-chevron`);
+    chevron?.addEventListener("click", showModal);
 
-        var modal = document.querySelector("#sensorDetailPlaceholder");
-        if (modal) {
-            modal.innerHTML = "";
-            modal.appendChild(view);
-        }
-    });
+    function showModal() {
+            console.log('click');
+            var view = document.createElement("device-sensor-view-selector");
+            view.setAttribute("device_id", boxid);
+            view.setAttribute("last_seen_string", latestDustReadingDate);
+            view.setAttribute("pm2_5_value", (pm25.value ?? 0).toFixed(2));
+            view.setAttribute("pm10_value", (pm10.value ?? 0).toFixed(2));
+
+            var title = document.querySelector(`#_${boxid}-title`);
+            if (title) view.setAttribute("name", title.innerText);
+            removeChildrenForSelector(valuesContainer, "device-sensor-view-selector");
+
+            var modal = document.querySelector("#sensorDetailPlaceholder");
+            if (modal) {
+                modal.innerHTML = "";
+                modal.appendChild(view);
+            }
+    }
 }
 
 function removeChildrenForSelector(valuesContainer, childSelector) {

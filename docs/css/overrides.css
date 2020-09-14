@@ -210,3 +210,57 @@ nav.nav-center ul li {
 .has-text-grey-lighter.border {
   border: 0.2em solid rgb(231, 231, 231);
 }
+
+.chevron {
+  height: 60px;
+  margin-left: -160px;
+  margin-right: -25px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  position: relative;
+  text-align: center;
+  width: 100px;
+}
+
+.chevron:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  height: 12%;
+  width: 40%;
+  background: #777;
+  -webkit-transform: skew(0deg, -16deg);
+  -moz-transform: skew(0deg, -16deg);
+  -ms-transform: skew(0deg, -16deg);
+  -o-transform: skew(0deg, -16deg);
+  transform: skew(0deg, -16deg);
+}
+
+.chevron:hover:before {
+  background: #aaa;
+}
+
+.chevron:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 10%;
+  height: 12%;
+  width: 40.5%;
+  background: #777;
+  -webkit-transform: skew(0deg, 16deg);
+  -moz-transform: skew(0deg, 16deg);
+  -ms-transform: skew(0deg, 16deg);
+  -o-transform: skew(0deg, 16deg);
+  transform: skew(0deg, 16deg);
+}
+
+.chevron:hover:after {
+  background: #aaa;
+}
+
+​

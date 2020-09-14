@@ -41,22 +41,27 @@ function populateSensorList(data) {
     var listItemTitleSpan = document.querySelector(`#_${device.boxid}-title`);
     if (!listItemTitleSpan) return;
 
-    appendMapLink(device.latitude, device.longitude, listItemTitleSpan.parentNode)
-    listItemTitleSpan.innerText = device.streetname;
+    appendMapLink(device.latitude, device.longitude, listItemTitleSpan.parentNode.parentNode)
+    listItemTitleSpan.innerText = preProcessStreetName(device.streetname);
   });
 
   data.forEach(device => addDeviceStats(device.boxid));
 }
 
+function preProcessStreetName(streetName) {
+  return streetName.replace("Street", "St");
+}
+
 function appendMapLink(latitude, longitude, parentNode) {
+  var target = parentNode.querySelector('.map-link-slot');
   var link = document.createElement("A");
   link.href = `http://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=15&layers=H`;
   link.target = "blank";
   var mapIcon = document.createElement("I");
   mapIcon.classList.add("fas", "fa-map-marked-alt", "mr-3", "has-text-info", "is-size-7");
-  mapIcon.title = "[view on map]";
+  mapIcon.title = "View on map";
   link.appendChild(mapIcon);
-  parentNode.insertBefore(link, parentNode.childNodes[0]);
+  target.appendChild(link);
 }
 
 function addDeviceStats(boxid) {
