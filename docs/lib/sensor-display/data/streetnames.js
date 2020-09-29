@@ -5,7 +5,7 @@ const streetnameUrl = 'https://nominatim.openstreetmap.org/reverse';
 import { printError, throwHttpErrors } from "../utils.js"
 
 export function loadStreetNames(data, success) {
-    //TODO: should proably simplify the input to coords only
+    //TODO: should probably simplify the input to coords only
     data.forEach(device => {
         streetnameFromCoords(
             device.latitude,
@@ -25,7 +25,10 @@ var knownLocationStreets = new Map(
         ["51.23061,-2.32174", "Bath Street"],
         ["51.23264,-2.31054", "Rodden Road"],
         ["51.22927,-2.33726", "Nunney Road"],
-        ["51.237461,-2.314287", "Bath Road"]]);
+        ["51.237461,-2.314287", "Bath Road"],
+        ["51.231351,-2.321146", "Market Place"],
+        ["51.229655,-2.306153", "Hillside Drive"]
+]);
 function streetnameFromCoords(lat, lon, success) {
     var locationKey = lat + ',' + lon;
     if (knownLocationStreets.has(locationKey)) {
@@ -43,6 +46,7 @@ function streetnameFromCoords(lat, lon, success) {
             console.debug(data)
             if (data.error) throw Error(data.error)
             knownLocationStreets.set(locationKey, data.address.road);
+            console.debug(`"${locationKey}", "${data.address.road}"`);
             success(knownLocationStreets.get(locationKey));
         })
         .catch(printError);
