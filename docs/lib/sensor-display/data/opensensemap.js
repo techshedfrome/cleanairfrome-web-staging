@@ -22,7 +22,7 @@ const publicDeviceWhitelist =
 // "5eeba101ee9b25001b391ca0", //6
 "5f021451b9d0aa001c3ebb78", //7
 // "5f06485a987fd4001b20527d", //8
-// "5f739230821102001bae1f41", //9
+"5f739230821102001bae1f41", //9
 ]
 
 const stagingDeviceWhitelist = 
