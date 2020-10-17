@@ -11,7 +11,7 @@ export function fetchMeasurements() {
             .then(getSimpleDeviceObject)
 }
 const staleDataAgeInHours = 2;
-const deviceWhitelist = 
+const publicDeviceWhitelist = 
 [
 "5eeba76aee9b25001b3ba5c7", //0
 "5ee618b7dc1438001b14eb7f", //1
@@ -21,12 +21,35 @@ const deviceWhitelist =
 "5ee60cf3dc1438001b1036ea", //5
 // "5eeba101ee9b25001b391ca0", //6
 "5f021451b9d0aa001c3ebb78", //7
-"5f06485a987fd4001b20527d", //8
+// "5f06485a987fd4001b20527d", //8
+"5f739230821102001bae1f41", //9
 ]
+
+const stagingDeviceWhitelist = 
+[
+"5eeba76aee9b25001b3ba5c7", //0
+"5ee618b7dc1438001b14eb7f", //1
+"5ee63c4adc1438001b233b53", //2
+"5eeb8c02ee9b25001b30c6e0", //3
+"5eeb9259ee9b25001b334899", //4
+"5ee60cf3dc1438001b1036ea", //5
+"5eeba101ee9b25001b391ca0", //6
+"5f021451b9d0aa001c3ebb78", //7
+"5f06485a987fd4001b20527d", //8
+"5f739230821102001bae1f41", //9
+]
+
+function deviceEnabled(id){
+    var hostname = window.location.hostname;
+    var whitelist = hostname === "cleanairfrome.org" 
+                            ? publicDeviceWhitelist
+                            : stagingDeviceWhitelist;
+    return whitelist.includes(id);
+}
 
 function getSimpleDeviceObject(opensensemapDevices) {
     return opensensemapDevices
-        .filter(x => deviceWhitelist.includes(x._id))
+        .filter(x => deviceEnabled(x._id))
         .map(x => {
         console.debug(x);
         return {
