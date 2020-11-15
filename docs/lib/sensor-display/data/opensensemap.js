@@ -19,10 +19,11 @@ const publicDeviceWhitelist =
 "5eeb8c02ee9b25001b30c6e0", //3
 "5eeb9259ee9b25001b334899", //4
 "5ee60cf3dc1438001b1036ea", //5
-// "5eeba101ee9b25001b391ca0", //6
+"5eeba101ee9b25001b391ca0", //6
 "5f021451b9d0aa001c3ebb78", //7
-// "5f06485a987fd4001b20527d", //8
+"5f06485a987fd4001b20527d", //8
 "5f739230821102001bae1f41", //9
+"5fafb35e9b2df8001b0602e8", //10
 ]
 
 const stagingDeviceWhitelist = 
@@ -37,6 +38,7 @@ const stagingDeviceWhitelist =
 "5f021451b9d0aa001c3ebb78", //7
 "5f06485a987fd4001b20527d", //8
 "5f739230821102001bae1f41", //9
+"5fafb35e9b2df8001b0602e8", //10
 ]
 
 function deviceEnabled(id){
@@ -47,11 +49,21 @@ function deviceEnabled(id){
     return whitelist.includes(id);
 }
 
+function lastMeasurementIsAfterUpdated(x){
+    var minutesLastMeasurementCanBeOlderThanUpdated = 5;
+    var lastMeasurementTime = new Date(x.lastMeasurementAt).getTime();
+    var updatedTime = new Date(x.updatedAt).getTime();
+    var leeway = minutesLastMeasurementCanBeOlderThanUpdated * 10000;
+    return lastMeasurementTime >= updatedTime - leeway;
+}
+
 function getSimpleDeviceObject(opensensemapDevices) {
+
     return opensensemapDevices
-        .filter(x => deviceEnabled(x._id))
+        .filter(x => deviceEnabled(x._id) && lastMeasurementIsAfterUpdated(x) )
         .map(x => {
         console.debug(x);
+        
         return {
             boxid: x._id, 
             name: x.name,
@@ -139,13 +151,13 @@ export function checkReadingIsStale(latestDustReadingDate) {
 }
 
 function getMeasurements(sensors) {
-    return sensors.map(y => {
+    return sensors.filter(x => x?.lastMeasurement ).map(y => {
         return {
             name: y.title,
             type: y.sensorType,
             units: y.unit,
-            reading: y.lastMeasurement.value,
-            readingTaken: y.lastMeasurement.createdAt,
+            reading: y.lastMeasurement?.value,
+            readingTaken: y.lastMeasurement?.createdAt,
         }
     });
 }
