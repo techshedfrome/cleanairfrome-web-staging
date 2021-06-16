@@ -54,16 +54,19 @@ function cardHeaderWithTitle(titleText, description, boxid) {
     title.classList.add("title", "is-size-5", "has-text-left-tablet", "mb-3");
     title.id = `_${boxid}-title-holder`;
 
-    var span = document.createElement("SPAN");
-    span.innerText = titleText;
+    var span = createElementWithInnerText("SPAN", titleText);
     span.id = `_${boxid}-title`;
     title.appendChild(span);
     inner.appendChild(title);
 
     var info = document.createElement("DIV");
     info.classList.add("has-text-left-tablet", "has-text-weight-normal", "is-size-6", "card-info");
+
     //TODO: set description - create an interim store, or parse from OpenSenseMap description
-    info.innerHTML = `${description}<br><span class='map-link-slot'></span>1 sensor`;
+    info.appendChild(createElementWithInnerText("SPAN", description));
+    info.appendChild(document.createElement("BR"));
+    info.appendChild(createElementWithClass("SPAN", 'map-link-slot'));
+    info.appendChild(createElementWithInnerText("SPAN", '1 sensor'));
 
     inner.appendChild(info);
     header.appendChild(inner);
@@ -73,4 +76,15 @@ function cardHeaderWithTitle(titleText, description, boxid) {
     return header;
 }
 
+function createElementWithInnerText(elementType, innerText) {
+    var element = document.createElement(elementType);
+    element.innerText = innerText;
+    return element;
+}
+
+function createElementWithClass(elementType, className) {
+    var element = document.createElement(elementType);
+    element.classList.add(className);
+    return element;
+}
 
