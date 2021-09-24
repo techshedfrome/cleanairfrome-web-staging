@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Cookie management -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js"
+    data-cfasync="false"></script>
+  <script type="text/javascript" src="lib/cookiemanagement.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171048144-1"></script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <script src="https://kit.fontawesome.com/0912216dd7.js" crossorigin="anonymous"></script>
+
+  <title>Clean Air Frome - So you've got yourself a sensor!</title>
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="lib/vue/device.min.js"></script>
+</head>
+
+<body class=" has-text-weight-medium has-navbar-fixed-top is-centered">
+
+
+  <nav class=" is-fixed-top is-warning navbar" role="navigation" aria-label="main navigation">
+
+    <div class=" container has-text-centered is-size-5 has-text-weight-semibold ">
+      <div class=" has-text-centered navbar-brand img ">
+        <div class="navbar-item">
+          <img class="is-hidden-mobile" src="assets/header_banner.png" onclick="location='index.html'"
+            style="cursor: pointer;">
+          <img class="is-hidden-tablet " src="assets/mobile_logo.png" onclick="location='index.html'"
+            style="cursor: pointer;">
+          <div class="is-size-4 ml-2 is-hidden-desktop is-hidden-tablet has-text-weight-semibold"> <a
+              href="index.html">Clean Air Frome</a></div></a>
+        </div>
+
+
+        <a role="button" class="navbar-burger burger mt-1" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-item has-dropdown is-hoverable  ">
+          <a class="navbar-link firstNavItemMobile is-size-4-mobile" href="index.html#LatestAir">
+            Latest pollution levels <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1 is-hidden-mobile "
+              aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item " href="index.html#LatestAir">
+              Sensor Readings
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item " href="index.html#Aim">
+              Aim of the project
+            </a>
+            <a class="navbar-item " href="index.html#Measuring">
+              Measuring air quality
+            </a>
+            <a class="navbar-item" href="index.html#Matter">
+              Why air quality matters
+            </a>
+
+          </div>
+        </div>
+
+        <hr>
+        <div class="navbar-item has-dropdown is-hoverable ">
+          <a class="navbar-link NavbarItemMobile is-size-4-mobile" href="take_action.html">
+            Take Action <i class="fas fa-chevron-down has-text-black text-is-7 ml-2 mt-1 is-hidden-mobile "
+              aria-hidden="true"></i>
+          </a>
+
+          <div class="navbar-dropdown is-size-5">
+            <a class="navbar-item" href="what_you_can_do.html">
+              What you can do
+            </a>
+            <a class="navbar-item" href="sponsor_an_air_sensor.html">
+              Sponsor a sensor
+            </a>
+            <a class="navbar-item" href="workshop_form.html">
+              Build your own sensor
+            </a>
+
+
+          </div>
+        </div>
+        <hr>
+
+        <div class="navbar-item is-hoverable has-dropdown">
+
+          <div class="navbar-item ">
+            <a class="navbar-link is-info is-size-4-mobile" a href="https://cleanairinfrome.blogspot.com/"><span
+                class="menuHover">Latest News</span></a>
+          </div>
+          <hr>
+          <div class="navbar-item ">
+            <a class="navbar-link is-info navbar-end is-size-4-mobile" a href="#ContactUs">Contact us</a>
+          </div>
+        </div>
+      </div>
+  </nav>
+  <section class=" is-medium ">
+    <div class="hero-body has-text-centered">
+      <div class="container ">
+        <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <figure>
+              <img src="assets/sqHeader.png" width="480px" href='index.html'>'>
+            </figure>
+
+            <h1 class="title is-1">
+              So you've got yourself a sensor!
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section has-text-centered mt-0 pt-1">
+    <div class="container">
+      <div class=" is-size-4">
+        Welcome! 
+      </div>
+      <div class=" mt-3 is-size-4">
+        First off, a huge thank you from the team & the town for joining the Clean Air Frome project.
+      </div>
+      <div class=" mt-3 is-size-4">
+        Plus, a special shout out to those of you who attended a workshop to build your own sensor. Fantastic work
+        everyone.
+      </div>
+    </div>
+  </section>
+
+  <section class="message section has-text-centered">
+    <div class="">
+      <div class=" mt-4">
+        By hosting a sensor, you're contributing data to international open source air quality projects, as well as
+        providing realtime information to the people of Frome to inform decisions on how they use the town & how they
+        and their families may benefit from changing walking routes etc. to reduce exposure (particularly for young
+        ones) & their travel & fuel use habits.
+      </div>
+      <div class=" mt-6">
+        The following is a walkthough of setting up your device once you get it to the place it will be installed. It
+        requires access to a WiFi network for internet access.
+      </div>
+      <div class=" mt-4">
+        Much of the setup can be done from a smartphone. The walkthrough used a recent Android phone, but
+        the process is very similar on other devices.</div>
+    </div>
+  </section>
+
+  <section class="section has-text-centered">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>1. Sensor Plugged In</p>
+      </div>
+      <div class="message-body">
+        <div class="">
+          Once plugged in, the sensor will show up as a WiFi hotspot with a name starting "cleanairfrome-" e.g. cleanairfrome-21 as shown in the screenshot below.
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/1-sensor-as-hotspot.png">
+          </figure>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section has-text-centered">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>2. Connect to the sensor's hotspot</p>
+      </div>
+      <div class="message-body">
+        <div class="">
+          We need to connect to it, to tell it how to connect to your home WiFi, so it can access the internet.
+        </div>
+        <div class=" mt-4">
+          The hotspot password is "techshed".
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/2-sensor-as-hotspot-connect.png">
+          </figure>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section has-text-centered">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>3. Sensor Configuration</p>
+      </div>
+      <div class="message-body">
+        <div class="">
+          The sensor has what's known as a "captive portal", similar to those used on hotel and subscription WiFi
+          hotspots. To access this, your phone may automatically. If not, a sign-in prompt may appear, as shown below.
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/3-sensor-as-hotspot-sign-in.png">
+          </figure>
+        </div>
+
+        <div class=" mt-4">
+          The captive portal screen will show available WiFi hotspots.
+        </div>
+        <div class=" mt-4">
+          Select the network name (SSID) of your home WiFi (or the connection you will be using) and enter the password
+          in the box below the network name, ignoring the "Advanced settings" area.
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/4-sensor-captive-portal.png">
+          </figure>
+        </div>
+        <div class=" mt-4">
+          Scroll to the bottom of the screen and press <span class="tag is-danger">Save configuration and
+            restart.</span>.
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/5-sensor-save-and-reboot.png">
+          </figure>
+        </div>
+        <div class="section">
+          <article class="message is-warning">
+            <div class="message-header">
+              iOS Devices
+            </div>
+            <div class="message-body">
+              Please note: we have found that some iOS devices don't display the captive portal. In these cases, please
+              use another device for the setup process.
+            </div>
+          </article>
+        </div>
+        <div class=" mt-4">
+          The sensor will reboot and its own WiFi hotspot will disappear.
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/6-sensor-rebooting.png">
+          </figure>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section has-text-centered">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>4. Connected!</p>
+      </div>
+      <div class="message-body">
+        <div class="">
+          Once the sensor has rebooted, it will connect to your WiFi.
+        </div>
+        <div class=" mt-4">
+          If you have a desktop or laptop computer available (this works with some mobile devices, but not all), the
+          sensor
+          should be visible by visiting <span class="tag">http://cleanairfrome-21.local./values</span> replacing
+          "21"
+          in that
+          example, with the number of your sensor.
+        </div>
+        <div class=" mt-4">
+          The number of your sensor is written on the bottom of the unit.
+        </div>
+        <div class=" mt-4">
+          Within 5 minutes, the sensor should take its first reading, then appear on <a
+            href="https://cleanairfrome.org/#airsensorfrome">CleanAirFrome</a>.
+        </div>
+        <div class="container mt-4">
+          <figure class="image">
+            <img src="./assets/connected.png">
+          </figure>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <device-standard-footer council_email="afrancis@frometowncouncil.gov.uk" clean_air_email="cleanair@techshedfrome.org"
+    techshed_email="info@techshedfrome.org">
+  </device-standard-footer>
+
+  <script type="text/javascript" src="lib/main.js"></script>
+</body>
+
+</html>
