@@ -27,7 +27,14 @@ var knownLocationStreets = new Map(
         ["51.22927,-2.33726", "Nunney Road"],
         ["51.237461,-2.314287", "Bath Road"],
         ["51.231351,-2.321146", "Market Place"],
-        ["51.229655,-2.306153", "Hillside Drive"]
+        ["51.229655,-2.306153", "Hillside Drive"],
+
+        ["51.2334,-2.3092", "Beechwood Avenue"],
+        ["51.2302,-2.3041", "Styles Close"],
+        ["51.2411,-2.3122", "Bath Road"],
+        ["51.362,-2.384", "Frome Road"], 
+        ["51.2248,-2.327", "The Butts"],
+        ["51.227,-2.3218", "Keyford"],
 ]);
 function streetnameFromCoords(lat, lon, success) {
     var locationKey = lat + ',' + lon;
