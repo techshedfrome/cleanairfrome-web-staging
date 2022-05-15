@@ -34,6 +34,9 @@ const publicDeviceWhitelist =
 "6132adddd5bb40001c385195", //18
 "6132ae3dd5bb40001c387cee", //19
 "6132ae97d5bb40001c38a617", //20
+"6143b77699eb9a001bada3e6", //21
+"6281685a8c8358001cd27010", //22
+"62816cfa8c8358001cd4cb93", //23
 ]
 
 const stagingDeviceWhitelist = 
@@ -59,6 +62,9 @@ const stagingDeviceWhitelist =
 "6132adddd5bb40001c385195", //18
 "6132ae3dd5bb40001c387cee", //19
 "6132ae97d5bb40001c38a617", //20
+"6143b77699eb9a001bada3e6", //21
+"6281685a8c8358001cd27010", //22
+"62816cfa8c8358001cd4cb93", //23
 ]
 
 function deviceEnabled(id){
